@@ -12,6 +12,7 @@ package simpledrawer;
 
 import com.google.gson.*;
 import java.awt.Color;
+import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -32,6 +33,7 @@ public class JSONShapeReader {
     private ListOfShapeEvents los; // list of all the shapes
     private List<SimpleLine> slList; // list of lines
     private List<SimpleOval> olList; // list of ovals
+    private List<SimpleTriangle> stList; // list of ovals
 
     private Gson gson; // gson object used to "parse" the JSON
 
@@ -39,6 +41,7 @@ public class JSONShapeReader {
         gson = new Gson();
         slList = new ArrayList<>();
         olList = new ArrayList<>();
+        stList = new ArrayList<>();
     }
 
     /**
@@ -73,6 +76,21 @@ public class JSONShapeReader {
                     SimpleOval ol = new SimpleOval(se.getXStart(), se.getYStart(), se.getYStart(), se.getYEnd(), se.getColour(), se.getThickness(), ShapeType.OVAL);
                     olList.add(ol);
                     break;
+                case TRIANGLE:  // store the triangle
+                    List<Point> currentPoints = new ArrayList<>();
+                    Point nextPoint = new Point();
+                    nextPoint.x = se.getXStart();
+                    nextPoint.y = se.getYStart();
+                    currentPoints.add(nextPoint);
+                    nextPoint.x = se.getYStart();
+                    nextPoint.y = se.getYEnd();
+                    currentPoints.add(nextPoint);
+                    nextPoint.x = se.getXextra();
+                    nextPoint.y = se.getYextra();
+                    currentPoints.add(nextPoint);
+                    SimpleTriangle st = new SimpleTriangle(currentPoints, se.getColour(), se.getThickness(), ShapeType.TRIANGLE);
+                    stList.add(st);
+                    break;
             }
         }
     }
@@ -91,6 +109,14 @@ public class JSONShapeReader {
      */
     public List<SimpleOval> getOlList() {
         return olList;
+    }
+
+    /**
+     *
+     * @return the list of triangle shapes
+     */
+    public List<SimpleTriangle> getStList() {
+        return stList;
     }
 
     /**
@@ -129,13 +155,12 @@ public class JSONShapeReader {
 
 //        generateTestJSON("stored_shapes.json"); // uncomment if you wish to 
         // create a file of JSON
-        
         // Read the JSON from file and output number of lines and number
         // of ovals read.
         JSONShapeReader me = new JSONShapeReader();
         me.getShapesFromFile("stored_shapes.json");
         System.out.println("Lines loaded = " + me.slList.size());
         System.out.println("Ovals loaded = " + me.olList.size());
-
+        System.out.println("Triangles loaded = " + me.stList.size());
     }
 }
