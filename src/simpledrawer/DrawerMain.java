@@ -80,6 +80,7 @@ public class DrawerMain extends javax.swing.JFrame {
         btnRight = new javax.swing.JButton();
         panButtons = new javax.swing.JPanel();
         btnClear = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
         panLoad = new javax.swing.JPanel();
         btnLoadXML = new javax.swing.JButton();
         btnLoadJSON = new javax.swing.JButton();
@@ -282,6 +283,14 @@ public class DrawerMain extends javax.swing.JFrame {
         });
         panButtons.add(btnClear);
 
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+        panButtons.add(btnReset);
+
         panMoreControls.add(panButtons);
 
         btnLoadXML.setText("load XML");
@@ -407,6 +416,15 @@ public class DrawerMain extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnLoadJSONActionPerformed
 
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        drawingPanel.clearDisplay();
+        scrRed.setValue(0);
+        scrGreen.setValue(0);
+        scrBlue.setValue(0);
+        scrBrightness.setValue(50);
+        UpdateColour();
+    }//GEN-LAST:event_btnResetActionPerformed
+
     /* action whatever change has been made to the line thickness */
     private void handleThickness() {
         try {
@@ -450,6 +468,7 @@ public class DrawerMain extends javax.swing.JFrame {
     private javax.swing.JButton btnLeft;
     private javax.swing.JButton btnLoadJSON;
     private javax.swing.JButton btnLoadXML;
+    private javax.swing.JButton btnReset;
     private javax.swing.JButton btnRight;
     private javax.swing.ButtonGroup grpShape;
     private javax.swing.JLabel jLabel1;
