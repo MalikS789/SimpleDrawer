@@ -83,7 +83,7 @@ public class DrawerMain extends javax.swing.JFrame {
         panLoad = new javax.swing.JPanel();
         btnLoadXML = new javax.swing.JButton();
         btnLoadJSON = new javax.swing.JButton();
-        labBrightness = new javax.swing.JLabel();
+        ColourPreview = new javax.swing.JLabel();
         panDrawingArea = new DrawingPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -232,14 +232,14 @@ public class DrawerMain extends javax.swing.JFrame {
         txtThickness.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtThickness.setText("5");
         txtThickness.setPreferredSize(new java.awt.Dimension(50, 20));
-        txtThickness.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtThicknessActionPerformed(evt);
-            }
-        });
         txtThickness.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtThicknessFocusLost(evt);
+            }
+        });
+        txtThickness.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtThicknessActionPerformed(evt);
             }
         });
         txtThickness.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -304,11 +304,11 @@ public class DrawerMain extends javax.swing.JFrame {
 
         panControls.add(panMoreControls, java.awt.BorderLayout.SOUTH);
 
-        labBrightness.setBackground(new java.awt.Color(126, 126, 126));
-        labBrightness.setText("           ");
-        labBrightness.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        labBrightness.setOpaque(true);
-        panControls.add(labBrightness, java.awt.BorderLayout.CENTER);
+        ColourPreview.setBackground(new java.awt.Color(126, 126, 126));
+        ColourPreview.setText("           ");
+        ColourPreview.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        ColourPreview.setOpaque(true);
+        panControls.add(ColourPreview, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(panControls, java.awt.BorderLayout.WEST);
 
@@ -419,21 +419,21 @@ public class DrawerMain extends javax.swing.JFrame {
         }
     }
 
-    private void UpdateColour() {
+    private void UpdateColour() {     
         int currentRed, currentGreen, currentBlue;
-        float BrightnessFactor = ((100 - scrBrightness.getValue()) / 100);
         currentRed = scrRed.getValue();
         currentGreen = scrGreen.getValue();
         currentBlue = scrBlue.getValue();
         txtRed.setText(currentRed + "");
         txtGreen.setText(currentGreen + "");
         txtBlue.setText(currentBlue + "");
-        int colourRed = (int) (currentRed * (BrightnessFactor));
-        int colourGreen = (int) (currentGreen * (BrightnessFactor));
-        int colourBlue = (int) (currentBlue * (BrightnessFactor));
-        labBrightness.setBackground(new Color(colourRed, colourGreen, colourBlue));
-        drawingPanel.setCurrentColor(new Color(colourRed, colourGreen, colourBlue));
-        drawingPanel.setCurrentBrightness( BrightnessFactor);
+        drawingPanel.setCurrentColor(new Color(currentRed, currentGreen, currentBlue));
+        float currentBrightness = scrBrightness.getValue();
+        currentRed = (int) (scrRed.getValue() * ((100 - currentBrightness) / 100));
+        currentGreen = (int) (scrGreen.getValue() * ((100 - currentBrightness) / 100));
+        currentBlue = (int) (scrBlue.getValue() * ((100 - currentBrightness) / 100));
+        ColourPreview.setBackground(new Color(currentRed, currentGreen, currentBlue));
+        drawingPanel.setCurrentBrightness((100 - currentBrightness) / 100);
     }
 
     /**
@@ -445,6 +445,7 @@ public class DrawerMain extends javax.swing.JFrame {
 
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ColourPreview;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnLeft;
     private javax.swing.JButton btnLoadJSON;
@@ -457,7 +458,6 @@ public class DrawerMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel labBrightness;
     private javax.swing.JPanel panBlueScroller;
     private javax.swing.JPanel panBrightness;
     private javax.swing.JPanel panButtons;
