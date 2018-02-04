@@ -33,7 +33,7 @@ public class JSONShapeReader {
     private ListOfShapeEvents los; // list of all the shapes
     private List<SimpleLine> slList; // list of lines
     private List<SimpleOval> olList; // list of ovals
-    private List<SimpleTriangle> stList; // list of ovals
+    private List<SimpleTriangle> stList; // list of triangles
 
     private Gson gson; // gson object used to "parse" the JSON
 
