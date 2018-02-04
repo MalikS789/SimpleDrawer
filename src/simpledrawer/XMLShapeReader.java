@@ -9,6 +9,7 @@
  */
 package simpledrawer;
 
+import java.awt.Point;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -84,7 +85,18 @@ public class XMLShapeReader {
                 olList.add(ol);
                 break;
             case TRIANGLE:
-                SimpleTriangle st = new SimpleTriangle(, se.getColour(), se.getThickness(), ShapeType.TRIANGLE);
+                List<Point> currentPoints = new ArrayList<>();
+                Point nextPoint = new Point();
+                nextPoint.x = se.getXStart();
+                nextPoint.y = se.getYStart();
+                currentPoints.add(nextPoint);
+                nextPoint.x = se.getYStart();
+                nextPoint.y = se.getYEnd();
+                currentPoints.add(nextPoint);
+                nextPoint.x = se.getXextra();
+                nextPoint.y = se.getYextra();
+                currentPoints.add(nextPoint);
+                SimpleTriangle st = new SimpleTriangle(currentPoints, se.getColour(), se.getThickness(), ShapeType.TRIANGLE);
                 stList.add(st);
                 break;
         }
