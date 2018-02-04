@@ -422,6 +422,7 @@ public class DrawerMain extends javax.swing.JFrame {
         scrGreen.setValue(0);
         scrBlue.setValue(0);
         scrBrightness.setValue(50);
+        txtThickness.setText("5");
         UpdateColour();
     }//GEN-LAST:event_btnResetActionPerformed
 
@@ -432,8 +433,9 @@ public class DrawerMain extends javax.swing.JFrame {
             /* only allow thicknesses in the range 1 to 40 */
             thickness = thickness < 1 || thickness > 40 ? 5 : thickness;
             drawingPanel.setCurrentThickness(thickness);
-        } catch (NumberFormatException ex) {
-            System.out.println();
+        } catch (NumberFormatException ex) { //If the thickness isn't valid, just set it to the default
+            int thickness = 5;
+            drawingPanel.setCurrentThickness(thickness);
         }
     }
 
