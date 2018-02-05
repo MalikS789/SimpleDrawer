@@ -71,6 +71,7 @@ public class DrawerMain extends javax.swing.JFrame {
         radLine = new javax.swing.JRadioButton();
         radOval = new javax.swing.JRadioButton();
         radTriangle = new javax.swing.JRadioButton();
+        radSquare = new javax.swing.JRadioButton();
         panThickness = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtThickness = new javax.swing.JTextField();
@@ -89,6 +90,7 @@ public class DrawerMain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Simple Draw");
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         panControls.setPreferredSize(new java.awt.Dimension(270, 300));
         panControls.setLayout(new java.awt.BorderLayout());
@@ -97,7 +99,7 @@ public class DrawerMain extends javax.swing.JFrame {
         panScroller.setLayout(new java.awt.GridLayout(4, 0));
 
         panRedScroller.setPreferredSize(new java.awt.Dimension(200, 26));
-        panRedScroller.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        panRedScroller.setLayout(new java.awt.FlowLayout(0));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel4.setText("Red");
@@ -123,7 +125,7 @@ public class DrawerMain extends javax.swing.JFrame {
         panScroller.add(panRedScroller);
 
         panGreenScroller.setPreferredSize(new java.awt.Dimension(200, 26));
-        panGreenScroller.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        panGreenScroller.setLayout(new java.awt.FlowLayout(0));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel5.setText("Green");
@@ -149,7 +151,7 @@ public class DrawerMain extends javax.swing.JFrame {
         panScroller.add(panGreenScroller);
 
         panBlueScroller.setPreferredSize(new java.awt.Dimension(200, 26));
-        panBlueScroller.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        panBlueScroller.setLayout(new java.awt.FlowLayout(0));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel6.setText("Blue");
@@ -223,9 +225,18 @@ public class DrawerMain extends javax.swing.JFrame {
         });
         panShape.add(radTriangle);
 
+        grpShape.add(radSquare);
+        radSquare.setText("Square");
+        radSquare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radShapeActionPerformed(evt);
+            }
+        });
+        panShape.add(radSquare);
+
         panMoreControls.add(panShape);
 
-        panThickness.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        panThickness.setLayout(new java.awt.FlowLayout(0));
 
         jLabel1.setText("Thickness");
         panThickness.add(jLabel1);
@@ -252,7 +263,7 @@ public class DrawerMain extends javax.swing.JFrame {
 
         panMoreControls.add(panThickness);
 
-        panRotate.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        panRotate.setLayout(new java.awt.FlowLayout(0));
 
         jLabel2.setText("Rotate");
         panRotate.add(jLabel2);
@@ -360,10 +371,10 @@ public class DrawerMain extends javax.swing.JFrame {
             return;
         }
 
-//        if (radSquare.isSelected()) {
-//            drawingPanel.setCurrentShapeType(ShapeType.SQUARE);
-//            return;
-//        }
+        if (radSquare.isSelected()) {
+            drawingPanel.setCurrentShapeType(ShapeType.SQUARE);
+            return;
+        }
     }//GEN-LAST:event_radShapeActionPerformed
     /* user pressed return in the thickness field */
     private void txtThicknessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtThicknessActionPerformed
@@ -494,6 +505,7 @@ public class DrawerMain extends javax.swing.JFrame {
     private javax.swing.JPanel panThickness;
     private javax.swing.JRadioButton radLine;
     private javax.swing.JRadioButton radOval;
+    private javax.swing.JRadioButton radSquare;
     private javax.swing.JRadioButton radTriangle;
     private javax.swing.JScrollBar scrBlue;
     private javax.swing.JScrollBar scrBrightness;

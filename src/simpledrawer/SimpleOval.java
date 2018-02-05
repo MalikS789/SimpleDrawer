@@ -22,10 +22,10 @@ public class SimpleOval {
     // Type of shape e.g. line or oval
     private ShapeType shapeType;
 
-    public SimpleOval(int xs, int ys, int xbr, int ybr, Color c, int t, ShapeType st) {
+    public SimpleOval(int xs, int ys, int xbr, int ybr, Color c, int t, ShapeType so) {
         colour = c;
         thickness = t;
-        shapeType = st;
+        shapeType = so;
         xStart = xs;
         yStart = ys;
         xBottomRight = xbr;

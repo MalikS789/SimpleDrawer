@@ -19,6 +19,8 @@ public class ShapeEvent {
     private int xEnd, yEnd;
     // triangle third location
     private int xextra, yextra;
+    // Square fourth location
+    private int xxextra, yyextra;
     // Shape characteristics
     private Color colour;
     private int thickness;
@@ -45,6 +47,21 @@ public class ShapeEvent {
         yEnd = ye;
         xextra = xx;
         yextra = yy;
+        colour = c;
+        thickness = t;
+        shapeType = st;
+        eventType = eType;
+    }
+
+    public ShapeEvent(int xs, int ys, int xe, int ye, int xx, int yy, int xxx, int yyy, Color c, int t, ShapeType st, String eType) { //specific constructor for squares
+        xStart = xs;
+        yStart = ys;
+        xEnd = xe;
+        yEnd = ye;
+        xextra = xx;
+        yextra = yy;
+        xxextra = xxx;
+        yyextra = yyy;
         colour = c;
         thickness = t;
         shapeType = st;
@@ -89,7 +106,7 @@ public class ShapeEvent {
     public void setYEnd(int yEnd) {
         this.yEnd = yEnd;
     }
-    
+
     public int getXextra() {
         return xextra;
     }
@@ -104,6 +121,22 @@ public class ShapeEvent {
 
     public void setYextra(int yextra) {
         this.yextra = yextra;
+    }
+    
+    public int getXXextra() {
+       return xxextra;
+    }
+
+    public void setXXextra(int xxextra) {
+        this.xxextra = xextra;
+    }
+
+    public int getYYextra() {
+        return yyextra;
+    }
+
+    public void setYYextra(int yyextra) {
+        this.yyextra = yextra;
     }
 
     public Color getColour() {
@@ -162,5 +195,4 @@ public class ShapeEvent {
     public String toString() {
         return "ShapeEvent{" + "xStart=" + xStart + ", yStart=" + yStart + ", xEnd=" + xEnd + ", yEnd=" + yEnd + ", colour=" + colour + ", thickness=" + thickness + ", shapeType=" + shapeType + ", eventType=" + eventType + '}';
     }
-
 }

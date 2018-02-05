@@ -34,6 +34,7 @@ public class JSONShapeReader {
     private List<SimpleLine> slList; // list of lines
     private List<SimpleOval> olList; // list of ovals
     private List<SimpleTriangle> stList; // list of triangles
+    private List<SimpleSquare> ssList;
 
     private Gson gson; // gson object used to "parse" the JSON
 
@@ -42,6 +43,7 @@ public class JSONShapeReader {
         slList = new ArrayList<>();
         olList = new ArrayList<>();
         stList = new ArrayList<>();
+        ssList = new ArrayList<>();
     }
 
     /**
@@ -91,6 +93,24 @@ public class JSONShapeReader {
                     SimpleTriangle st = new SimpleTriangle(currentPoints, se.getColour(), se.getThickness(), ShapeType.TRIANGLE);
                     stList.add(st);
                     break;
+                case SQUARE:  // store the square
+                    List<Point> currentPointss = new ArrayList<>();
+                    Point nextPointt = new Point();
+                    nextPointt.x = se.getXStart();
+                    nextPointt.y = se.getYStart();
+                    currentPointss.add(nextPointt);
+                    nextPointt.x = se.getYStart();
+                    nextPointt.y = se.getYEnd();
+                    currentPointss.add(nextPointt);
+                    nextPointt.x = se.getXextra();
+                    nextPointt.y = se.getYextra();
+                    currentPointss.add(nextPointt);
+                    nextPointt.x = se.getXXextra();
+                    nextPointt.y = se.getYYextra();
+                    currentPointss.add(nextPointt);
+                    SimpleSquare ss = new SimpleSquare(currentPointss, se.getColour(), se.getThickness(), ShapeType.SQUARE);
+                    ssList.add(ss);
+                    break;
             }
         }
     }
@@ -117,6 +137,10 @@ public class JSONShapeReader {
      */
     public List<SimpleTriangle> getStList() {
         return stList;
+    }
+
+    public List<SimpleSquare> getSsList() {
+        return ssList;
     }
 
     /**

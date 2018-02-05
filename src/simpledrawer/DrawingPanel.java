@@ -88,7 +88,6 @@ public class DrawingPanel extends JPanel {
         // all the shapes stored in it
         for (Object aShape : shapes) {
 
-            // draw the correct sort of shape: line or oval or triangle
             if (aShape instanceof SimpleLine) {
                 LineDrawer ld = new LineDrawer((SimpleLine) aShape);
                 ld.drawShape(g2d, currentBrightness);
@@ -100,6 +99,11 @@ public class DrawingPanel extends JPanel {
                     if (aShape instanceof SimpleTriangle) {
                         TriangleDrawer td = new TriangleDrawer((SimpleTriangle) aShape);
                         td.drawShape(g2d, currentBrightness);
+                    } else {
+                        if (aShape instanceof SimpleSquare) {
+                            SquareDrawer sd = new SquareDrawer((SimpleSquare) aShape);
+                            sd.drawShape(g2d, currentBrightness);
+                        }
                     }
                 }
             }
@@ -111,7 +115,6 @@ public class DrawingPanel extends JPanel {
             g2d.setColor(currentColor);
             g2d.fillOval(currentPoints.get(0).x, currentPoints.get(0).y, 3, 3);
         }
-
     }
 
     /**
@@ -144,6 +147,7 @@ public class DrawingPanel extends JPanel {
     public void setCurrentBrightness(float currentBrightness) {
         this.currentBrightness = (currentBrightness / 2) + 0.75F;
         repaint();
+
     }
 
     /* MouseWatcher is an inner class used to handle the
@@ -154,12 +158,10 @@ public class DrawingPanel extends JPanel {
         public void mousePressed(MouseEvent e) {
             // reset the rotation to 0 otherwise things get messy.
             currentRotation = 0;
-            
-            
+
             SimpleOval tmp = new SimpleOval(e.getX() - 3, e.getY() - 3, e.getX() + 3, e.getY() + 3, currentColor, currentThickness, ShapeType.OVAL); //draw a dot everytime
             shapes.add(tmp); //make sure it is drawn!
-            
-            
+
             if (currentPoints == null) { // must be starting a new shape
                 currentPoints = new ArrayList<>();
                 Point firstPoint = new Point();
@@ -189,6 +191,17 @@ public class DrawingPanel extends JPanel {
                         if (currentPoints.size() == 3) { // 3 points so must be complete triangle
                             SimpleTriangle st = new SimpleTriangle(currentPoints, currentColor, currentThickness, ShapeType.TRIANGLE);
                             shapes.add(st);
+                            currentPoints = null;
+                            break;
+                        }
+                    case SQUARE: // Draw the square
+                        Point nextPointt = new Point();
+                        nextPointt.x = e.getX();
+                        nextPointt.y = e.getY();
+                        currentPoints.add(nextPointt);
+                        if (currentPoints.size() > 3) { // 4 points so must be complete square
+                            SimpleSquare ss = new SimpleSquare(currentPoints, currentColor, currentThickness, ShapeType.SQUARE);
+                            shapes.add(ss);
                             currentPoints = null;
                             break;
                         }
