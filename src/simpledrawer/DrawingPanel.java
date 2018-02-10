@@ -92,18 +92,38 @@ public class DrawingPanel extends JPanel {
             if (aShape instanceof SimpleLine) {
                 LineDrawer ld = new LineDrawer((SimpleLine) aShape);
                 ld.drawShape(g2d, currentBrightness);
+                System.out.println("Line drawn! (" + ((SimpleLine) aShape).getXStart() + "," + ((SimpleLine) aShape).getYStart() + ","
+                        + ((SimpleLine) aShape).getXEnd() + "," + ((SimpleLine) aShape).getYEnd() + ")");
             } else {
                 if (aShape instanceof SimpleOval) {
                     OvalDrawer od = new OvalDrawer((SimpleOval) aShape);
                     od.drawShape(g2d, currentBrightness);
+                    System.out.println("Oval drawn! (" + ((SimpleOval) aShape).getXStart() + "," + ((SimpleOval) aShape).getYStart() + ","
+                            + ((SimpleOval) aShape).getxBottomRight() + "," + ((SimpleOval) aShape).getyBottomRight() + ")");
                 } else {
                     if (aShape instanceof SimpleTriangle) {
                         TriangleDrawer td = new TriangleDrawer((SimpleTriangle) aShape);
                         td.drawShape(g2d, currentBrightness);
+                        System.out.println("Triangle drawn! ("
+                                + ((SimpleTriangle) aShape).getVertices().get(0).x + " , "
+                                + ((SimpleTriangle) aShape).getVertices().get(0).y + " , "
+                                + ((SimpleTriangle) aShape).getVertices().get(1).x + " , "
+                                + ((SimpleTriangle) aShape).getVertices().get(1).y + " , "
+                                + ((SimpleTriangle) aShape).getVertices().get(2).x + " , "
+                                + ((SimpleTriangle) aShape).getVertices().get(2).y + ")");
                     } else {
                         if (aShape instanceof SimpleSquare) {
                             SquareDrawer sd = new SquareDrawer((SimpleSquare) aShape);
                             sd.drawShape(g2d, currentBrightness);
+                            System.out.println("Square drawn! ("
+                                    + ((SimpleSquare) aShape).getVertices().get(0).x + " , "
+                                    + ((SimpleSquare) aShape).getVertices().get(0).y + " , "
+                                    + ((SimpleSquare) aShape).getVertices().get(1).x + " , "
+                                    + ((SimpleSquare) aShape).getVertices().get(1).y + " , "
+                                    + ((SimpleSquare) aShape).getVertices().get(2).x + " , "
+                                    + ((SimpleSquare) aShape).getVertices().get(2).y + " , "
+                                    + ((SimpleSquare) aShape).getVertices().get(3).x + " , "
+                                    + ((SimpleSquare) aShape).getVertices().get(3).y + ")");
                         }
                     }
                 }

@@ -5,7 +5,7 @@
             "xEnd": 87,
             "yEnd": 35,
             "colour": {
-                "value": -65536,
+                "value": -10000,
                 "falpha": 0.0
             },
             "thickness": 5,
@@ -17,7 +17,7 @@
             "xEnd": 240,
             "yEnd": 105,
             "colour": {
-                "value": -16776961,
+                "value": -34000,
                 "falpha": 0.0
             },
             "thickness": 5,
@@ -25,26 +25,26 @@
             "eventType": "SHAPE"
         }, {
             "xStart": 31,
-            "yStart": 223,
+            "yStart": 224,
+            "xextra": 120,
+            "yextra": 224,
             "xEnd": 74,
             "yEnd": 135,
-            "xxEnd": 120,
-            "yyEnd": 224,
             "colour": {
-                "value": -65521,
+                "value": -45654,
                 "falpha": 0.0
             },
             "thickness": 5,
             "shapeType": "TRIANGLE",
             "eventType": "SHAPE"
         }, {
-            "xStart": 167,
-            "yStart": 218,
-            "xEnd": 166,
-            "yEnd": 149,
+            "xStart": 166,
+            "yStart": 221,
+            "xextra": 166,
+            "yextra": 144,
+            "xxextra": 273,
+            "yyextra": 144,
             "xEnd": 273,
-            "yEnd": 144,
-            "xEnd": 274,
             "yEnd": 221,
             "colour": {
                 "value": -65536,

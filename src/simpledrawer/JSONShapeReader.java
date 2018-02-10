@@ -69,28 +69,28 @@ public class JSONShapeReader {
 
         for (ShapeEvent se : los.listOfShapeEvents) {
             switch (se.getShapeType()) {
-                case LINE:  // store the line
-                    SimpleLine sl = new SimpleLine(se.getXStart(), se.getYStart(), se.getYStart(), se.getYEnd(), se.getColour(), se.getThickness(), ShapeType.LINE);
+                case LINE: // store the line
+                    SimpleLine sl = new SimpleLine(se.getXStart(), se.getYStart(), se.getXEnd(), se.getYEnd(), se.getColour(), se.getThickness(), ShapeType.LINE);
                     slList.add(sl);
                     break;
-                case OVAL:  // store the oval
-                    SimpleOval ol = new SimpleOval(se.getXStart(), se.getYStart(), se.getYStart(), se.getYEnd(), se.getColour(), se.getThickness(), ShapeType.OVAL);
+                case OVAL: // store the oval
+                    SimpleOval ol = new SimpleOval(se.getXStart(), se.getYStart(), se.getXEnd(), se.getYEnd(), se.getColour(), se.getThickness(), ShapeType.OVAL);
                     olList.add(ol);
                     break;
-                case TRIANGLE:  // store the triangle
+                case TRIANGLE:
                     List<Point> TrianglePoints = new ArrayList<>();
-                    TrianglePoints.add(new Point(se.getYStart(), se.getYEnd()));
                     TrianglePoints.add(new Point(se.getXStart(), se.getYStart()));
                     TrianglePoints.add(new Point(se.getXextra(), se.getYextra()));
+                    TrianglePoints.add(new Point(se.getXEnd(), se.getYEnd()));
                     SimpleTriangle st = new SimpleTriangle(TrianglePoints, se.getColour(), se.getThickness(), ShapeType.TRIANGLE);
                     stList.add(st);
                     break;
-                case SQUARE:  // store the square
+                case SQUARE: // store the square
                     List<Point> SquarePoints = new ArrayList<>();
-                    SquarePoints.add(new Point(se.getYStart(), se.getYEnd()));
                     SquarePoints.add(new Point(se.getXStart(), se.getYStart()));
                     SquarePoints.add(new Point(se.getXextra(), se.getYextra()));
                     SquarePoints.add(new Point(se.getXXextra(), se.getYYextra()));
+                    SquarePoints.add(new Point(se.getXEnd(), se.getYEnd()));
                     SimpleSquare ss = new SimpleSquare(SquarePoints, se.getColour(), se.getThickness(), ShapeType.SQUARE);
                     ssList.add(ss);
                     break;
@@ -137,8 +137,8 @@ public class JSONShapeReader {
         // load in some hard-coded shapes
         list.add(new ShapeEvent(20, 40, 30, 90, Color.red, 5, ShapeType.LINE, "SHAPE"));
         list.add(new ShapeEvent(20, 40, 70, 90, Color.blue, 5, ShapeType.OVAL, "SHAPE"));
-        list.add(new ShapeEvent(80, 95, 70, 45, 60, 70, Color.green, 5, ShapeType.TRIANGLE, "SHAPE"));
-        list.add(new ShapeEvent(34, 45, 67, 35, 80, 90, 60, 70, Color.red, 5, ShapeType.SQUARE, "SHAPE"));
+        //list.add(new ShapeEvent(80, 95, 70, 45, 60, 70, Color.green, 5, ShapeType.TRIANGLE, "SHAPE"));
+        //list.add(new ShapeEvent(34, 45, 67, 35, 80, 90, 60, 70, Color.red, 5, ShapeType.SQUARE, "SHAPE"));
         ListOfShapeEvents los = new ListOfShapeEvents();
         los.listOfShapeEvents = list;
         Gson gson = new Gson();

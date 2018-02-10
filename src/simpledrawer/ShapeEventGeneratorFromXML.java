@@ -39,15 +39,6 @@ public class ShapeEventGeneratorFromXML extends DefaultHandler {
     /**
      * * XML tag used to indicate end position of shape
      */
-    public final static String EXTRA_TAG = "extra";
-    /**
-     * * XML tag used to indicate end position of shape
-     */
-
-    public final static String EXTRA2_TAG = "extra2";
-    /**
-     * * XML tag used to indicate end position of shape
-     */
     public final static String X_TAG = "x";
     /**
      * * XML tag used to indicate x coordinate
