@@ -20,6 +20,7 @@ package simpledrawer;
 import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -402,17 +403,12 @@ public class DrawerMain extends javax.swing.JFrame {
             XMLShapeReader shapeReader = new XMLShapeReader();
 
             shapeReader.getShapesFromFile("stored_shapes.xml");
-            List listOfLines = shapeReader.getSlList();
-            List listOfOvals = shapeReader.getOlList();
-            List listOfTriangles = shapeReader.getStList();
-            List listOfSquares = shapeReader.getSsList();
-            drawingPanel.setShapes(listOfLines);
-            drawingPanel.repaint();
-            drawingPanel.setShapes(listOfOvals);
-            drawingPanel.repaint();
-            drawingPanel.setShapes(listOfTriangles);
-            drawingPanel.repaint();
-            drawingPanel.setShapes(listOfSquares);
+            List listOfShapes = new ArrayList();
+            listOfShapes.addAll(shapeReader.getSlList());
+            listOfShapes.addAll(shapeReader.getOlList());
+            listOfShapes.addAll(shapeReader.getStList());
+            listOfShapes.addAll(shapeReader.getSsList());
+            drawingPanel.setShapes(listOfShapes);
             drawingPanel.repaint();
 
         } catch (ParserConfigurationException | SAXException | IOException ex) {
@@ -427,17 +423,12 @@ public class DrawerMain extends javax.swing.JFrame {
         try {
             JSONShapeReader shapeReader = new JSONShapeReader();
             shapeReader.getShapesFromFile("stored_shapes.json");
-            List listOfLines = shapeReader.getSlList();
-            List listOfOvals = shapeReader.getOlList();
-            List listOfTriangles = shapeReader.getStList();
-            List listOfSquares = shapeReader.getSsList();
-            drawingPanel.setShapes(listOfLines);
-            drawingPanel.repaint();
-            drawingPanel.setShapes(listOfOvals);
-            drawingPanel.repaint();
-            drawingPanel.setShapes(listOfTriangles);
-            drawingPanel.repaint();
-            drawingPanel.setShapes(listOfSquares);
+            List listOfShapes = new ArrayList();
+            listOfShapes.addAll(shapeReader.getSlList());
+            listOfShapes.addAll(shapeReader.getOlList());
+            listOfShapes.addAll(shapeReader.getStList());
+            listOfShapes.addAll(shapeReader.getSsList());
+            drawingPanel.setShapes(listOfShapes);
             drawingPanel.repaint();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(DrawerMain.class.getName()).log(Level.SEVERE, null, ex);
