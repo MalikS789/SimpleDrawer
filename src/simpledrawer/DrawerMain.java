@@ -402,8 +402,17 @@ public class DrawerMain extends javax.swing.JFrame {
             XMLShapeReader shapeReader = new XMLShapeReader();
 
             shapeReader.getShapesFromFile("stored_shapes.xml");
-            List listOfShapes = shapeReader.getSlList();
-            drawingPanel.setShapes(listOfShapes);
+            List listOfLines = shapeReader.getSlList();
+            List listOfOvals = shapeReader.getOlList();
+            List listOfTriangles = shapeReader.getStList();
+            List listOfSquares = shapeReader.getSsList();
+            drawingPanel.setShapes(listOfLines);
+            drawingPanel.repaint();
+            drawingPanel.setShapes(listOfOvals);
+            drawingPanel.repaint();
+            drawingPanel.setShapes(listOfTriangles);
+            drawingPanel.repaint();
+            drawingPanel.setShapes(listOfSquares);
             drawingPanel.repaint();
 
         } catch (ParserConfigurationException | SAXException | IOException ex) {
@@ -418,8 +427,17 @@ public class DrawerMain extends javax.swing.JFrame {
         try {
             JSONShapeReader shapeReader = new JSONShapeReader();
             shapeReader.getShapesFromFile("stored_shapes.json");
-            List listOfShapes = shapeReader.getSlList();
-            drawingPanel.setShapes(listOfShapes);
+            List listOfLines = shapeReader.getSlList();
+            List listOfOvals = shapeReader.getOlList();
+            List listOfTriangles = shapeReader.getStList();
+            List listOfSquares = shapeReader.getSsList();
+            drawingPanel.setShapes(listOfLines);
+            drawingPanel.repaint();
+            drawingPanel.setShapes(listOfOvals);
+            drawingPanel.repaint();
+            drawingPanel.setShapes(listOfTriangles);
+            drawingPanel.repaint();
+            drawingPanel.setShapes(listOfSquares);
             drawingPanel.repaint();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(DrawerMain.class.getName()).log(Level.SEVERE, null, ex);
@@ -450,7 +468,7 @@ public class DrawerMain extends javax.swing.JFrame {
         }
     }
 
-    private void UpdateColour() {     
+    private void UpdateColour() {
         int currentRed, currentGreen, currentBlue;
         currentRed = scrRed.getValue();
         currentGreen = scrGreen.getValue();

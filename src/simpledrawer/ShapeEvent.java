@@ -147,16 +147,6 @@ public class ShapeEvent {
         this.colour = colour;
     }
 
-    /**
-     * The method converts the string representation of the colour passed to it
-     * to the corresponding static constant of class Color e.g. "red" will be
-     * converted to Color.RED. The strange code is an example of "reflection".
-     * See
-     * http://stackoverflow.com/questions/5822384/getting-a-color-from-a-string-input
-     * for more explanation.
-     *
-     * @param colour string representation of the Color required
-     */
     public void setColourByString(String colour) {
         try {
             Color c;

@@ -1,1 +1,57 @@
-{"listOfShapeEvents":[{"xStart":20,"yStart":40,"xEnd":30,"yEnd":90,"colour":{"value":-65536,"falpha":0.0},"thickness":5,"shapeType":"LINE","eventType":"SHAPE"},{"xStart":20,"yStart":40,"xEnd":70,"yEnd":90,"colour":{"value":-16776961,"falpha":0.0},"thickness":5,"shapeType":"OVAL","eventType":"SHAPE"},{"xStart":80,"yStart":95,"xEnd":70,"yEnd":45,"colour":{"value":-16711936,"falpha":0.0},"thickness":5,"shapeType":"LINE","eventType":"SHAPE"}]}
+{
+    "listOfShapeEvents": [{
+            "xStart": 41,
+            "yStart": 84,
+            "xEnd": 87,
+            "yEnd": 35,
+            "colour": {
+                "value": -65536,
+                "falpha": 0.0
+            },
+            "thickness": 5,
+            "shapeType": "LINE",
+            "eventType": "SHAPE"
+        }, {
+            "xStart": 161,
+            "yStart": 34,
+            "xEnd": 240,
+            "yEnd": 105,
+            "colour": {
+                "value": -16776961,
+                "falpha": 0.0
+            },
+            "thickness": 5,
+            "shapeType": "OVAL",
+            "eventType": "SHAPE"
+        }, {
+            "xStart": 31,
+            "yStart": 223,
+            "xEnd": 74,
+            "yEnd": 135,
+            "xxEnd": 120,
+            "yyEnd": 224,
+            "colour": {
+                "value": -65521,
+                "falpha": 0.0
+            },
+            "thickness": 5,
+            "shapeType": "TRIANGLE",
+            "eventType": "SHAPE"
+        }, {
+            "xStart": 167,
+            "yStart": 218,
+            "xEnd": 166,
+            "yEnd": 149,
+            "xEnd": 273,
+            "yEnd": 144,
+            "xEnd": 274,
+            "yEnd": 221,
+            "colour": {
+                "value": -65536,
+                "falpha": 0.0
+            },
+            "thickness": 5,
+            "shapeType": "SQUARE",
+            "eventType": "SHAPE"
+        }]
+}

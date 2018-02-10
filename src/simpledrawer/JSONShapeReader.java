@@ -10,7 +10,7 @@
  */
 package simpledrawer;
 
-import com.google.gson.*;
+import com.google.gson.Gson;
 import java.awt.Color;
 import java.awt.Point;
 import java.io.BufferedReader;
@@ -170,5 +170,6 @@ public class JSONShapeReader {
         System.out.println("Lines loaded = " + me.slList.size());
         System.out.println("Ovals loaded = " + me.olList.size());
         System.out.println("Triangles loaded = " + me.stList.size());
+        System.out.println("Squares loaded = " + me.ssList.size());
     }
 }

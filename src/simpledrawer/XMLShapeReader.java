@@ -122,11 +122,11 @@ public class XMLShapeReader {
         return olList;
     }
 
-    public List<SimpleTriangle> getstList() {
+    public List<SimpleTriangle> getStList() {
         return stList;
     }
 
-    public List<SimpleSquare> getssList() {
+    public List<SimpleSquare> getSsList() {
         return ssList;
     }
 

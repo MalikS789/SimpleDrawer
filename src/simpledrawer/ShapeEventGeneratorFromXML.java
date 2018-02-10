@@ -5,7 +5,6 @@
  * @author Gill Windall
  * @version 3.0
  */
-
 package simpledrawer;
 
 import java.io.File;
@@ -21,24 +20,73 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 
-
 public class ShapeEventGeneratorFromXML extends DefaultHandler {
 
     // constants used to control processing of the XML file
-    public final static String SHAPE_TAG = "shape";                              /*** XML tag used to indicate a shape*/
-    public final static String TYPE_TAG = "type";                                /*** XML tag used to indicate the type of shape*/
-    public final static String START_TAG = "start";                              /*** XML tag used to indicate start position of shape*/
-    public final static String END_TAG = "end";                                  /*** XML tag used to indicate end position of shape*/
-    public final static String X_TAG = "x";                                      /*** XML tag used to indicate x coordinate*/
-    public final static String Y_TAG = "y";                                      /*** XML tag used to indicate y coordinate*/
-    public final static String COLOUR_TAG = "colour";                            /*** XML tag used to indicate colour of shape*/
-    public final static String THICK_TAG = "thickness";                          /*** XML tag used to indicate thickness of line of a shape*/
+    public final static String SHAPE_TAG = "shape";
+    /**
+     * * XML tag used to indicate a shape
+     */
+    public final static String TYPE_TAG = "type";
+    /**
+     * * XML tag used to indicate the type of shape
+     */
+    public final static String START_TAG = "start";
+    /**
+     * * XML tag used to indicate start position of shape
+     */
+    public final static String END_TAG = "end";
+    /**
+     * * XML tag used to indicate end position of shape
+     */
+    public final static String EXTRA_TAG = "extra";
+    /**
+     * * XML tag used to indicate end position of shape
+     */
+
+    public final static String EXTRA2_TAG = "extra2";
+    /**
+     * * XML tag used to indicate end position of shape
+     */
+    public final static String X_TAG = "x";
+    /**
+     * * XML tag used to indicate x coordinate
+     */
+    public final static String Y_TAG = "y";
+    /**
+     * * XML tag used to indicate y coordinate
+     */
+
+    public final static String XX_TAG = "xx";
+    /**
+     * * XML tag used to indicate xx coordinate
+     */
+    public final static String YY_TAG = "yy";
+    /**
+     * * XML tag used to indicate yy coordinate
+     */
+
+    public final static String XXX_TAG = "xxx";
+    /**
+     * * XML tag used to indicate xxx coordinate
+     */
+    public final static String YYY_TAG = "yyy";
+    /**
+     * * XML tag used to indicate yyy coordinate
+     */
+    public final static String COLOUR_TAG = "colour";
+    /**
+     * * XML tag used to indicate colour of shape
+     */
+    public final static String THICK_TAG = "thickness";
+    /**
+     * * XML tag used to indicate thickness of line of a shape
+     */
     private String currentTag = "";                                              // current tag being processed
     private final ShapeEventList shapeListeners;                                 // list of listeners registered to receive dashboard events
     private final XMLReader xmlReader;                                           // the xml parser object
     private ShapeEvent currentShape;                                             // details of current shape being read
     private boolean processingStartPos = false;                                  // to keep track of whether we are processing start position of the shape
-
 
     public ShapeEventGeneratorFromXML() throws ParserConfigurationException, SAXException {
         shapeListeners = new ShapeEventList();
@@ -137,12 +185,24 @@ public class ShapeEventGeneratorFromXML extends DefaultHandler {
                     currentShape.setXEnd(Integer.parseInt(val));
                 }
                 break;
+            case XX_TAG:
+                currentShape.setXextra(Integer.parseInt(val));
+                break;
+            case XXX_TAG:
+                currentShape.setXXextra(Integer.parseInt(val));
+                break;
             case Y_TAG: // an y tag can either be for the start or end 
                 if (processingStartPos) {
                     currentShape.setYStart(Integer.parseInt(val));
                 } else {
                     currentShape.setYEnd(Integer.parseInt(val));
                 }
+                break;
+            case YY_TAG:
+                currentShape.setYextra(Integer.parseInt(val));
+                break;
+            case YYY_TAG:
+                currentShape.setYYextra(Integer.parseInt(val));
                 break;
             case COLOUR_TAG:
                 currentShape.setColourByString(val);

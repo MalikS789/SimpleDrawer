@@ -160,12 +160,13 @@ public class DrawingPanel extends JPanel {
             // reset the rotation to 0 otherwise things get messy.
             currentRotation = 0;
 
+            System.out.println("You just clicked: " + e.getX() + " , " + e.getY());
+
             if (currentShapeType != OVAL) {
                 SimpleOval tmp = new SimpleOval(e.getX() - 3, e.getY() - 3, e.getX() + 3, e.getY() + 3, currentColor, currentThickness, ShapeType.OVAL); //draw a dot everytime
                 shapes.add(tmp); //make sure it is drawn!
             }
-            
-            
+
             if (currentPoints == null) { // must be starting a new shape
                 currentPoints = new ArrayList<>();
                 Point firstPoint = new Point();
