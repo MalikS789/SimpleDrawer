@@ -17,6 +17,8 @@ public class ShapeEvent {
     private int xStart, yStart;
     // Shape end location
     private int xEnd, yEnd;
+    private int xBottomRight, yBottomRight;
+    // triangle third location
     // triangle third location
     private int xextra, yextra;
     // Square fourth location
@@ -32,36 +34,30 @@ public class ShapeEvent {
     public ShapeEvent(int xs, int ys, int xe, int ye, Color c, int t, ShapeType st, String eType) {
         xStart = xs;
         yStart = ys;
-        xEnd = xe;
-        yEnd = ye;
+        if (st == ShapeType.OVAL) {
+            xBottomRight = xe;
+            yBottomRight = ye;
+        } else {
+            xEnd = xe;
+            yEnd = ye;
+        }
         colour = c;
         thickness = t;
         shapeType = st;
         eventType = eType;
     }
 
-    public ShapeEvent(int xs, int ys, int xe, int ye, int xx, int yy, Color c, int t, ShapeType st, String eType) { //specific constructor for triangles
-        xStart = xs;
-        yStart = ys;
-        xEnd = xe;
-        yEnd = ye;
-        xextra = xx;
-        yextra = yy;
-        colour = c;
-        thickness = t;
-        shapeType = st;
-        eventType = eType;
-    }
-
-    public ShapeEvent(int xs, int ys, int xe, int ye, int xx, int yy, int xxx, int yyy, Color c, int t, ShapeType st, String eType) { //specific constructor for squares
-        xStart = xs;
-        yStart = ys;
-        xEnd = xe;
-        yEnd = ye;
-        xextra = xx;
-        yextra = yy;
-        xxextra = xxx;
-        yyextra = yyy;
+    public ShapeEvent(java.util.List<Point> v, Color c, int t, ShapeType st, String eType) { //specific constructor
+        xStart = v.get(0).x;
+        yStart = v.get(0).y;
+        xEnd = v.get(1).x;
+        yEnd = v.get(1).y;
+        xextra = v.get(2).x;
+        yextra = v.get(2).y;
+        if (st == ShapeType.SQUARE) {
+            xxextra = v.get(3).x;
+            yyextra = v.get(3).y;
+        }
         colour = c;
         thickness = t;
         shapeType = st;
@@ -89,6 +85,22 @@ public class ShapeEvent {
 
     public void setYStart(int yStart) {
         this.yStart = yStart;
+    }
+
+    public int getXBottomRight() {
+        return xBottomRight;
+    }
+
+    public void setXBottomRight(int xbottomright) {
+        this.xBottomRight = xbottomright;
+    }
+
+    public int getYBottomRight() {
+        return yBottomRight;
+    }
+
+    public void setYBottomRight(int ybottomright) {
+        this.yBottomRight = ybottomright;
     }
 
     public int getXEnd() {
@@ -128,7 +140,7 @@ public class ShapeEvent {
     }
 
     public void setXXextra(int xxextra) {
-        this.xxextra = xextra;
+        this.xxextra = xxextra;
     }
 
     public int getYYextra() {
@@ -136,7 +148,7 @@ public class ShapeEvent {
     }
 
     public void setYYextra(int yyextra) {
-        this.yyextra = yextra;
+        this.yyextra = yyextra;
     }
 
     public Color getColour() {
