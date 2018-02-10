@@ -36,7 +36,7 @@ public class LineDrawer {
         // get start point
         int xs = line.getXStart();
         int ys = line.getYStart();
-        
+
         // draw the line
         g2d.drawLine(xs, ys, line.getXEnd(), line.getYEnd());
     }

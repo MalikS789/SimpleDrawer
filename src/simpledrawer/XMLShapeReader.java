@@ -87,36 +87,20 @@ public class XMLShapeReader {
                 olList.add(ol);
                 break;
             case TRIANGLE:
-                List<Point> currentPoints = new ArrayList<>();
-                Point nextPoint = new Point();
-                nextPoint.x = se.getXStart();
-                nextPoint.y = se.getYStart();
-                currentPoints.add(nextPoint);
-                nextPoint.x = se.getYStart();
-                nextPoint.y = se.getYEnd();
-                currentPoints.add(nextPoint);
-                nextPoint.x = se.getXextra();
-                nextPoint.y = se.getYextra();
-                currentPoints.add(nextPoint);
-                SimpleTriangle st = new SimpleTriangle(currentPoints, se.getColour(), se.getThickness(), ShapeType.TRIANGLE);
+                List<Point> TrianglePoints = new ArrayList<>();
+                TrianglePoints.add(new Point(se.getYStart(), se.getYEnd()));
+                TrianglePoints.add(new Point(se.getXStart(), se.getYStart()));
+                TrianglePoints.add(new Point(se.getXextra(), se.getYextra()));
+                SimpleTriangle st = new SimpleTriangle(TrianglePoints, se.getColour(), se.getThickness(), ShapeType.TRIANGLE);
                 stList.add(st);
                 break;
             case SQUARE: // store the square
-                List<Point> currentPointss = new ArrayList<>();
-                Point nextPointt = new Point();
-                nextPointt.x = se.getXStart();
-                nextPointt.y = se.getYStart();
-                currentPointss.add(nextPointt);
-                nextPointt.x = se.getYStart();
-                nextPointt.y = se.getYEnd();
-                currentPointss.add(nextPointt);
-                nextPointt.x = se.getXextra();
-                nextPointt.y = se.getYextra();
-                currentPointss.add(nextPointt);
-                nextPointt.x = se.getXXextra();
-                nextPointt.y = se.getYYextra();
-                currentPointss.add(nextPointt);
-                SimpleSquare ss = new SimpleSquare(currentPointss, se.getColour(), se.getThickness(), ShapeType.SQUARE);
+                List<Point> SquarePoints = new ArrayList<>();
+                SquarePoints.add(new Point(se.getYStart(), se.getYEnd()));
+                SquarePoints.add(new Point(se.getXStart(), se.getYStart()));
+                SquarePoints.add(new Point(se.getXextra(), se.getYextra()));
+                SquarePoints.add(new Point(se.getXXextra(), se.getYYextra()));
+                SimpleSquare ss = new SimpleSquare(SquarePoints, se.getColour(), se.getThickness(), ShapeType.SQUARE);
                 ssList.add(ss);
                 break;
         }
@@ -159,6 +143,7 @@ public class XMLShapeReader {
             System.out.println("number of lines: " + me.slList.size());
             System.out.println("number of ovals: " + me.olList.size());
             System.out.println("number of triangles: " + me.stList.size());
+            System.out.println("number of squares: " + me.ssList.size());
 
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             Logger.getLogger(XMLShapeReader.class.getName()).log(Level.SEVERE, null, ex);

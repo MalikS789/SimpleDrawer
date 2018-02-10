@@ -122,9 +122,9 @@ public class ShapeEvent {
     public void setYextra(int yextra) {
         this.yextra = yextra;
     }
-    
+
     public int getXXextra() {
-       return xxextra;
+        return xxextra;
     }
 
     public void setXXextra(int xxextra) {

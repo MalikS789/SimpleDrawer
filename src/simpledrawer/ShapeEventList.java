@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Holds a Map the keys of which are types of ShapeEvents (e.g type "SHAPE")
- * the values are the list of Listeners registered for that type of event.
+ * Holds a Map the keys of which are types of ShapeEvents (e.g type "SHAPE") the
+ * values are the list of Listeners registered for that type of event.
  *
  * @author Gill
  */
@@ -53,7 +53,9 @@ public class ShapeEventList {
 
     /**
      * Return a list of ShapeEventListeners for a specified type of event
-     * @param type - the type of event for which listeners are required (e.g. "SHAPE")
+     *
+     * @param type - the type of event for which listeners are required (e.g.
+     * "SHAPE")
      * @return - the list of listeners of the specified type
      */
     public List<ShapeEventListener> getListeners(String type) {

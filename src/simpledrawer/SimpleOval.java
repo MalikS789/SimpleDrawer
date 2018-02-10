@@ -99,14 +99,15 @@ public class SimpleOval {
     public void setShapeType(ShapeType shapeType) {
         this.shapeType = shapeType;
     }
-   /**
-    * 
-    * @return the area in pixels of the ellipse.  Does this always work?
-    */
+
+    /**
+     *
+     * @return the area in pixels of the ellipse. Does this always work?
+     */
     public double getArea() {
         int line1 = xBottomRight - xStart;
         int line2 = yBottomRight - yStart;
-        System.out.println(line1 + ", " + line2 + " " + Math.PI * line1/2 * line2/2);
-        return Math.PI * line1/2 * line2/2;
+        System.out.println(line1 + ", " + line2 + " " + Math.PI * line1 / 2 * line2 / 2);
+        return Math.PI * line1 / 2 * line2 / 2;
     }
 }

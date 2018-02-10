@@ -8,82 +8,41 @@
 
 package simpledrawer;
 
-import javax.xml.parsers.*;
-import org.xml.sax.*;
-import org.xml.sax.helpers.*;
-
-import java.util.*;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.DefaultHandler;
 
 
 public class ShapeEventGeneratorFromXML extends DefaultHandler {
 
     // constants used to control processing of the XML file
-    /**
-     * XML tag used to indicate a shape
-     */
-    public final static String SHAPE_TAG = "shape";
+    public final static String SHAPE_TAG = "shape";                              /*** XML tag used to indicate a shape*/
+    public final static String TYPE_TAG = "type";                                /*** XML tag used to indicate the type of shape*/
+    public final static String START_TAG = "start";                              /*** XML tag used to indicate start position of shape*/
+    public final static String END_TAG = "end";                                  /*** XML tag used to indicate end position of shape*/
+    public final static String X_TAG = "x";                                      /*** XML tag used to indicate x coordinate*/
+    public final static String Y_TAG = "y";                                      /*** XML tag used to indicate y coordinate*/
+    public final static String COLOUR_TAG = "colour";                            /*** XML tag used to indicate colour of shape*/
+    public final static String THICK_TAG = "thickness";                          /*** XML tag used to indicate thickness of line of a shape*/
+    private String currentTag = "";                                              // current tag being processed
+    private final ShapeEventList shapeListeners;                                 // list of listeners registered to receive dashboard events
+    private final XMLReader xmlReader;                                           // the xml parser object
+    private ShapeEvent currentShape;                                             // details of current shape being read
+    private boolean processingStartPos = false;                                  // to keep track of whether we are processing start position of the shape
 
-    /**
-     * XML tag used to indicate the type of shape
-     */
-    public final static String TYPE_TAG = "type";
 
-    /**
-     * XML tag used to indicate start position of shape
-     */
-    public final static String START_TAG = "start";
-
-    /**
-     * XML tag used to indicate end position of shape
-     */
-    public final static String END_TAG = "end";
-    /**
-     * XML tag used to indicate x coordinate
-     */
-    public final static String X_TAG = "x";
-
-    /**
-     * XML tag used to indicate y coordinate
-     */
-    public final static String Y_TAG = "y";
-
-    /**
-     * XML tag used to indicate colour of shape
-     */
-    public final static String COLOUR_TAG = "colour";
-
-    /**
-     * XML tag used to indicate thickness of line of a shape
-     */
-    public final static String THICK_TAG = "thickness";
-
-    private String currentTag = ""; // current tag being processed
-
-    // list of listeners registered to receive dashboard events
-    private final ShapeEventList shapeListeners;
-
-    // the xml parser object
-    private final XMLReader xmlReader;
-
-    // details of current shape being read
-    private ShapeEvent currentShape;
-
-    // to keep track of whether we are processing start position of the shape
-    private boolean processingStartPos = false;
-
-    /**
-     * 
-     * @throws ParserConfigurationException
-     * @throws SAXException 
-     */
     public ShapeEventGeneratorFromXML() throws ParserConfigurationException, SAXException {
         shapeListeners = new ShapeEventList();
 
-        // The following code configures and creates an object known as a SAXParser which is capable of
-        // reading and interpreting an XML file.
         SAXParserFactory spf = SAXParserFactory.newInstance();
         spf.setNamespaceAware(true);
         SAXParser saxParser;

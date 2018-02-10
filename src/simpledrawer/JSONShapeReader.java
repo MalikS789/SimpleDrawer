@@ -55,8 +55,7 @@ public class JSONShapeReader {
      * @throws FileNotFoundException
      */
     public void getShapesFromFile(String file) throws FileNotFoundException {
-        BufferedReader br = new BufferedReader(
-                new FileReader(file));
+        BufferedReader br = new BufferedReader(new FileReader(file));
         los = gson.fromJson(br, ListOfShapeEvents.class); // load the shapes
         storeShapes(); // store in separate lists according to type
     }
@@ -79,36 +78,20 @@ public class JSONShapeReader {
                     olList.add(ol);
                     break;
                 case TRIANGLE:  // store the triangle
-                    List<Point> currentPoints = new ArrayList<>();
-                    Point nextPoint = new Point();
-                    nextPoint.x = se.getXStart();
-                    nextPoint.y = se.getYStart();
-                    currentPoints.add(nextPoint);
-                    nextPoint.x = se.getYStart();
-                    nextPoint.y = se.getYEnd();
-                    currentPoints.add(nextPoint);
-                    nextPoint.x = se.getXextra();
-                    nextPoint.y = se.getYextra();
-                    currentPoints.add(nextPoint);
-                    SimpleTriangle st = new SimpleTriangle(currentPoints, se.getColour(), se.getThickness(), ShapeType.TRIANGLE);
+                    List<Point> TrianglePoints = new ArrayList<>();
+                    TrianglePoints.add(new Point(se.getYStart(), se.getYEnd()));
+                    TrianglePoints.add(new Point(se.getXStart(), se.getYStart()));
+                    TrianglePoints.add(new Point(se.getXextra(), se.getYextra()));
+                    SimpleTriangle st = new SimpleTriangle(TrianglePoints, se.getColour(), se.getThickness(), ShapeType.TRIANGLE);
                     stList.add(st);
                     break;
                 case SQUARE:  // store the square
-                    List<Point> currentPointss = new ArrayList<>();
-                    Point nextPointt = new Point();
-                    nextPointt.x = se.getXStart();
-                    nextPointt.y = se.getYStart();
-                    currentPointss.add(nextPointt);
-                    nextPointt.x = se.getYStart();
-                    nextPointt.y = se.getYEnd();
-                    currentPointss.add(nextPointt);
-                    nextPointt.x = se.getXextra();
-                    nextPointt.y = se.getYextra();
-                    currentPointss.add(nextPointt);
-                    nextPointt.x = se.getXXextra();
-                    nextPointt.y = se.getYYextra();
-                    currentPointss.add(nextPointt);
-                    SimpleSquare ss = new SimpleSquare(currentPointss, se.getColour(), se.getThickness(), ShapeType.SQUARE);
+                    List<Point> SquarePoints = new ArrayList<>();
+                    SquarePoints.add(new Point(se.getYStart(), se.getYEnd()));
+                    SquarePoints.add(new Point(se.getXStart(), se.getYStart()));
+                    SquarePoints.add(new Point(se.getXextra(), se.getYextra()));
+                    SquarePoints.add(new Point(se.getXXextra(), se.getYYextra()));
+                    SimpleSquare ss = new SimpleSquare(SquarePoints, se.getColour(), se.getThickness(), ShapeType.SQUARE);
                     ssList.add(ss);
                     break;
             }
@@ -154,7 +137,8 @@ public class JSONShapeReader {
         // load in some hard-coded shapes
         list.add(new ShapeEvent(20, 40, 30, 90, Color.red, 5, ShapeType.LINE, "SHAPE"));
         list.add(new ShapeEvent(20, 40, 70, 90, Color.blue, 5, ShapeType.OVAL, "SHAPE"));
-        list.add(new ShapeEvent(80, 95, 70, 45, Color.green, 5, ShapeType.LINE, "SHAPE"));
+        list.add(new ShapeEvent(80, 95, 70, 45, 60, 70, Color.green, 5, ShapeType.TRIANGLE, "SHAPE"));
+        list.add(new ShapeEvent(34, 45, 67, 35, 80, 90, 60, 70, Color.red, 5, ShapeType.SQUARE, "SHAPE"));
         ListOfShapeEvents los = new ListOfShapeEvents();
         los.listOfShapeEvents = list;
         Gson gson = new Gson();

@@ -38,9 +38,7 @@ public class OvalDrawer {
         int ys = oval.getYStart();
         
         // draw the oval        
-        g2d.drawOval(xs, ys,
-                oval.getxBottomRight() - xs,
-                oval.getyBottomRight() - ys);
+        g2d.drawOval(xs, ys,oval.getxBottomRight() - xs, oval.getyBottomRight() - ys);
 
     }
 

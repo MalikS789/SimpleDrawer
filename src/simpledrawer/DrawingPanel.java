@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import static simpledrawer.ShapeType.OVAL;
 
 public class DrawingPanel extends JPanel {
 
@@ -48,14 +49,14 @@ public class DrawingPanel extends JPanel {
     /* Constructor used to create a DrawingPanel with a
      * specified line colour, thickness and shape type
      */
-    public DrawingPanel(Color c, int t, ShapeType st) {
+    public DrawingPanel(Color c, int t, ShapeType xxx) {
         this.addMouseListener(new MouseWatcher());
         this.setBorder(BorderFactory.createLoweredBevelBorder());
         x = -1;
         y = -1;
         currentColor = c;
         currentThickness = t;
-        currentShapeType = st;
+        currentShapeType = xxx;
         currentRotation = 0;
         currentBrightness = 1;
 
@@ -159,9 +160,12 @@ public class DrawingPanel extends JPanel {
             // reset the rotation to 0 otherwise things get messy.
             currentRotation = 0;
 
-            SimpleOval tmp = new SimpleOval(e.getX() - 3, e.getY() - 3, e.getX() + 3, e.getY() + 3, currentColor, currentThickness, ShapeType.OVAL); //draw a dot everytime
-            shapes.add(tmp); //make sure it is drawn!
-
+            if (currentShapeType != OVAL) {
+                SimpleOval tmp = new SimpleOval(e.getX() - 3, e.getY() - 3, e.getX() + 3, e.getY() + 3, currentColor, currentThickness, ShapeType.OVAL); //draw a dot everytime
+                shapes.add(tmp); //make sure it is drawn!
+            }
+            
+            
             if (currentPoints == null) { // must be starting a new shape
                 currentPoints = new ArrayList<>();
                 Point firstPoint = new Point();
