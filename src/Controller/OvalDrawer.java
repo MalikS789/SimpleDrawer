@@ -15,7 +15,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 
-public class OvalDrawer extends Drawer{
+public class OvalDrawer extends Drawer {
 
     private SimpleOval oval; // the oval to be drawn
 

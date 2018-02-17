@@ -12,13 +12,8 @@ package Controller;
 
 import Model.ShapeType;
 import Event.ShapeEvent;
-import Model.SimpleTriangle;
-import Model.SimpleSquare;
-import Model.SimpleOval;
-import Model.SimpleLine;
 import com.google.gson.Gson;
 import java.awt.Color;
-import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -27,7 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JSONShapeReader {
+public class JSONShapeReader extends ShapeReader {
 
     // ListOfShapeEvents is an inner class used to wrap a list of 
     // ShapeEvent objects which hold shape details
@@ -37,19 +32,11 @@ public class JSONShapeReader {
     }
 
     private ListOfShapeEvents los; // list of all the shapes
-    private List<SimpleLine> slList; // list of lines
-    private List<SimpleOval> olList; // list of ovals
-    private List<SimpleTriangle> stList; // list of triangles
-    private List<SimpleSquare> ssList;
 
     private Gson gson; // gson object used to "parse" the JSON
 
     public JSONShapeReader() {
         gson = new Gson();
-        slList = new ArrayList<>();
-        olList = new ArrayList<>();
-        stList = new ArrayList<>();
-        ssList = new ArrayList<>();
     }
 
     /**
@@ -63,73 +50,14 @@ public class JSONShapeReader {
     public void getShapesFromFile(String file) throws FileNotFoundException {
         BufferedReader br = new BufferedReader(new FileReader(file));
         los = gson.fromJson(br, ListOfShapeEvents.class); // load the shapes
-        storeShapes(); // store in separate lists according to type
-    }
-
-    /**
-     * Read through the list of shapes that have been loaded from file and
-     * create an appropriate shape object according to type and store it in the
-     * relevant list.
-     */
-    private void storeShapes() {
-
+        /**
+         * Read through the list of shapes that have been loaded from file and
+         * create an appropriate shape object according to type and store it in
+         * the relevant list.
+         */
         for (ShapeEvent se : los.listOfShapeEvents) {
-            switch (se.getShapeType()) {
-                case LINE: // store the line
-                    SimpleLine sl = new SimpleLine(se.getXStart(), se.getYStart(), se.getXEnd(), se.getYEnd(), se.getColour(), se.getThickness(), ShapeType.LINE);
-                    slList.add(sl);
-                    break;
-                case OVAL: // store the oval
-                    SimpleOval ol = new SimpleOval(se.getXStart(), se.getYStart(), se.getXEnd(), se.getYEnd(), se.getColour(), se.getThickness(), ShapeType.OVAL);
-                    olList.add(ol);
-                    break;
-                case TRIANGLE:
-                    List<Point> TrianglePoints = new ArrayList<>();
-                    TrianglePoints.add(new Point(se.getXStart(), se.getYStart()));
-                    TrianglePoints.add(new Point(se.getXextra(), se.getYextra()));
-                    TrianglePoints.add(new Point(se.getXEnd(), se.getYEnd()));
-                    SimpleTriangle st = new SimpleTriangle(TrianglePoints, se.getColour(), se.getThickness(), ShapeType.TRIANGLE);
-                    stList.add(st);
-                    break;
-                case SQUARE: // store the square
-                    List<Point> SquarePoints = new ArrayList<>();
-                    SquarePoints.add(new Point(se.getXStart(), se.getYStart()));
-                    SquarePoints.add(new Point(se.getXextra(), se.getYextra()));
-                    SquarePoints.add(new Point(se.getXXextra(), se.getYYextra()));
-                    SquarePoints.add(new Point(se.getXEnd(), se.getYEnd()));
-                    SimpleSquare ss = new SimpleSquare(SquarePoints, se.getColour(), se.getThickness(), ShapeType.SQUARE);
-                    ssList.add(ss);
-                    break;
-            }
+            super.StoreShapes(se);
         }
-    }
-
-    /**
-     *
-     * @return the list of line shapes
-     */
-    public List<SimpleLine> getSlList() {
-        return slList;
-    }
-
-    /**
-     *
-     * @return the list of oval shapes
-     */
-    public List<SimpleOval> getOlList() {
-        return olList;
-    }
-
-    /**
-     *
-     * @return the list of triangle shapes
-     */
-    public List<SimpleTriangle> getStList() {
-        return stList;
-    }
-
-    public List<SimpleSquare> getSsList() {
-        return ssList;
     }
 
     /**

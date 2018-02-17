@@ -12,7 +12,7 @@ import java.awt.Color;
  * @author ac8441o
  */
 public class Drawer {
-    
+
     /* The colour can be made brighter or darker.
      * currentBrightness is a number between 0.75 and 1.25
      * which is used to scale the brightness.  Each of the colours
@@ -22,7 +22,6 @@ public class Drawer {
      * We have to be careful the values don't go over 255 as
      * that's the maximum allowed.
      */
-    
     protected Color scaleColour(Color c, float currentBrightness) {
         // get the red amount and scale by currentBrightness
         int red = (int) (c.getRed() * currentBrightness);
@@ -37,5 +36,5 @@ public class Drawer {
 
         return scaledColour;
     }
-    
+
 }
