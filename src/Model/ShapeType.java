@@ -5,7 +5,7 @@
  *
  * An enumerated type representing valid types of shape.
  */
-package simpledrawer;
+package Model;
 
 public enum ShapeType {
     LINE, OVAL, TRIANGLE, SQUARE;

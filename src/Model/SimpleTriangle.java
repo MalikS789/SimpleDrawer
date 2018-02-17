@@ -6,7 +6,7 @@
  * Represents a triangle that can be drawn on a drawing area
  *
  */
-package simpledrawer;
+package Model;
 
 import java.awt.Color;
 import java.awt.Point;

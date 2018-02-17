@@ -7,8 +7,16 @@
  * the class ShapeEventGeneratorFromXML
  *
  */
-package simpledrawer;
+package Controller;
 
+import Model.ShapeType;
+import Event.ShapeEvent;
+import Event.ShapeEventGeneratorFromXML;
+import Event.ShapeEventListener;
+import Model.SimpleTriangle;
+import Model.SimpleSquare;
+import Model.SimpleOval;
+import Model.SimpleLine;
 import java.awt.Point;
 import java.io.IOException;
 import java.util.ArrayList;

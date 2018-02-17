@@ -8,8 +8,14 @@
  * You can read more about Gson at https://code.google.com/p/google-gson/
  *
  */
-package simpledrawer;
+package Controller;
 
+import Model.ShapeType;
+import Event.ShapeEvent;
+import Model.SimpleTriangle;
+import Model.SimpleSquare;
+import Model.SimpleOval;
+import Model.SimpleLine;
 import com.google.gson.Gson;
 import java.awt.Color;
 import java.awt.Point;

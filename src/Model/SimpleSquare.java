@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package simpledrawer;
+package Model;
 
 import java.awt.Color;
 import java.awt.Point;
@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Malik
  */
-class SimpleSquare extends SimpleTriSquare{
+public class SimpleSquare extends SimpleTriSquare{
 
     public SimpleSquare(List<Point> v, Color c, int t, ShapeType ss) {
         super(v,c,t,ss);

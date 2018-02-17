@@ -6,7 +6,7 @@
  * Represents a line that can be drawn on a drawing area
  *
  */
-package simpledrawer;
+package Model;
 
 import java.awt.Color;
 

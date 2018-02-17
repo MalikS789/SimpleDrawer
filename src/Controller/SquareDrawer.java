@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package simpledrawer;
+package Controller;
 
+import Model.SimpleSquare;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;

@@ -7,7 +7,7 @@
  *
  * NOT created using the NetBeans GUI builder
  */
-package simpledrawer;
+package View;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -20,7 +20,16 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import static simpledrawer.ShapeType.OVAL;
+import Controller.LineDrawer;
+import Controller.OvalDrawer;
+import Controller.SquareDrawer;
+import Controller.TriangleDrawer;
+import Model.ShapeType;
+import Model.SimpleLine;
+import Model.SimpleOval;
+import Model.SimpleSquare;
+import Model.SimpleTriangle;
+import static Model.ShapeType.OVAL;
 
 public class DrawingPanel extends JPanel {
 
@@ -176,6 +185,7 @@ public class DrawingPanel extends JPanel {
      */
     private class MouseWatcher extends MouseAdapter {
 
+        @Override
         public void mousePressed(MouseEvent e) {
             // reset the rotation to 0 otherwise things get messy.
             currentRotation = 0;
