@@ -10,24 +10,19 @@ package simpledrawer;
 
 import java.awt.Color;
 
-public class SimpleOval {
+interface Oval{
+   int getxBottomRight();
+   void setxBottomRight(int xBottomRight);
+   int getyBottomRight();
+   void setyBottomRight(int yBottomRight);        
+}
 
-    // Shape start location
-    private int xStart, yStart;
-    // Location of the bottom right corner of the
-    // rectangle that contains the oval
+public class SimpleOval extends SimpleLineOval implements Oval{
+
     private int xBottomRight, yBottomRight;
-    private Color colour;
-    private int thickness;
-    // Type of shape e.g. line or oval
-    private ShapeType shapeType;
 
     public SimpleOval(int xs, int ys, int xbr, int ybr, Color c, int t, ShapeType so) {
-        colour = c;
-        thickness = t;
-        shapeType = so;
-        xStart = xs;
-        yStart = ys;
+        super(c,t,so,xs,ys);
         xBottomRight = xbr;
         yBottomRight = ybr;
     }
@@ -59,55 +54,15 @@ public class SimpleOval {
     public void setyBottomRight(int yBottomRight) {
         this.yBottomRight = yBottomRight;
     }
-
-    public int getXStart() {
-        return xStart;
-    }
-
-    public void setXStart(int xStart) {
-        this.xStart = xStart;
-    }
-
-    public int getYStart() {
-        return yStart;
-    }
-
-    public void setYStart(int yStart) {
-        this.yStart = yStart;
-    }
-
-    public Color getColour() {
-        return colour;
-    }
-
-    public void setColour(Color colour) {
-        this.colour = colour;
-    }
-
-    public int getThickness() {
-        return thickness;
-    }
-
-    public void setThickness(int thickness) {
-        this.thickness = thickness;
-    }
-
-    public ShapeType getShapeType() {
-        return shapeType;
-    }
-
-    public void setShapeType(ShapeType shapeType) {
-        this.shapeType = shapeType;
-    }
-
     /**
      *
      * @return the area in pixels of the ellipse. Does this always work?
-     */
+     
     public double getArea() {
         int line1 = xBottomRight - xStart;
         int line2 = yBottomRight - yStart;
         System.out.println(line1 + ", " + line2 + " " + Math.PI * line1 / 2 * line2 / 2);
         return Math.PI * line1 / 2 * line2 / 2;
     }
+    * */
 }
