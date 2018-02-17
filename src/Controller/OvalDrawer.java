@@ -41,6 +41,5 @@ public class OvalDrawer extends Drawer {
         
         // draw the oval        
         g2d.drawOval(xs, ys,oval.getxBottomRight() - xs, oval.getyBottomRight() - ys);
-
     }
     }

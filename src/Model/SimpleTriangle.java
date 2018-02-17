@@ -14,14 +14,11 @@ import java.util.List;
 
 public class SimpleTriangle extends SimpleTriSquare{
 
-    
     public SimpleTriangle(List<Point> v, Color c, int t, ShapeType ss) {
         super(v,c,t,ss);
     }
 
-       /**
-      @return the area in pixels of the triangle. Does this work okay?
-     
+      //@return the area in pixels of the triangle. Does this work okay?
     public double getArea() {
         int term1 = vertices.get(0).x * (vertices.get(1).y - vertices.get(2).y);
         int term2 = vertices.get(1).x * (vertices.get(2).y - vertices.get(0).y);
@@ -29,5 +26,5 @@ public class SimpleTriangle extends SimpleTriSquare{
 
         return Math.abs((term1 + term2 + term3) / 2.0);
     }
-     */
+     
 }

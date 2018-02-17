@@ -26,52 +26,13 @@ ShapeType getShapeType();
 void setShapeType(ShapeType shapeType);
 
 }
-public class SimpleTriSquare {
+public class SimpleTriSquare extends SimpleShape{
     
-    protected List<Point> vertices; // points that define the triangle
-    // Shape characteristics
-    protected Color colour;
-    protected int thickness;
-    // Type of shape e.g. line or oval or triangle
-    protected ShapeType shapeType;
-
     public SimpleTriSquare(List<Point> v, Color c, int t, ShapeType ss) {
         vertices = v;
         colour = c;
         thickness = t;
         shapeType = ss;
     }
-
-    public List<Point> getVertices() {
-        return vertices;
-    }
-
-    public void setVertices(List<Point> vertices) {
-        this.vertices = vertices;
-    }
-
-    public Color getColour() {
-        return colour;
-    }
-
-    public void setColour(Color colour) {
-        this.colour = colour;
-    }
-
-    public int getThickness() {
-        return thickness;
-    }
-
-    public void setThickness(int thickness) {
-        this.thickness = thickness;
-    }
-
-    public ShapeType getShapeType() {
-        return shapeType;
-    }
-
-    public void setShapeType(ShapeType shapeType) {
-        this.shapeType = shapeType;
-    }
-
+    
 }
