@@ -172,29 +172,29 @@ public class ShapeEventGeneratorFromXML extends DefaultHandler {
                 break;
             case X_TAG: // an x tag can either be for the start or end 
                 if (processingStartPos) {
-                    currentShape.setXStart(Integer.parseInt(val));
+                    ShapeEvent.setVerticeX(0, Integer.parseInt(val));
                 } else {
-                    currentShape.setXEnd(Integer.parseInt(val));
+                    ShapeEvent.setVerticeX(ShapeEvent.getNumberOfVerticies(),Integer.parseInt(val));
                 }
                 break;
             case XX_TAG:
-                currentShape.setXextra(Integer.parseInt(val));
+                ShapeEvent.setVerticeX(1, Integer.parseInt(val));
                 break;
             case XXX_TAG:
-                currentShape.setXXextra(Integer.parseInt(val));
+                ShapeEvent.setVerticeX(2, Integer.parseInt(val));
                 break;
             case Y_TAG: // an y tag can either be for the start or end 
                 if (processingStartPos) {
-                    currentShape.setYStart(Integer.parseInt(val));
+                    ShapeEvent.setVerticeY(0, Integer.parseInt(val));
                 } else {
-                    currentShape.setYEnd(Integer.parseInt(val));
+                    ShapeEvent.setVerticeY(ShapeEvent.getNumberOfVerticies(),Integer.parseInt(val));
                 }
                 break;
             case YY_TAG:
-                currentShape.setYextra(Integer.parseInt(val));
+                ShapeEvent.setVerticeY(1, Integer.parseInt(val));
                 break;
             case YYY_TAG:
-                currentShape.setYYextra(Integer.parseInt(val));
+                ShapeEvent.setVerticeY(2, Integer.parseInt(val));
                 break;
             case COLOUR_TAG:
                 currentShape.setColourByString(val);

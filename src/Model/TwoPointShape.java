@@ -84,34 +84,4 @@ public class TwoPointShape extends SimpleShape implements LineOval {
     public void setYEnd(int ys) {
         v.set(0, new Point(getXStart(), ys));
     }
-
-    @Override
-    public Color getColour() {
-        return colour;
-    }
-
-    @Override
-    public void setColour(Color colour) {
-        this.colour = colour;
-    }
-
-    @Override
-    public int getThickness() {
-        return thickness;
-    }
-
-    @Override
-    public void setThickness(int thickness) {
-        this.thickness = thickness;
-    }
-
-    @Override
-    public ShapeType getShapeType() {
-        return shapeType;
-    }
-
-    @Override
-    public void setShapeType(ShapeType shapeType) {
-        this.shapeType = shapeType;
-    }
 }

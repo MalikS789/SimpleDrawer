@@ -10,8 +10,8 @@
  */
 package Controller;
 
-import Model.ShapeType;
 import Event.ShapeEvent;
+import Model.ShapeType;
 import com.google.gson.Gson;
 import java.awt.Color;
 import java.io.BufferedReader;
@@ -27,7 +27,6 @@ public class JSONShapeReader extends ShapeReader {
     // ListOfShapeEvents is an inner class used to wrap a list of 
     // ShapeEvent objects which hold shape details
     static class ListOfShapeEvents {
-
         List<ShapeEvent> listOfShapeEvents;
     }
 
@@ -55,9 +54,9 @@ public class JSONShapeReader extends ShapeReader {
          * create an appropriate shape object according to type and store it in
          * the relevant list.
          */
-        for (ShapeEvent se : los.listOfShapeEvents) {
+        los.listOfShapeEvents.forEach((se) -> {
             super.StoreShapes(se);
-        }
+        });
     }
 
     /**
@@ -66,13 +65,11 @@ public class JSONShapeReader extends ShapeReader {
      *
      * @param file the file into which to write the JSON
      */
-    private static void generateTestJSON(String file) {
+    private static void generateTestJSON(String file) { //NOT WORKING
         List<ShapeEvent> list = new ArrayList<>();
         // load in some hard-coded shapes
         list.add(new ShapeEvent(20, 40, 30, 90, Color.red, 5, ShapeType.LINE, "SHAPE"));
         list.add(new ShapeEvent(20, 40, 70, 90, Color.blue, 5, ShapeType.OVAL, "SHAPE"));
-        //list.add(new ShapeEvent(80, 95, 70, 45, 60, 70, Color.green, 5, ShapeType.TRIANGLE, "SHAPE"));
-        //list.add(new ShapeEvent(34, 45, 67, 35, 80, 90, 60, 70, Color.red, 5, ShapeType.SQUARE, "SHAPE"));
         ListOfShapeEvents los = new ListOfShapeEvents();
         los.listOfShapeEvents = list;
         Gson gson = new Gson();

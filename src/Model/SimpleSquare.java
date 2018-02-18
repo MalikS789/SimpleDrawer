@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Malik
  */
-public class SimpleSquare extends SimpleTriSquare{
+public class SimpleSquare extends MultiPointShape{
 
     public SimpleSquare(List<Point> v, Color c, int t, ShapeType ss) {
         super(v,c,t,ss);

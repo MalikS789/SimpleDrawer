@@ -19,7 +19,7 @@ public class SimpleShape {
     protected int thickness;
     protected ShapeType shapeType;
     
-     public List<Point> getVertices() {
+    public List<Point> getVertices() {
         return vertices;
     }
 

@@ -36,27 +36,33 @@ public class ShapeReader {
     protected void StoreShapes(ShapeEvent se) {
         switch (se.getShapeType()) {
             case LINE: // store the line
-                SimpleLine sl = new SimpleLine(se.getXStart(), se.getYStart(), se.getXEnd(), se.getYEnd(), se.getColour(), se.getThickness(), ShapeType.LINE);
+                SimpleLine sl = new SimpleLine(
+                        ShapeEvent.getVerticeX(0), ShapeEvent.getVerticeY(0), 
+                        ShapeEvent.getVerticeX(1), ShapeEvent.getVerticeY(1), 
+                        se.getColour(), se.getThickness(), ShapeType.LINE);
                 slList.add(sl);
                 break;
             case OVAL: // store the oval
-                SimpleOval ol = new SimpleOval(se.getXStart(), se.getYStart(), se.getXEnd(), se.getYEnd(), se.getColour(), se.getThickness(), ShapeType.OVAL);
+                SimpleOval ol = new SimpleOval(
+                        ShapeEvent.getVerticeX(0), ShapeEvent.getVerticeY(0), 
+                        ShapeEvent.getVerticeX(1), ShapeEvent.getVerticeY(1), 
+                        se.getColour(), se.getThickness(), ShapeType.OVAL);
                 olList.add(ol);
                 break;
             case TRIANGLE:
                 List<Point> TrianglePoints = new ArrayList<>();
-                TrianglePoints.add(new Point(se.getXStart(), se.getYStart()));
-                TrianglePoints.add(new Point(se.getXextra(), se.getYextra()));
-                TrianglePoints.add(new Point(se.getXEnd(), se.getYEnd()));
+                TrianglePoints.add(new Point(ShapeEvent.getVerticeX(0), ShapeEvent.getVerticeY(0)));
+                TrianglePoints.add(new Point(ShapeEvent.getVerticeX(1), ShapeEvent.getVerticeY(1)));
+                TrianglePoints.add(new Point(ShapeEvent.getVerticeX(2), ShapeEvent.getVerticeY(2)));
                 SimpleTriangle st = new SimpleTriangle(TrianglePoints, se.getColour(), se.getThickness(), ShapeType.TRIANGLE);
                 stList.add(st);
                 break;
             case SQUARE: // store the square
                 List<Point> SquarePoints = new ArrayList<>();
-                SquarePoints.add(new Point(se.getXStart(), se.getYStart()));
-                SquarePoints.add(new Point(se.getXextra(), se.getYextra()));
-                SquarePoints.add(new Point(se.getXXextra(), se.getYYextra()));
-                SquarePoints.add(new Point(se.getXEnd(), se.getYEnd()));
+                SquarePoints.add(new Point(ShapeEvent.getVerticeX(0), ShapeEvent.getVerticeY(0)));
+                SquarePoints.add(new Point(ShapeEvent.getVerticeX(1), ShapeEvent.getVerticeY(1)));
+                SquarePoints.add(new Point(ShapeEvent.getVerticeX(2), ShapeEvent.getVerticeY(2)));
+                SquarePoints.add(new Point(ShapeEvent.getVerticeX(3), ShapeEvent.getVerticeY(3)));
                 SimpleSquare ss = new SimpleSquare(SquarePoints, se.getColour(), se.getThickness(), ShapeType.SQUARE);
                 ssList.add(ss);
                 break;

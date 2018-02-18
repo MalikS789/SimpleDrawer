@@ -26,9 +26,9 @@ ShapeType getShapeType();
 void setShapeType(ShapeType shapeType);
 
 }
-public class SimpleTriSquare extends SimpleShape{
+public class MultiPointShape extends SimpleShape{
     
-    public SimpleTriSquare(List<Point> v, Color c, int t, ShapeType ss) {
+    public MultiPointShape(List<Point> v, Color c, int t, ShapeType ss) {
         vertices = v;
         colour = c;
         thickness = t;
