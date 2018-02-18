@@ -30,10 +30,10 @@ public class XMLShapeReader {
 
     private ShapeEventGeneratorFromXML segfx; // used to read the data
 
-    private List<SimpleLine> slList; // list of lines
-    private List<SimpleOval> olList; // list of ovals
-    private List<SimpleTriangle> stList; //list of triangles
-    private List<SimpleSquare> ssList; //list of squares
+    private static List<SimpleLine> slList; // list of lines
+    private static List<SimpleOval> olList; // list of ovals
+    private static List<SimpleTriangle> stList; //list of triangles
+    private static List<SimpleSquare> ssList; //list of squares
 
     public XMLShapeReader() throws ParserConfigurationException, SAXException {
 
@@ -118,7 +118,7 @@ public class XMLShapeReader {
      *
      * @return the list of line shapes
      */
-    public List<SimpleLine> getSlList() {
+    public static List<SimpleLine> getSlList() {
         return slList;
     }
 
@@ -126,15 +126,15 @@ public class XMLShapeReader {
      *
      * @return the list of oval shapes
      */
-    public List<SimpleOval> getOlList() {
+    public static List<SimpleOval> getOlList() {
         return olList;
     }
 
-    public List<SimpleTriangle> getStList() {
+    public static List<SimpleTriangle> getStList() {
         return stList;
     }
 
-    public List<SimpleSquare> getSsList() {
+    public static List<SimpleSquare> getSsList() {
         return ssList;
     }
 

@@ -37,10 +37,10 @@ public class JSONShapeReader {
     }
 
     private ListOfShapeEvents los; // list of all the shapes
-    private List<SimpleLine> slList; // list of lines
-    private List<SimpleOval> olList; // list of ovals
-    private List<SimpleTriangle> stList; // list of triangles
-    private List<SimpleSquare> ssList;
+    public static List<SimpleLine> slList; // list of lines
+    public static List<SimpleOval> olList; // list of ovals
+    public static List<SimpleTriangle> stList; // list of triangles
+    public static List<SimpleSquare> ssList;
 
     private Gson gson; // gson object used to "parse" the JSON
 
@@ -72,7 +72,6 @@ public class JSONShapeReader {
      * relevant list.
      */
     private void storeShapes() {
-
         for (ShapeEvent se : los.listOfShapeEvents) {
             switch (se.getShapeType()) {
                 case LINE: // store the line
@@ -108,7 +107,7 @@ public class JSONShapeReader {
      *
      * @return the list of line shapes
      */
-    public List<SimpleLine> getSlList() {
+    public static List<SimpleLine> getSlList() {
         return slList;
     }
 
@@ -116,7 +115,7 @@ public class JSONShapeReader {
      *
      * @return the list of oval shapes
      */
-    public List<SimpleOval> getOlList() {
+    public static List<SimpleOval> getOlList() {
         return olList;
     }
 
@@ -124,11 +123,11 @@ public class JSONShapeReader {
      *
      * @return the list of triangle shapes
      */
-    public List<SimpleTriangle> getStList() {
+    public static List<SimpleTriangle> getStList() {
         return stList;
     }
 
-    public List<SimpleSquare> getSsList() {
+    public static List<SimpleSquare> getSsList() {
         return ssList;
     }
 
@@ -138,7 +137,7 @@ public class JSONShapeReader {
      *
      * @param file the file into which to write the JSON
      */
-    private static void generateTestJSON(String file) {
+    public static void generateTestJSON(String file) {
         List<ShapeEvent> list = new ArrayList<>();
         // load in some hard-coded shapes
         list.add(new ShapeEvent(20, 40, 30, 90, Color.red, 5, ShapeType.LINE, "SHAPE"));

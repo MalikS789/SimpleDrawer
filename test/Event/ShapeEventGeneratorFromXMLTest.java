@@ -5,6 +5,7 @@
  */
 package Event;
 
+import javax.xml.parsers.ParserConfigurationException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,6 +13,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -101,7 +103,7 @@ public class ShapeEventGeneratorFromXMLTest {
      * Test of registerShapeEventListener method, of class ShapeEventGeneratorFromXML.
      */
     @Test
-    public void testRegisterShapeEventListener() {
+    public void testRegisterShapeEventListener() throws ParserConfigurationException, SAXException {
         System.out.println("registerShapeEventListener");
         String type = "";
         ShapeEventListener dbel = null;
@@ -115,7 +117,7 @@ public class ShapeEventGeneratorFromXMLTest {
      * Test of removeShapeEventListener method, of class ShapeEventGeneratorFromXML.
      */
     @Test
-    public void testRemoveShapeEventListener() {
+    public void testRemoveShapeEventListener() throws ParserConfigurationException, SAXException {
         System.out.println("removeShapeEventListener");
         String type = "";
         ShapeEventListener dbel = null;

@@ -5,54 +5,53 @@
  */
 package Controller;
 
-import Model.SimpleLine;
-import Model.SimpleOval;
-import Model.SimpleSquare;
-import Model.SimpleTriangle;
-import java.util.List;
+import java.io.FileNotFoundException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.BeforeClass;
 
 /**
  *
  * @author Malik
  */
 public class JSONShapeReaderTest {
-    
+
+    JSONShapeReader me = new JSONShapeReader();
+
     public JSONShapeReaderTest() {
+
     }
-    
+
     @BeforeClass
-    public static void setUpClass() {
+    public static void setUpClass() throws Exception {
     }
-    
+
     @AfterClass
-    public static void tearDownClass() {
+    public static void tearDownClass() throws Exception {
     }
-    
+
     @Before
     public void setUp() {
+        testGetShapesFromFile();
     }
-    
+
     @After
-    public void tearDown() {
+    public void tearDown() throws Exception {
     }
 
     /**
      * Test of getShapesFromFile method, of class JSONShapeReader.
      */
     @Test
-    public void testGetShapesFromFile() throws Exception {
-        System.out.println("getShapesFromFile");
-        String file = "";
-        JSONShapeReader instance = new JSONShapeReader();
-        instance.getShapesFromFile(file);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetShapesFromFile() {
+        try {
+            me.getShapesFromFile("stored_shapes.json");
+        } catch (FileNotFoundException ex) {
+            fail("JSON file could not be imported from, FAIL");
+        }
     }
 
     /**
@@ -60,13 +59,11 @@ public class JSONShapeReaderTest {
      */
     @Test
     public void testGetSlList() {
-        System.out.println("getSlList");
-        JSONShapeReader instance = new JSONShapeReader();
-        List<SimpleLine> expResult = null;
-        List<SimpleLine> result = instance.getSlList();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            System.out.println("Lines loaded = " + me.getSlList());
+        } catch (Exception ex) {
+            fail("Cannot load lines lists, FAIL");
+        }
     }
 
     /**
@@ -74,13 +71,11 @@ public class JSONShapeReaderTest {
      */
     @Test
     public void testGetOlList() {
-        System.out.println("getOlList");
-        JSONShapeReader instance = new JSONShapeReader();
-        List<SimpleOval> expResult = null;
-        List<SimpleOval> result = instance.getOlList();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            System.out.println("Ovals loaded = " + me.getOlList());
+        } catch (Exception ex) {
+            fail("Cannot load oval lists, FAIL");
+        }
     }
 
     /**
@@ -88,13 +83,11 @@ public class JSONShapeReaderTest {
      */
     @Test
     public void testGetStList() {
-        System.out.println("getStList");
-        JSONShapeReader instance = new JSONShapeReader();
-        List<SimpleTriangle> expResult = null;
-        List<SimpleTriangle> result = instance.getStList();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            System.out.println("Trangles loaded = " + me.getStList());
+        } catch (Exception ex) {
+            fail("Cannot load triangles lists, FAIL");
+        }
     }
 
     /**
@@ -102,25 +95,10 @@ public class JSONShapeReaderTest {
      */
     @Test
     public void testGetSsList() {
-        System.out.println("getSsList");
-        JSONShapeReader instance = new JSONShapeReader();
-        List<SimpleSquare> expResult = null;
-        List<SimpleSquare> result = instance.getSsList();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        try {
+            System.out.println("Squares loaded = " + me.getSsList());
+        } catch (Exception ex) {
+            fail("Cannot load squares lists, FAIL");
+        }
     }
-
-    /**
-     * Test of main method, of class JSONShapeReader.
-     */
-    @Test
-    public void testMain() throws Exception {
-        System.out.println("main");
-        String[] args = null;
-        JSONShapeReader.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }
