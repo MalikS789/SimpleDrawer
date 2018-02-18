@@ -11,14 +11,37 @@ import java.util.List;
 
 /**
  *
- * @author Malik
+ * @author ac8441o
  */
-public class SimpleShape {
-    protected List<Point> vertices; // points that define the shape
+
+interface TriSquare
+{
+List<Point> getVertices();  
+void setVertices(List<Point> vertices);
+Color getColour();
+void setColour(Color colour);
+int getThickness();
+void setThickness(int thickness);
+ShapeType getShapeType();
+void setShapeType(ShapeType shapeType);
+
+}
+public class SimpleTriSquare {
+    
+    protected List<Point> vertices; // points that define the triangle
+    // Shape characteristics
     protected Color colour;
     protected int thickness;
+    // Type of shape e.g. line or oval or triangle
     protected ShapeType shapeType;
-    
+
+    public SimpleTriSquare(List<Point> v, Color c, int t, ShapeType ss) {
+        vertices = v;
+        colour = c;
+        thickness = t;
+        shapeType = ss;
+    }
+
     public List<Point> getVertices() {
         return vertices;
     }
@@ -50,4 +73,5 @@ public class SimpleShape {
     public void setShapeType(ShapeType shapeType) {
         this.shapeType = shapeType;
     }
+
 }

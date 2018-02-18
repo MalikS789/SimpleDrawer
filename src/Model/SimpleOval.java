@@ -10,48 +10,59 @@ package Model;
 
 import java.awt.Color;
 
-interface Oval {
-
-    int getxBottomRight();
-
-    void setxBottomRight(int xBottomRight);
-
-    int getyBottomRight();
-
-    void setyBottomRight(int yBottomRight);
+interface Oval{
+   int getxBottomRight();
+   void setxBottomRight(int xBottomRight);
+   int getyBottomRight();
+   void setyBottomRight(int yBottomRight);        
 }
 
-public class SimpleOval extends TwoPointShape implements Oval {
+public class SimpleOval extends SimpleLineOval implements Oval{
+
+    private int xBottomRight, yBottomRight;
 
     public SimpleOval(int xs, int ys, int xbr, int ybr, Color c, int t, ShapeType so) {
-        super(c, t, so, xs, ys, xbr, ybr);
+        super(c,t,so,xs,ys);
+        xBottomRight = xbr;
+        yBottomRight = ybr;
     }
 
-    // @return the area in pixels of the ellipse. Does this always work?
+    /**
+     * @return the xBottomRight
+     */
+    public int getxBottomRight() {
+        return xBottomRight;
+    }
+
+    /**
+     * @param xBottomRight the xBottomRight to set
+     */
+    public void setxBottomRight(int xBottomRight) {
+        this.xBottomRight = xBottomRight;
+    }
+
+    /**
+     * @return the yBottomRight
+     */
+    public int getyBottomRight() {
+        return yBottomRight;
+    }
+
+    /**
+     * @param yBottomRight the yBottomRight to set
+     */
+    public void setyBottomRight(int yBottomRight) {
+        this.yBottomRight = yBottomRight;
+    }
+    /**
+     *
+     * @return the area in pixels of the ellipse. Does this always work?
+     
     public double getArea() {
-        int line1 = getXEnd() - getXStart();
-        int line2 = getYEnd() - getYStart();
+        int line1 = xBottomRight - xStart;
+        int line2 = yBottomRight - yStart;
         System.out.println(line1 + ", " + line2 + " " + Math.PI * line1 / 2 * line2 / 2);
         return Math.PI * line1 / 2 * line2 / 2;
     }
-
-    @Override
-    public int getxBottomRight() {
-        return getXEnd();
-    }
-
-    @Override
-    public void setxBottomRight(int xBottomRight) {
-        setXEnd(xBottomRight);
-    }
-
-    @Override
-    public int getyBottomRight() {
-        return getYEnd();
-    }
-
-    @Override
-    public void setyBottomRight(int yBottomRight) {
-        setYEnd(yBottomRight);
-    }
+    * */
 }
