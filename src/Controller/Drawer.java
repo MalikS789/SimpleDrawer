@@ -6,6 +6,7 @@
 package Controller;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 
 /**
  *
@@ -23,6 +24,10 @@ public class Drawer {
      * that's the maximum allowed.
      */
     
+    public void drawShape(Graphics2D g2d, float currentBrightness) {
+
+    }
+        
     protected Color scaleColour(Color c, float currentBrightness) {
         // get the red amount and scale by currentBrightness
         int red = (int) (c.getRed() * currentBrightness);

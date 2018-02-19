@@ -14,8 +14,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-
-public class OvalDrawer extends Drawer{
+public class OvalDrawer extends Drawer {
 
     private SimpleOval oval; // the oval to be drawn
 
@@ -38,9 +37,9 @@ public class OvalDrawer extends Drawer{
 
         int xs = oval.getXStart();
         int ys = oval.getYStart();
-        
+
         // draw the oval        
-        g2d.drawOval(xs, ys,oval.getxBottomRight() - xs, oval.getyBottomRight() - ys);
+        g2d.drawOval(xs, ys, oval.getxBottomRight() - xs, oval.getyBottomRight() - ys);
 
     }
-    }
+}

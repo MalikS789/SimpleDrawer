@@ -26,14 +26,9 @@ import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
-public class XMLShapeReader {
+public class XMLShapeReader extends ShapeReader{
 
     private ShapeEventGeneratorFromXML segfx; // used to read the data
-
-    private static List<SimpleLine> slList; // list of lines
-    private static List<SimpleOval> olList; // list of ovals
-    private static List<SimpleTriangle> stList; //list of triangles
-    private static List<SimpleSquare> ssList; //list of squares
 
     public XMLShapeReader() throws ParserConfigurationException, SAXException {
 
@@ -60,10 +55,6 @@ public class XMLShapeReader {
             }
         };
         segfx.registerShapeEventListener("SHAPE", sel);
-        slList = new ArrayList<>();
-        olList = new ArrayList<>();
-        stList = new ArrayList<>();
-        ssList = new ArrayList<>();
     }
 
     /**

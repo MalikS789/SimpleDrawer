@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JSONShapeReader {
+public class JSONShapeReader extends ShapeReader{
 
     // ListOfShapeEvents is an inner class used to wrap a list of 
     // ShapeEvent objects which hold shape details
@@ -37,19 +37,11 @@ public class JSONShapeReader {
     }
 
     private ListOfShapeEvents los; // list of all the shapes
-    public static List<SimpleLine> slList; // list of lines
-    public static List<SimpleOval> olList; // list of ovals
-    public static List<SimpleTriangle> stList; // list of triangles
-    public static List<SimpleSquare> ssList;
 
     private Gson gson; // gson object used to "parse" the JSON
 
     public JSONShapeReader() {
         gson = new Gson();
-        slList = new ArrayList<>();
-        olList = new ArrayList<>();
-        stList = new ArrayList<>();
-        ssList = new ArrayList<>();
     }
 
     /**

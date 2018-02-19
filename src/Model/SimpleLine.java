@@ -13,7 +13,7 @@ import java.awt.Color;
 
  interface Line
     {
-     
+
        int getXEnd(); 
        void setXEnd(int xEnd);
        int getYEnd();
