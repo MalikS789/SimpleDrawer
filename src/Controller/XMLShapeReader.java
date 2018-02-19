@@ -9,7 +9,7 @@
  */
 package Controller;
 
-import Model.ShapeType;
+import Event.ShapeType;
 import Event.ShapeEvent;
 import Event.ShapeEventGeneratorFromXML;
 import Event.ShapeEventListener;

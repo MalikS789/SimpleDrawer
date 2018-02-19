@@ -10,7 +10,7 @@
  */
 package Controller;
 
-import Model.ShapeType;
+import Event.ShapeType;
 import Event.ShapeEvent;
 import Model.SimpleTriangle;
 import Model.SimpleSquare;

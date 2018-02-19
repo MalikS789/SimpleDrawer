@@ -19,7 +19,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
-import Model.ShapeType;
 
 public class ShapeEventGeneratorFromXML extends DefaultHandler {
 

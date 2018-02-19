@@ -24,12 +24,12 @@ import Controller.LineDrawer;
 import Controller.OvalDrawer;
 import Controller.SquareDrawer;
 import Controller.TriangleDrawer;
-import Model.ShapeType;
+import Event.ShapeType;
 import Model.SimpleLine;
 import Model.SimpleOval;
 import Model.SimpleSquare;
 import Model.SimpleTriangle;
-import static Model.ShapeType.OVAL;
+import static Event.ShapeType.OVAL;
 
 public class DrawingPanel extends JPanel {
 

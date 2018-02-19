@@ -5,7 +5,7 @@
  *
  * An enumerated type representing valid types of shape.
  */
-package Model;
+package Event;
 
 public enum ShapeType {
     LINE, OVAL, TRIANGLE, SQUARE;

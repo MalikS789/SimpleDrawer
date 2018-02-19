@@ -5,7 +5,6 @@
  */
 package Controller;
 
-import Event.ShapeEventGeneratorFromXML;
 import java.io.FileNotFoundException;
 import javax.xml.parsers.ParserConfigurationException;
 import org.junit.Before;

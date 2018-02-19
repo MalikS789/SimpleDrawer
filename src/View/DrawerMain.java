@@ -27,7 +27,7 @@ import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 import Controller.JSONShapeReader;
-import Model.ShapeType;
+import Event.ShapeType;
 import Controller.XMLShapeReader;
 
 public class DrawerMain extends javax.swing.JFrame {

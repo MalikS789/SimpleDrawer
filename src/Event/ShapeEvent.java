@@ -10,7 +10,6 @@ package Event;
 
 import java.awt.*;
 import java.lang.reflect.Field;
-import Model.ShapeType;
 
 public class ShapeEvent {
 
