@@ -7,72 +7,62 @@ package Model;
 
 import Event.ShapeType;
 import java.awt.Color;
-import java.awt.Point;
-import java.util.List;
 
 /**
  *
- * @author ac8441o
+ * @author Malik
  */
 
-interface TriSquare
-{
-List<Point> getVertices();  
-void setVertices(List<Point> vertices);
-Color getColour();
+interface Shape {
+    Color getColour();
 void setColour(Color colour);
 int getThickness();
 void setThickness(int thickness);
 ShapeType getShapeType();
 void setShapeType(ShapeType shapeType);
-
 }
-public class SimpleTriSquare {
+
+public class SimpleShape implements Shape{
     
-    protected List<Point> vertices; // points that define the triangle
     // Shape characteristics
     protected Color colour;
     protected int thickness;
     // Type of shape e.g. line or oval or triangle
     protected ShapeType shapeType;
-
-    public SimpleTriSquare(List<Point> v, Color c, int t, ShapeType ss) {
-        vertices = v;
+    
+    public SimpleShape(Color c, int t, ShapeType ss) {
         colour = c;
         thickness = t;
         shapeType = ss;
     }
 
-    public List<Point> getVertices() {
-        return vertices;
-    }
-
-    public void setVertices(List<Point> vertices) {
-        this.vertices = vertices;
-    }
-
-    public Color getColour() {
+    @Override
+     public Color getColour() {
         return colour;
     }
 
+    @Override
     public void setColour(Color colour) {
         this.colour = colour;
     }
 
+    @Override
     public int getThickness() {
         return thickness;
     }
 
+    @Override
     public void setThickness(int thickness) {
         this.thickness = thickness;
     }
 
+    @Override
     public ShapeType getShapeType() {
         return shapeType;
     }
 
+    @Override
     public void setShapeType(ShapeType shapeType) {
         this.shapeType = shapeType;
     }
-
 }

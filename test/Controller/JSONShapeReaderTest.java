@@ -9,55 +9,23 @@ import java.io.FileNotFoundException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.BeforeClass;
 
 /**
  *
  * @author Malik
  */
 public class JSONShapeReaderTest {
-
-    JSONShapeReader me = new JSONShapeReader();
-
-    public JSONShapeReaderTest() {
-
+    
+    JSONShapeReader me = new JSONShapeReader();      
+    
+    public JSONShapeReaderTest() throws FileNotFoundException {
+        me.getShapesFromFile("stored_shapes.json");
     }
 
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() {
-        testGetShapesFromFile();
-    }
-
-    @After
-    public void tearDown() throws Exception {
-    }
-
-    /**
-     * Test of getShapesFromFile method, of class JSONShapeReader.
-     */
-    @Test
-    public void testGetShapesFromFile() {
-        try {
-            me.getShapesFromFile("stored_shapes.json");
-        } catch (FileNotFoundException ex) {
-            fail("JSON file could not be imported from, FAIL");
-        }
-    }
-
-    /**
-     * Test of getSlList method, of class JSONShapeReader.
-     */
-    @Test
+     @Test
     public void testGetSlList() {
         try {
             System.out.println("Lines loaded = " + me.getSlList());
@@ -101,4 +69,41 @@ public class JSONShapeReaderTest {
             fail("Cannot load squares lists, FAIL");
         }
     }
+    
+    /**
+     * Test of getShapesFromFile method, of class JSONShapeReader.
+     */
+    @Test
+    public void testGetShapesFromFile() throws Exception {
+        try {
+             me.getShapesFromFile("stored_shapes.json");
+        } catch (FileNotFoundException ex) {
+            fail("JSON file could not be imported from, FAIL");
+        }
+    }
+
+    /**
+     * Test of generateTestJSON method, of class JSONShapeReader.
+     */
+    @Test
+    public void testGenerateTestJSON() {
+//        System.out.println("generateTestJSON");
+//        String file = "";
+//        JSONShapeReader.generateTestJSON(file);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of main method, of class JSONShapeReader.
+     */
+    @Test
+    public void testMain() throws Exception {
+//        System.out.println("main");
+//        String[] args = null;
+//        JSONShapeReader.main(args);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+    }
+    
 }

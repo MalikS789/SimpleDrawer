@@ -13,14 +13,13 @@ import java.awt.Color;
 
  interface Line
     {
-
        int getXEnd(); 
        void setXEnd(int xEnd);
        int getYEnd();
        void setYEnd(int yEnd);
     }
 
-public class SimpleLine extends SimpleLineOval implements Line{
+public class SimpleLine extends TwoPointShape implements Line{
     
     // Location of the end of the line
     private int xEnd, yEnd;

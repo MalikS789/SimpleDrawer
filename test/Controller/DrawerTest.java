@@ -19,12 +19,38 @@ public class DrawerTest {
      * Test of scaleColour method, of class Drawer.
      */
     @Test
-    public void testScaleColour() {
-        System.out.println("scaleColour");
+    public void testScaleColourRed() {
+        System.out.println("scaleColourRed");
         Color c = Color.RED;
         float currentBrightness = 0.5F;
         Drawer instance = new Drawer();
         Color expResult = new Color(127, 0, 0);
+        Color result = instance.scaleColour(c, currentBrightness);
+        if (!(expResult.equals(result)))  {
+            fail("Color wasn't scaled successfully (wrong value returned) FAIL");
+        }
+    }
+    
+        @Test
+    public void testScaleColourGreen() {
+        System.out.println("scaleColourGreen");
+        Color c = Color.GREEN;
+        float currentBrightness = 0.5F;
+        Drawer instance = new Drawer();
+        Color expResult = new Color(0, 127, 0);
+        Color result = instance.scaleColour(c, currentBrightness);
+        if (!(expResult.equals(result)))  {
+            fail("Color wasn't scaled successfully (wrong value returned) FAIL");
+        }
+    }
+    
+        @Test
+    public void testScaleColourBlue() {
+        System.out.println("scaleColourBlue");
+        Color c = Color.BLUE;
+        float currentBrightness = 0.5F;
+        Drawer instance = new Drawer();
+        Color expResult = new Color(0, 0, 127);
         Color result = instance.scaleColour(c, currentBrightness);
         if (!(expResult.equals(result)))  {
             fail("Color wasn't scaled successfully (wrong value returned) FAIL");

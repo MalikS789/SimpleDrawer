@@ -18,7 +18,7 @@ interface Oval{
    void setyBottomRight(int yBottomRight);        
 }
 
-public class SimpleOval extends SimpleLineOval implements Oval{
+public class SimpleOval extends TwoPointShape implements Oval{
 
     private int xBottomRight, yBottomRight;
 
