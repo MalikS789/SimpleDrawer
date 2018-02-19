@@ -28,6 +28,7 @@ public class LineDrawer extends Drawer{
      * @param g2d Graphics2D object used for drawing
      * @param currentBrightness the current brightness being used to draw
      */
+    @Override
     public void drawShape(Graphics2D g2d, float currentBrightness) {
         // scale the brightness of the colour
         Color c = scaleColour(line.getColour(), currentBrightness);
