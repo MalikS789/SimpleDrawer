@@ -12,13 +12,6 @@ import java.awt.Color;
  *
  * @author ac8441o
  */
-interface TwoPoints
-{
-  int getXStart();
-  void setXStart(int xStart);
-  int getYStart();
-  void setYStart(int yStart);
-}
 
 public class TwoPointShape extends SimpleShape implements TwoPoints{
     // Shape start location

@@ -13,15 +13,6 @@ import java.awt.Color;
  * @author Malik
  */
 
-interface Shape {
-    Color getColour();
-void setColour(Color colour);
-int getThickness();
-void setThickness(int thickness);
-ShapeType getShapeType();
-void setShapeType(ShapeType shapeType);
-}
-
 public class SimpleShape implements Shape{
     
     // Shape characteristics

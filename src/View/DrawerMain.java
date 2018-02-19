@@ -29,8 +29,9 @@ import org.xml.sax.SAXException;
 import Controller.JSONShapeReader;
 import Event.ShapeType;
 import Controller.XMLShapeReader;
+import javax.swing.JFrame;
 
-public class DrawerMain extends javax.swing.JFrame {
+public class DrawerMain extends JFrame {
 
     private DrawingPanel drawingPanel; // the drawing panel
 
@@ -406,10 +407,10 @@ public class DrawerMain extends javax.swing.JFrame {
 
             shapeReader.getShapesFromFile("stored_shapes.xml");
             List listOfShapes = new ArrayList();
-            listOfShapes.addAll(shapeReader.getSlList());
-            listOfShapes.addAll(shapeReader.getOlList());
-            listOfShapes.addAll(shapeReader.getStList());
-            listOfShapes.addAll(shapeReader.getSsList());
+            listOfShapes.addAll(XMLShapeReader.getSlList());
+            listOfShapes.addAll(XMLShapeReader.getOlList());
+            listOfShapes.addAll(XMLShapeReader.getStList());
+            listOfShapes.addAll(XMLShapeReader.getSsList());
             drawingPanel.setShapes(listOfShapes);
             drawingPanel.repaint();
 
@@ -462,19 +463,24 @@ public class DrawerMain extends javax.swing.JFrame {
     }
 
     private void UpdateColour() {
-        int currentRed, currentGreen, currentBlue;
-        currentRed = scrRed.getValue();
-        currentGreen = scrGreen.getValue();
-        currentBlue = scrBlue.getValue();
-        txtRed.setText(currentRed + "");
-        txtGreen.setText(currentGreen + "");
-        txtBlue.setText(currentBlue + "");
-        drawingPanel.setCurrentColor(new Color(currentRed, currentGreen, currentBlue));
+        //Get the values the user wants for each of the RGB values
+        txtRed.setText(scrRed.getValue() + "");
+        txtGreen.setText(scrGreen.getValue() + "");
+        txtBlue.setText(scrBlue.getValue() + "");
+        //Apply this colour to the drawingpanel
+        drawingPanel.setCurrentColor(new Color(scrRed.getValue(), scrGreen.getValue(), scrBlue.getValue()));
+        //Get the brightness value
         float currentBrightness = scrBrightness.getValue();
-        currentRed = (int) (scrRed.getValue() * ((100 - currentBrightness) / 100));
-        currentGreen = (int) (scrGreen.getValue() * ((100 - currentBrightness) / 100));
-        currentBlue = (int) (scrBlue.getValue() * ((100 - currentBrightness) / 100));
-        ColourPreview.setBackground(new Color(currentRed, currentGreen, currentBlue));
+        //Considering the brightness value, adjust the values of red green and blue accordingly
+        scrRed.setValue((int) (scrRed.getValue() * ((100 - currentBrightness) / 100)));
+        scrGreen.setValue((int) (scrGreen.getValue() * ((100 - currentBrightness) / 100)));
+        scrBlue.setValue((int) (scrBlue.getValue() * ((100 - currentBrightness) / 100)));
+        //Ensure the user can see what the final colour looks like
+        ColourPreview.setBackground(new Color(
+                (int) (scrRed.getValue() * ((100 - currentBrightness) / 100)),
+                (int) (scrGreen.getValue() * ((100 - currentBrightness) / 100)),
+                (int) (scrBlue.getValue() * ((100 - currentBrightness) / 100))));
+        //This is to ensure the GUI knows the current brightness value
         drawingPanel.setCurrentBrightness((100 - currentBrightness) / 100);
     }
 

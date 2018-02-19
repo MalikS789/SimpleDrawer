@@ -14,19 +14,12 @@ import java.util.List;
  *
  * @author ac8441o
  */
+public class MultiPointShape extends SimpleShape implements MultiPoints {
 
-interface MultiPoints
-{
-List<Point> getVertices();  
-void setVertices(List<Point> vertices);
-}
-
-public class MultiPointShape extends SimpleShape implements MultiPoints{
-    
     protected List<Point> vertices; // points that define the triangle
 
     public MultiPointShape(List<Point> v, Color c, int t, ShapeType ss) {
-        super(c,t,ss);
+        super(c, t, ss);
         vertices = v;
     }
 

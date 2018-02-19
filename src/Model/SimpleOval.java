@@ -11,13 +11,6 @@ package Model;
 import Event.ShapeType;
 import java.awt.Color;
 
-interface Oval{
-   int getxBottomRight();
-   void setxBottomRight(int xBottomRight);
-   int getyBottomRight();
-   void setyBottomRight(int yBottomRight);        
-}
-
 public class SimpleOval extends TwoPointShape implements Oval{
 
     private int xBottomRight, yBottomRight;
@@ -31,6 +24,7 @@ public class SimpleOval extends TwoPointShape implements Oval{
     /**
      * @return the xBottomRight
      */
+    @Override
     public int getxBottomRight() {
         return xBottomRight;
     }
@@ -38,6 +32,7 @@ public class SimpleOval extends TwoPointShape implements Oval{
     /**
      * @param xBottomRight the xBottomRight to set
      */
+    @Override
     public void setxBottomRight(int xBottomRight) {
         this.xBottomRight = xBottomRight;
     }
@@ -45,6 +40,7 @@ public class SimpleOval extends TwoPointShape implements Oval{
     /**
      * @return the yBottomRight
      */
+    @Override
     public int getyBottomRight() {
         return yBottomRight;
     }
@@ -52,12 +48,12 @@ public class SimpleOval extends TwoPointShape implements Oval{
     /**
      * @param yBottomRight the yBottomRight to set
      */
+    @Override
     public void setyBottomRight(int yBottomRight) {
         this.yBottomRight = yBottomRight;
     }
-    /**
-     *
-     * @return the area in pixels of the ellipse. Does this always work?
+    
+     // @return the area in pixels of the ellipse. Does this always work?
      
     public double getArea() {
         int line1 = xBottomRight - xStart;
@@ -65,5 +61,4 @@ public class SimpleOval extends TwoPointShape implements Oval{
         System.out.println(line1 + ", " + line2 + " " + Math.PI * line1 / 2 * line2 / 2);
         return Math.PI * line1 / 2 * line2 / 2;
     }
-    * */
 }

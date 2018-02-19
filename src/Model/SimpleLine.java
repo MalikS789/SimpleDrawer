@@ -11,14 +11,6 @@ package Model;
 import Event.ShapeType;
 import java.awt.Color;
 
- interface Line
-    {
-       int getXEnd(); 
-       void setXEnd(int xEnd);
-       int getYEnd();
-       void setYEnd(int yEnd);
-    }
-
 public class SimpleLine extends TwoPointShape implements Line{
     
     // Location of the end of the line
@@ -30,18 +22,22 @@ public class SimpleLine extends TwoPointShape implements Line{
         yEnd = ye;
     }
 
+    @Override
      public int getXEnd() {
         return xEnd;
     }
 
+    @Override
     public void setXEnd(int xEnd) {
         this.xEnd = xEnd;
     }
 
+    @Override
     public int getYEnd() {
         return yEnd;
     }
 
+    @Override
     public void setYEnd(int yEnd) {
         this.yEnd = yEnd;
     }

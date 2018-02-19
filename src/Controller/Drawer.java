@@ -24,7 +24,7 @@ public class Drawer {
      * that's the maximum allowed.
      */
     
-    public void drawShape(Graphics2D g2d, float currentBrightness) {
+    protected void drawShape(Graphics2D g2d, float currentBrightness) {
 
     }
         

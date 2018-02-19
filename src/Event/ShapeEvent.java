@@ -8,8 +8,10 @@
  */
 package Event;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Point;
 import java.lang.reflect.Field;
+import java.util.List;
 
 public class ShapeEvent {
 
@@ -47,7 +49,7 @@ public class ShapeEvent {
         eventType = eType;
     }
 
-    public ShapeEvent(java.util.List<Point> v, Color c, int t, ShapeType st, String eType) { //specific constructor
+    public ShapeEvent(List<Point> v, Color c, int t, ShapeType st, String eType) { //specific constructor
         xStart = v.get(0).x;
         yStart = v.get(0).y;
         xEnd = v.get(1).x;
