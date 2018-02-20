@@ -463,24 +463,19 @@ public class DrawerMain extends JFrame {
     }
 
     private void UpdateColour() {
-        //Get the values the user wants for each of the RGB values
-        txtRed.setText(scrRed.getValue() + "");
-        txtGreen.setText(scrGreen.getValue() + "");
-        txtBlue.setText(scrBlue.getValue() + "");
-        //Apply this colour to the drawingpanel
-        drawingPanel.setCurrentColor(new Color(scrRed.getValue(), scrGreen.getValue(), scrBlue.getValue()));
-        //Get the brightness value
+        int currentRed, currentGreen, currentBlue;
+        currentRed = scrRed.getValue();
+        currentGreen = scrGreen.getValue();
+        currentBlue = scrBlue.getValue();
+        txtRed.setText(currentRed + "");
+        txtGreen.setText(currentGreen + "");
+        txtBlue.setText(currentBlue + "");
+        drawingPanel.setCurrentColor(new Color(currentRed, currentGreen, currentBlue));
         float currentBrightness = scrBrightness.getValue();
-        //Considering the brightness value, adjust the values of red green and blue accordingly
-        scrRed.setValue((int) (scrRed.getValue() * ((100 - currentBrightness) / 100)));
-        scrGreen.setValue((int) (scrGreen.getValue() * ((100 - currentBrightness) / 100)));
-        scrBlue.setValue((int) (scrBlue.getValue() * ((100 - currentBrightness) / 100)));
-        //Ensure the user can see what the final colour looks like
-        ColourPreview.setBackground(new Color(
-                (int) (scrRed.getValue() * ((100 - currentBrightness) / 100)),
-                (int) (scrGreen.getValue() * ((100 - currentBrightness) / 100)),
-                (int) (scrBlue.getValue() * ((100 - currentBrightness) / 100))));
-        //This is to ensure the GUI knows the current brightness value
+        currentRed = (int) (scrRed.getValue() * ((100 - currentBrightness) / 100));
+        currentGreen = (int) (scrGreen.getValue() * ((100 - currentBrightness) / 100));
+        currentBlue = (int) (scrBlue.getValue() * ((100 - currentBrightness) / 100));
+        ColourPreview.setBackground(new Color(currentRed, currentGreen, currentBlue));
         drawingPanel.setCurrentBrightness((100 - currentBrightness) / 100);
     }
 
