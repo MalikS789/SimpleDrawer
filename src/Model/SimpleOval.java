@@ -8,6 +8,7 @@
  */
 package Model;
 
+import Model.Interface.Oval;
 import Event.ShapeType;
 import java.awt.Color;
 

@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Model.Interface.Shape;
 import Event.ShapeType;
 import java.awt.Color;
 
