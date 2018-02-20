@@ -25,18 +25,22 @@ public class TwoPointShape extends SimpleShape implements TwoPoints{
         
     } 
     
+    @Override
     public int getXStart() {
         return xStart;
     }
 
+    @Override
     public void setXStart(int xStart) {
         this.xStart = xStart;
     }
 
+    @Override
     public int getYStart() {
         return yStart;
     }
 
+    @Override
     public void setYStart(int yStart) {
         this.yStart = yStart;
     }

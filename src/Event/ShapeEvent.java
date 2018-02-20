@@ -15,22 +15,14 @@ import java.util.List;
 
 public class ShapeEvent {
 
-    // Shape start location
-    private int xStart, yStart;
-    // Shape end location
-    private int xEnd, yEnd;
+    private int xStart, yStart;// Shape start location
+    private int xEnd, yEnd; // Shape end location
     private int xBottomRight, yBottomRight;
-    // triangle third location
-    // triangle third location
-    private int xextra, yextra;
-    // Square fourth location
-    private int xxextra, yyextra;
-    // Shape characteristics
-    private Color colour;
+    private int xextra, yextra;// triangle third location
+    private int xxextra, yyextra;// Square fourth location
+    private Color colour;// Shape characteristics
     private int thickness;
-    // Type of shape e.g. line or oval
-    private ShapeType shapeType;
-
+    private ShapeType shapeType;// Type of shape e.g. line or oval
     private String eventType; // currently always SHAPE
 
     public ShapeEvent(int xs, int ys, int xe, int ye, Color c, int t, ShapeType st, String eType) {

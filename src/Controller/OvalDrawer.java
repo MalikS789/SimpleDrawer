@@ -39,8 +39,21 @@ public class OvalDrawer extends Drawer {
         int xs = oval.getXStart();
         int ys = oval.getYStart();
 
+        if (oval.getxBottomRight() - xs < 0) {
+            //Flip the x values
+            int temp = xs;
+            xs = oval.getxBottomRight();
+            oval.setxBottomRight(temp);
+        }
+
+        if (oval.getyBottomRight() - ys < 0) {
+            //Flip the y values
+            int temp = ys;
+            ys = oval.getyBottomRight();
+            oval.setyBottomRight(temp);
+        }
+
         // draw the oval        
         g2d.drawOval(xs, ys, oval.getxBottomRight() - xs, oval.getyBottomRight() - ys);
-
     }
 }
