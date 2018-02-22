@@ -76,7 +76,7 @@ public class DrawerMain extends JFrame {
         radLine = new javax.swing.JRadioButton();
         radOval = new javax.swing.JRadioButton();
         radTriangle = new javax.swing.JRadioButton();
-        radSquare = new javax.swing.JRadioButton();
+        radQuadrilateral = new javax.swing.JRadioButton();
         panThickness = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtThickness = new javax.swing.JTextField();
@@ -229,14 +229,14 @@ public class DrawerMain extends JFrame {
         });
         panShape.add(radTriangle);
 
-        grpShape.add(radSquare);
-        radSquare.setText("Square");
-        radSquare.addActionListener(new java.awt.event.ActionListener() {
+        grpShape.add(radQuadrilateral);
+        radQuadrilateral.setText("Square");
+        radQuadrilateral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radShapeActionPerformed(evt);
             }
         });
-        panShape.add(radSquare);
+        panShape.add(radQuadrilateral);
 
         panMoreControls.add(panShape);
 
@@ -375,7 +375,7 @@ public class DrawerMain extends JFrame {
             return;
         }
 
-        if (radSquare.isSelected()) {
+        if (radQuadrilateral.isSelected()) {
             drawingPanel.setCurrentShapeType(ShapeType.QUADRILATERAL);
             return;
         }
@@ -517,7 +517,7 @@ public class DrawerMain extends JFrame {
     private javax.swing.JPanel panThickness;
     private javax.swing.JRadioButton radLine;
     private javax.swing.JRadioButton radOval;
-    private javax.swing.JRadioButton radSquare;
+    private javax.swing.JRadioButton radQuadrilateral;
     private javax.swing.JRadioButton radTriangle;
     private javax.swing.JScrollBar scrBlue;
     private javax.swing.JScrollBar scrBrightness;

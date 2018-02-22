@@ -28,7 +28,7 @@ public class ShapeReader {
     public static List<SimpleLine> slList; // list of lines
     public static List<SimpleOval> olList; // list of ovals
     public static List<SimpleTriangle> stList; //list of triangles
-    public static List<SimpleQuadrilateral> qlList; //list of squares
+    public static List<SimpleQuadrilateral> qlList; //list of quadrilaterals
 
     public ShapeReader() {
         slList = new ArrayList<>();

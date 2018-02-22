@@ -3,18 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model.Interface;
-
-import java.awt.Point;
-import java.util.List;
+package Model;
 
 /**
  *
  * @author Malik
  */
-public interface MultiPoints {
+public interface Line {
 
-    List<Point> getVertices();
+    int getXEnd();
 
-    void setVertices(List<Point> vertices);
+    void setXEnd(int xEnd);
+
+    int getYEnd();
+
+    void setYEnd(int yEnd);
 }

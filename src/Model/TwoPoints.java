@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model.Interface;
+package Model;
 
 /**
  *
  * @author Malik
  */
-public interface Line {
+public interface TwoPoints {
 
-    int getXEnd();
+    int getXStart();
 
-    void setXEnd(int xEnd);
+    void setXStart(int xStart);
 
-    int getYEnd();
+    int getYStart();
 
-    void setYEnd(int yEnd);
+    void setYStart(int yStart);
 }

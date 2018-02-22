@@ -62,7 +62,7 @@ public class JSONShapeReaderTest {
         try {
             System.out.println("quadrilateral loaded = " + me.getQlList());
         } catch (Exception ex) {
-            fail("Cannot load squares lists, FAIL");
+            fail("Cannot load quadrilateral lists, FAIL");
         }
     }
     
@@ -76,30 +76,5 @@ public class JSONShapeReaderTest {
         } catch (FileNotFoundException ex) {
             fail("JSON file could not be imported from, FAIL");
         }
-    }
-
-    /**
-     * Test of generateTestJSON method, of class JSONShapeReader.
-     */
-    @Test
-    public void testGenerateTestJSON() {
-//        System.out.println("generateTestJSON");
-//        String file = "";
-//        JSONShapeReader.generateTestJSON(file);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of main method, of class JSONShapeReader.
-     */
-    @Test
-    public void testMain() throws Exception {
-//        System.out.println("main");
-//        String[] args = null;
-//        JSONShapeReader.main(args);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-    }
-    
+    }   
 }

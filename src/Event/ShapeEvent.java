@@ -19,7 +19,7 @@ public class ShapeEvent {
     private int xEnd, yEnd; // Shape end location
     private int xBottomRight, yBottomRight;
     private int xextra, yextra;// triangle third location
-    private int xxextra, yyextra;// Square fourth location
+    private int xxextra, yyextra;// quadrilateral fourth location
     private Color colour;// Shape characteristics
     private int thickness;
     private ShapeType shapeType;// Type of shape e.g. line or oval

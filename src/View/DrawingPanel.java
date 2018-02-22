@@ -208,14 +208,14 @@ public class DrawingPanel extends JPanel {
                             currentPoints = null;
                             break;
                         }
-                    case QUADRILATERAL: // Draw the square
+                    case QUADRILATERAL: // Draw the quadrilateral
                         Point nextPointt = new Point();
                         nextPointt.x = e.getX();
                         nextPointt.y = e.getY();
                         currentPoints.add(nextPointt);
-                        if (currentPoints.size() > 3) { // 4 points so must be complete square
-                            SimpleQuadrilateral ss = new SimpleQuadrilateral(currentPoints, currentColor, currentThickness, ShapeType.QUADRILATERAL);
-                            shapes.add(ss);
+                        if (currentPoints.size() > 3) { // 4 points so must be complete quadrilateral
+                            SimpleQuadrilateral ql = new SimpleQuadrilateral(currentPoints, currentColor, currentThickness, ShapeType.QUADRILATERAL);
+                            shapes.add(ql);
                             currentPoints = null;
                             break;
                         }
