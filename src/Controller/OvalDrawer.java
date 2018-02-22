@@ -57,7 +57,7 @@ public class OvalDrawer extends Drawer {
         }
 
         // draw the oval       
-        System.out.println("Shape being drawn = OVAL (" + xs + " , " + ys + " with a height of " + (oval.getxBottomRight()-xs) + "and a width of " + oval.getyBottomRight() + ")");
+        //System.out.println("Shape being drawn = OVAL (" + xs + " , " + ys + " with a height of " + (oval.getxBottomRight()-xs) + "and a width of " + oval.getyBottomRight() + ")");
         g2d.drawOval(xs, ys, oval.getxBottomRight() - xs, oval.getyBottomRight() - ys);
     }
 }

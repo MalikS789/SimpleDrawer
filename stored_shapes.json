@@ -51,7 +51,7 @@
                 "falpha": 0.0
             },
             "thickness": 5,
-            "shapeType": "SQUARE",
+            "shapeType": "QUADRILATERAL",
             "eventType": "SHAPE"
         }]
 }

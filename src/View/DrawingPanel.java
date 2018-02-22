@@ -22,12 +22,12 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import Controller.LineDrawer;
 import Controller.OvalDrawer;
-import Controller.SquareDrawer;
+import Controller.QuadrilateralDrawer;
 import Controller.TriangleDrawer;
 import Event.ShapeType;
 import Model.SimpleLine;
 import Model.SimpleOval;
-import Model.SimpleSquare;
+import Model.SimpleQuadrilateral;
 import Model.SimpleTriangle;
 import static Event.ShapeType.OVAL;
 
@@ -109,8 +109,8 @@ public class DrawingPanel extends JPanel {
                         TriangleDrawer td = new TriangleDrawer((SimpleTriangle) aShape);
                         td.drawShape(g2d, currentBrightness);
                     } else {
-                        if (aShape instanceof SimpleSquare) {
-                            SquareDrawer sd = new SquareDrawer((SimpleSquare) aShape);
+                        if (aShape instanceof SimpleQuadrilateral) {
+                            QuadrilateralDrawer sd = new QuadrilateralDrawer((SimpleQuadrilateral) aShape);
                             sd.drawShape(g2d, currentBrightness);
                         }
                     }
@@ -208,13 +208,13 @@ public class DrawingPanel extends JPanel {
                             currentPoints = null;
                             break;
                         }
-                    case SQUARE: // Draw the square
+                    case QUADRILATERAL: // Draw the square
                         Point nextPointt = new Point();
                         nextPointt.x = e.getX();
                         nextPointt.y = e.getY();
                         currentPoints.add(nextPointt);
                         if (currentPoints.size() > 3) { // 4 points so must be complete square
-                            SimpleSquare ss = new SimpleSquare(currentPoints, currentColor, currentThickness, ShapeType.SQUARE);
+                            SimpleQuadrilateral ss = new SimpleQuadrilateral(currentPoints, currentColor, currentThickness, ShapeType.QUADRILATERAL);
                             shapes.add(ss);
                             currentPoints = null;
                             break;

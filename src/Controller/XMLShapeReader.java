@@ -84,7 +84,7 @@ public class XMLShapeReader extends ShapeReader{
             System.out.println("number of lines: " + me.slList.size());
             System.out.println("number of ovals: " + me.olList.size());
             System.out.println("number of triangles: " + me.stList.size());
-            System.out.println("number of squares: " + me.ssList.size());
+            System.out.println("number of quadrilateral: " + me.qlList.size());
 
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             Logger.getLogger(XMLShapeReader.class.getName()).log(Level.SEVERE, null, ex);

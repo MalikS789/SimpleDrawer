@@ -75,8 +75,6 @@ public class JSONShapeReader extends ShapeReader {
         // load in some hard-coded shapes
         list.add(new ShapeEvent(20, 40, 30, 90, Color.red, 5, ShapeType.LINE, "SHAPE"));
         list.add(new ShapeEvent(20, 40, 70, 90, Color.blue, 5, ShapeType.OVAL, "SHAPE"));
-        //list.add(new ShapeEvent(80, 95, 70, 45, 60, 70, Color.green, 5, ShapeType.TRIANGLE, "SHAPE"));
-        //list.add(new ShapeEvent(34, 45, 67, 35, 80, 90, 60, 70, Color.red, 5, ShapeType.SQUARE, "SHAPE"));
         ListOfShapeEvents los = new ListOfShapeEvents();
         los.listOfShapeEvents = list;
         Gson gson = new Gson();
@@ -108,6 +106,6 @@ public class JSONShapeReader extends ShapeReader {
         System.out.println("Lines loaded = " + me.slList.size());
         System.out.println("Ovals loaded = " + me.olList.size());
         System.out.println("Triangles loaded = " + me.stList.size());
-        System.out.println("Squares loaded = " + me.ssList.size());
+        System.out.println("Quadrilateral  loaded = " + me.qlList.size());
     }
 }

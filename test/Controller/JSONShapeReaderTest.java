@@ -60,7 +60,7 @@ public class JSONShapeReaderTest {
     @Test
     public void testGetSsList() {
         try {
-            System.out.println("Squares loaded = " + me.getSsList());
+            System.out.println("quadrilateral loaded = " + me.getQlList());
         } catch (Exception ex) {
             fail("Cannot load squares lists, FAIL");
         }

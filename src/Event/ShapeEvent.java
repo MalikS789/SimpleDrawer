@@ -48,7 +48,7 @@ public class ShapeEvent {
         yEnd = v.get(1).y;
         xextra = v.get(2).x;
         yextra = v.get(2).y;
-        if (st == ShapeType.SQUARE) {
+        if (st == ShapeType.QUADRILATERAL) {
             xxextra = v.get(3).x;
             yyextra = v.get(3).y;
         }

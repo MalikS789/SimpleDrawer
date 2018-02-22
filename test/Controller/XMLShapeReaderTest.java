@@ -77,11 +77,11 @@ public class XMLShapeReaderTest {
      * Test of getSsList method, of class JSONShapeReader.
      */
     @Test
-    public void testGetSsList() {
+    public void testGetQlList() {
         try {
-            System.out.println("Squares loaded = " + me.getSsList());
+            System.out.println("quadrilateral loaded = " + me.getQlList());
         } catch (Exception ex) {
-            fail("Cannot load squares lists, FAIL");
+            fail("Cannot load quadrilateral lists, FAIL");
         }
     }
 }

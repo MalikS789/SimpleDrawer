@@ -8,5 +8,5 @@
 package Event;
 
 public enum ShapeType {
-    LINE, OVAL, TRIANGLE, SQUARE;
+    LINE, OVAL, TRIANGLE, QUADRILATERAL;
 }

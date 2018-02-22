@@ -376,7 +376,7 @@ public class DrawerMain extends JFrame {
         }
 
         if (radSquare.isSelected()) {
-            drawingPanel.setCurrentShapeType(ShapeType.SQUARE);
+            drawingPanel.setCurrentShapeType(ShapeType.QUADRILATERAL);
             return;
         }
     }//GEN-LAST:event_radShapeActionPerformed
@@ -410,7 +410,7 @@ public class DrawerMain extends JFrame {
             listOfShapes.addAll(XMLShapeReader.getSlList());
             listOfShapes.addAll(XMLShapeReader.getOlList());
             listOfShapes.addAll(XMLShapeReader.getStList());
-            listOfShapes.addAll(XMLShapeReader.getSsList());
+            listOfShapes.addAll(XMLShapeReader.getQlList());
             drawingPanel.setShapes(listOfShapes);
             drawingPanel.repaint();
 
@@ -430,7 +430,7 @@ public class DrawerMain extends JFrame {
             listOfShapes.addAll(JSONShapeReader.getSlList());
             listOfShapes.addAll(JSONShapeReader.getOlList());
             listOfShapes.addAll(JSONShapeReader.getStList());
-            listOfShapes.addAll(JSONShapeReader.getSsList());
+            listOfShapes.addAll(JSONShapeReader.getQlList());
             drawingPanel.setShapes(listOfShapes);
             drawingPanel.repaint();
         } catch (FileNotFoundException ex) {

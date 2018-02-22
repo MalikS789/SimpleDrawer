@@ -9,15 +9,15 @@ import Event.ShapeEvent;
 import Event.ShapeType;
 import static Event.ShapeType.LINE;
 import static Event.ShapeType.OVAL;
-import static Event.ShapeType.SQUARE;
 import static Event.ShapeType.TRIANGLE;
 import Model.SimpleLine;
 import Model.SimpleOval;
-import Model.SimpleSquare;
+import Model.SimpleQuadrilateral;
 import Model.SimpleTriangle;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+import static Event.ShapeType.QUADRILATERAL;
 
 /**
  *
@@ -28,13 +28,13 @@ public class ShapeReader {
     public static List<SimpleLine> slList; // list of lines
     public static List<SimpleOval> olList; // list of ovals
     public static List<SimpleTriangle> stList; //list of triangles
-    public static List<SimpleSquare> ssList; //list of squares
+    public static List<SimpleQuadrilateral> qlList; //list of squares
 
     public ShapeReader() {
         slList = new ArrayList<>();
         olList = new ArrayList<>();
         stList = new ArrayList<>();
-        ssList = new ArrayList<>();
+        qlList = new ArrayList<>();
     }
 
     /**
@@ -61,8 +61,8 @@ public class ShapeReader {
         return stList;
     }
 
-    public static List<SimpleSquare> getSsList() {
-        return ssList;
+    public static List<SimpleQuadrilateral> getQlList() {
+        return qlList;
     }
 
     /**
@@ -90,14 +90,14 @@ public class ShapeReader {
                 SimpleTriangle st = new SimpleTriangle(TrianglePoints, se.getColour(), se.getThickness(), ShapeType.TRIANGLE);
                 stList.add(st);
                 break;
-            case SQUARE: // store the square
-                List<Point> SquarePoints = new ArrayList<>();
-                SquarePoints.add(new Point(se.getXStart(), se.getYStart()));
-                SquarePoints.add(new Point(se.getXextra(), se.getYextra()));
-                SquarePoints.add(new Point(se.getXXextra(), se.getYYextra())); 
-                SquarePoints.add(new Point(se.getXEnd(), se.getYEnd()));
-                SimpleSquare ss = new SimpleSquare(SquarePoints, se.getColour(), se.getThickness(), ShapeType.SQUARE);
-                ssList.add(ss);
+            case QUADRILATERAL: // store the quadrilateral
+                List<Point> QuadrilateralPoints = new ArrayList<>();
+                QuadrilateralPoints.add(new Point(se.getXStart(), se.getYStart()));
+                QuadrilateralPoints.add(new Point(se.getXextra(), se.getYextra()));
+                QuadrilateralPoints.add(new Point(se.getXXextra(), se.getYYextra())); 
+                QuadrilateralPoints.add(new Point(se.getXEnd(), se.getYEnd()));
+                SimpleQuadrilateral ss = new SimpleQuadrilateral(QuadrilateralPoints, se.getColour(), se.getThickness(), ShapeType.QUADRILATERAL);
+                qlList.add(ss);
                 break;
         }
     }

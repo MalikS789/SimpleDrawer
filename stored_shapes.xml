@@ -43,7 +43,7 @@
         <thickness>10</thickness>             
     </shape>
     <shape>
-        <type>square</type>
+        <type>quadrilateral</type>
         <start>
             <x>167</x>
             <y>218</y>
