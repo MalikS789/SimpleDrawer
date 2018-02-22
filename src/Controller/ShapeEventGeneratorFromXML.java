@@ -5,8 +5,11 @@
  * @author Gill Windall
  * @version 3.0
  */
-package Event;
+package Controller;
 
+import Event.ShapeEvent;
+import Event.ShapeEventListener;
+import Event.ShapeType;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;

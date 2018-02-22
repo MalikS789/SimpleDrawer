@@ -28,6 +28,7 @@ public class OvalDrawer extends Drawer {
      * @param g2d Graphics2D object used for drawing
      * @param currentBrightness the current brightness being used to draw
      */
+    
     @Override
     public void drawShape(Graphics2D g2d, float currentBrightness) {
         // scale the brightness of the colour
@@ -44,6 +45,7 @@ public class OvalDrawer extends Drawer {
             int temp = xs;
             xs = oval.getxBottomRight();
             oval.setxBottomRight(temp);
+            oval.setXStart(xs);
         }
 
         if (oval.getyBottomRight() - ys < 0) {
@@ -51,9 +53,11 @@ public class OvalDrawer extends Drawer {
             int temp = ys;
             ys = oval.getyBottomRight();
             oval.setyBottomRight(temp);
+            oval.setYStart(ys);
         }
 
-        // draw the oval        
+        // draw the oval       
+        System.out.println("Shape being drawn = OVAL (" + xs + " , " + ys + " with a height of " + (oval.getxBottomRight()-xs) + "and a width of " + oval.getyBottomRight() + ")");
         g2d.drawOval(xs, ys, oval.getxBottomRight() - xs, oval.getyBottomRight() - ys);
     }
 }

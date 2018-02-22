@@ -23,11 +23,11 @@ public class Drawer {
      * We have to be careful the values don't go over 255 as
      * that's the maximum allowed.
      */
-    
-    protected void drawShape(Graphics2D g2d, float currentBrightness) {
-
-    }
         
+    public void drawShape(Graphics2D g2d, float currentBrightness) {
+        
+    }
+    
     protected Color scaleColour(Color c, float currentBrightness) {
         // get the red amount and scale by currentBrightness
         int red = (int) (c.getRed() * currentBrightness);

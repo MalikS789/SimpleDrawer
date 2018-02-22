@@ -9,7 +9,6 @@
  */
 package Controller;
 
-import Event.ShapeEventGeneratorFromXML;
 import Event.ShapeEvent;
 import Event.ShapeEventListener;
 import java.io.IOException;
