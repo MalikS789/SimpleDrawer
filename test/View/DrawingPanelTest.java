@@ -40,13 +40,12 @@ public class DrawingPanelTest {
      */
     @Test
     public void testSetCurrentShapeType() {
-        try {
-            System.out.println("setCurrentShapeType");
-            ShapeType currentShapeType = null;
-            DrawingPanel instance = new DrawingPanel();
-            instance.setCurrentShapeType(currentShapeType);
-        } catch (Exception ex) {
-            fail("Unable to call default constructor, FAIL");
+        System.out.println("setCurrentShapeType");
+        ShapeType currentShapeType = null;
+        DrawingPanel instance = new DrawingPanel();
+        instance.setCurrentShapeType(currentShapeType);
+        if (instance.getCurrentShapeType() != null) {
+            fail("ShapeType should be null, FAIL");
         }
     }
 
@@ -85,10 +84,10 @@ public class DrawingPanelTest {
     @Test
     public void testSetCurrentThickness() {
         try {
-        System.out.println("setCurrentThickness");
-        int currentThickness = 45;
-        DrawingPanel instance = new DrawingPanel();
-        instance.setCurrentThickness(currentThickness);
+            System.out.println("setCurrentThickness");
+            int currentThickness = 45;
+            DrawingPanel instance = new DrawingPanel();
+            instance.setCurrentThickness(currentThickness);
         } catch (Exception ex) {
             fail("Unable to error handle a thickness value that is too high, FAIL");
         }

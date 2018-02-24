@@ -43,7 +43,7 @@ public class XMLShapeReaderTest {
     @Test
     public void testGetSlList() {
         try {
-            System.out.println("Lines loaded = " + me.getSlList());
+            System.out.println("Lines loaded = " + me.getSlList().size());
         } catch (Exception ex) {
             fail("Cannot load lines lists, FAIL");
         }
@@ -55,7 +55,7 @@ public class XMLShapeReaderTest {
     @Test
     public void testGetOlList() {
         try {
-            System.out.println("Ovals loaded = " + me.getOlList());
+            System.out.println("Ovals loaded = " + me.getOlList().size());
         } catch (Exception ex) {
             fail("Cannot load oval lists, FAIL");
         }
@@ -67,7 +67,7 @@ public class XMLShapeReaderTest {
     @Test
     public void testGetStList() {
         try {
-            System.out.println("Trangles loaded = " + me.getStList());
+            System.out.println("Trangles loaded = " + me.getStList().size());
         } catch (Exception ex) {
             fail("Cannot load triangles lists, FAIL");
         }
@@ -79,7 +79,7 @@ public class XMLShapeReaderTest {
     @Test
     public void testGetQlList() {
         try {
-            System.out.println("quadrilateral loaded = " + me.getQlList());
+            System.out.println("quadrilateral loaded = " + me.getQlList().size());
         } catch (Exception ex) {
             fail("Cannot load quadrilateral lists, FAIL");
         }

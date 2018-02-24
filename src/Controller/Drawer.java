@@ -29,6 +29,13 @@ public class Drawer {
     }
     
     protected Color scaleColour(Color c, float currentBrightness) {
+        
+        if (currentBrightness > 1.0) {
+            currentBrightness = (float) 1.0;
+        } else if (currentBrightness < 0.0) {
+            currentBrightness = (float) 0.0;
+        }
+        
         // get the red amount and scale by currentBrightness
         int red = (int) (c.getRed() * currentBrightness);
         // check we've not gone over 255
