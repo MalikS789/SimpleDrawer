@@ -5,7 +5,7 @@
  */
 package View;
 
-import Event.ShapeType;
+import Controller.ShapeType;
 import java.awt.Color;
 import java.util.List;
 import org.junit.Test;

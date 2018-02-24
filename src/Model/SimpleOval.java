@@ -8,7 +8,7 @@
  */
 package Model;
 
-import Event.ShapeType;
+import Controller.ShapeType;
 import java.awt.Color;
 
 public class SimpleOval extends TwoPointShape implements Oval{

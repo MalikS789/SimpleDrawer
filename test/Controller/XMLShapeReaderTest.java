@@ -7,7 +7,6 @@ package Controller;
 
 import java.io.FileNotFoundException;
 import javax.xml.parsers.ParserConfigurationException;
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.xml.sax.SAXException;
@@ -22,10 +21,6 @@ public class XMLShapeReaderTest {
 
     public XMLShapeReaderTest() throws ParserConfigurationException, SAXException {
         this.me = new XMLShapeReader();
-    }
-
-    @Before
-    public void setUp() {
     }
 
     /**

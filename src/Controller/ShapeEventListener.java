@@ -1,4 +1,6 @@
-package Event;
+package Controller;
+
+import Controller.ShapeEvent;
 
 /**
  * Interface implemented by classes that want to be notified of ShapeEvents

@@ -6,7 +6,7 @@
  * Represents a shape event holding data for a shape read from file
  *
  */
-package Event;
+package Controller;
 
 import java.awt.Color;
 import java.awt.Point;

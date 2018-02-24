@@ -9,8 +9,6 @@
  */
 package Controller;
 
-import Event.ShapeEvent;
-import Event.ShapeEventListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

@@ -27,7 +27,7 @@ import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 import Controller.JSONShapeReader;
-import Event.ShapeType;
+import Controller.ShapeType;
 import Controller.XMLShapeReader;
 import javax.swing.JFrame;
 

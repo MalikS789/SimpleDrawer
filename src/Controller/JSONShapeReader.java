@@ -10,8 +10,6 @@
  */
 package Controller;
 
-import Event.ShapeType;
-import Event.ShapeEvent;
 import com.google.gson.Gson;
 import java.awt.Color;
 import java.io.BufferedReader;

@@ -5,11 +5,9 @@
  */
 package Controller;
 
-import Event.ShapeEvent;
-import Event.ShapeType;
-import static Event.ShapeType.LINE;
-import static Event.ShapeType.OVAL;
-import static Event.ShapeType.TRIANGLE;
+import static Controller.ShapeType.LINE;
+import static Controller.ShapeType.OVAL;
+import static Controller.ShapeType.TRIANGLE;
 import Model.SimpleLine;
 import Model.SimpleOval;
 import Model.SimpleQuadrilateral;
@@ -17,7 +15,7 @@ import Model.SimpleTriangle;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
-import static Event.ShapeType.QUADRILATERAL;
+import static Controller.ShapeType.QUADRILATERAL;
 
 /**
  *

@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Event;
+package Controller;
 
+import Controller.ShapeEventListener;
+import Controller.ShapeEvent;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
