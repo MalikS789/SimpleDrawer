@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import Controller.Event.ShapeEventGeneratorFromXML;
+import Controller.Event.ShapeEventListener;
 import javax.xml.parsers.ParserConfigurationException;
 import org.junit.Test;
 import static org.junit.Assert.*;

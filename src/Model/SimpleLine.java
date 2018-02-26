@@ -8,6 +8,7 @@
  */
 package Model;
 
+import Model.Interface.Line;
 import Controller.ShapeType;
 import java.awt.Color;
 

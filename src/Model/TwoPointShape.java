@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Model.Interface.TwoPoints;
 import Controller.ShapeType;
 import java.awt.Color;
 

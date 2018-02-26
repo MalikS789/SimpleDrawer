@@ -5,8 +5,8 @@
  */
 package Controller;
 
-import Controller.ShapeEventListener;
-import Controller.ShapeEvent;
+import Controller.Event.ShapeEventListener;
+import Controller.Event.ShapeEvent;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

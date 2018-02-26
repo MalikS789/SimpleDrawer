@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Model.Interface.MultiPoints;
 import Controller.ShapeType;
 import java.awt.Color;
 import java.awt.Point;

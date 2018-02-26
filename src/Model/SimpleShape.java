@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Model.Interface.Shape;
 import Controller.ShapeType;
 import java.awt.Color;
 
@@ -12,15 +13,14 @@ import java.awt.Color;
  *
  * @author Malik
  */
+public class SimpleShape implements Shape {
 
-public class SimpleShape implements Shape{
-    
     // Shape characteristics
     protected Color colour;
     protected int thickness;
     // Type of shape e.g. line or oval or triangle
     protected ShapeType shapeType;
-    
+
     public SimpleShape(Color c, int t, ShapeType ss) {
         colour = c;
         thickness = t;
@@ -28,7 +28,7 @@ public class SimpleShape implements Shape{
     }
 
     @Override
-     public Color getColour() {
+    public Color getColour() {
         return colour;
     }
 

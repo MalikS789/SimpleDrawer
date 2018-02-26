@@ -230,7 +230,7 @@ public class DrawerMain extends JFrame {
         panShape.add(radTriangle);
 
         grpShape.add(radQuadrilateral);
-        radQuadrilateral.setText("Square");
+        radQuadrilateral.setText("4 sides");
         radQuadrilateral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radShapeActionPerformed(evt);

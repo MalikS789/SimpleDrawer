@@ -1,4 +1,4 @@
-package Controller;
+package Controller.Event;
 
 import java.util.ArrayList;
 import java.util.HashMap;

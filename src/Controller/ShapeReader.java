@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Controller.Event.ShapeEvent;
 import static Controller.ShapeType.LINE;
 import static Controller.ShapeType.OVAL;
 import static Controller.ShapeType.TRIANGLE;

@@ -5,8 +5,7 @@
  */
 package Controller;
 
-import Controller.ShapeType;
-import Controller.ShapeEvent;
+import Controller.Event.ShapeEvent;
 import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
