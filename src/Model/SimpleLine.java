@@ -8,11 +8,10 @@
  */
 package Model;
 
-import Model.Interface.Line;
 import Controller.ShapeType;
 import java.awt.Color;
 
-public class SimpleLine implements Line{
+public class SimpleLine {
     
     // Shape start location
     private int xStart, yStart;

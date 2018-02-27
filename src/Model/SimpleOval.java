@@ -8,11 +8,10 @@
  */
 package Model;
 
-import Model.Interface.Oval;
 import Controller.ShapeType;
 import java.awt.Color;
 
-public class SimpleOval implements Oval{
+public class SimpleOval {
 
     //Shape start location
     private int xStart, yStart;
