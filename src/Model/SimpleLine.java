@@ -12,34 +12,81 @@ import Model.Interface.Line;
 import Controller.ShapeType;
 import java.awt.Color;
 
-public class SimpleLine extends TwoPointShape implements Line{
+public class SimpleLine implements Line{
     
+    // Shape start location
+    private int xStart, yStart;
     // Location of the end of the line
     private int xEnd, yEnd;
+    private Color colour;
+    private int thickness;
+    // Type of shape e.g. line or oval
+    private ShapeType shapeType;
 
-    public SimpleLine(int xs, int ys, int xe, int ye, Color c, int t, ShapeType so) {
-        super(c,t,so,xs,ys);
+    public SimpleLine(int xs, int ys, int xe, int ye, Color c, int t, ShapeType st) {
+        colour = c;
+        thickness = t;
+        shapeType = st;
+        xStart = xs;
+        yStart = ys;
         xEnd = xe;
         yEnd = ye;
     }
 
-    @Override
-     public int getXEnd() {
+    public int getXEnd() {
         return xEnd;
     }
 
-    @Override
     public void setXEnd(int xEnd) {
         this.xEnd = xEnd;
     }
 
-    @Override
     public int getYEnd() {
         return yEnd;
     }
 
-    @Override
     public void setYEnd(int yEnd) {
         this.yEnd = yEnd;
     }
+
+    public int getXStart() {
+        return xStart;
+    }
+
+    public void setXStart(int xStart) {
+        this.xStart = xStart;
+    }
+
+    public int getYStart() {
+        return yStart;
+    }
+
+    public void setYStart(int yStart) {
+        this.yStart = yStart;
+    }
+
+    public Color getColour() {
+        return colour;
+    }
+
+    public void setColour(Color colour) {
+        this.colour = colour;
+    }
+
+    public int getThickness() {
+        return thickness;
+    }
+
+    public void setThickness(int thickness) {
+        this.thickness = thickness;
+    }
+
+    public ShapeType getShapeType() {
+        return shapeType;
+    }
+
+    public void setShapeType(ShapeType shapeType) {
+        this.shapeType = shapeType;
+    }
+
 }
