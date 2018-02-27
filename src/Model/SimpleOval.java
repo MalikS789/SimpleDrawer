@@ -10,8 +10,9 @@ package Model;
 
 import Controller.ShapeType;
 import java.awt.Color;
+import Model.Interface.LineOval;
 
-public class SimpleOval {
+public class SimpleOval implements LineOval{
 
     //Shape start location
     private int xStart, yStart;
