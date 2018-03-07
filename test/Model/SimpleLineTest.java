@@ -7,6 +7,9 @@ package Model;
 
 import Controller.ShapeType;
 import java.awt.Color;
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,7 +22,10 @@ public class SimpleLineTest {
     SimpleLine sl;
 
     public SimpleLineTest() {
-        sl = new SimpleLine(0, 0, 10, 10, Color.BLACK, 5, ShapeType.LINE);
+        List<Point> LinePoints = new ArrayList<>();
+        LinePoints.add(new Point(0, 0));
+        LinePoints.add(new Point(10, 10));
+        sl = new SimpleLine(LinePoints, Color.BLACK, 5, ShapeType.LINE);
     }
 
     /**
@@ -29,7 +35,7 @@ public class SimpleLineTest {
     public void testGetXEnd() {
         System.out.println("getXEnd");
         int expResult = 10;
-        int result = sl.getXEnd();
+        int result = sl.getVertices().get(1).x;
         if (expResult != result) {
             fail("Expected value not returned, FAIL");
         }
@@ -42,7 +48,7 @@ public class SimpleLineTest {
     public void testSetXEnd() {
         try {
             System.out.println("setXEnd");
-            sl.setXEnd(50);
+            sl.setVertice(new Point(0, 10), 1);
         } catch (Exception ex) {
             fail("Cannot set the specified value to the data, FAIL");
         }
@@ -55,7 +61,7 @@ public class SimpleLineTest {
     public void testGetYEnd() {
         System.out.println("getYEnd");
         int expResult = 10;
-        int result = sl.getYEnd();
+        int result = sl.getVertices().get(1).y;
         if (expResult != result) {
             fail("Expected value not returned, FAIL");
         }
@@ -68,7 +74,7 @@ public class SimpleLineTest {
     public void testSetYEnd() {
         try {
             System.out.println("setYEnd");
-            sl.setYEnd(50);
+            sl.setVertice(new Point(0, 10), 1);
         } catch (Exception ex) {
             fail("Cannot set the specified value to the data, FAIL");
         }

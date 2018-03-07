@@ -26,16 +26,11 @@ public class ShapeEvent {
     private ShapeType shapeType;// Type of shape e.g. line or oval
     private String eventType; // currently always SHAPE
 
-    public ShapeEvent(int xs, int ys, int xe, int ye, Color c, int t, ShapeType st, String eType) {
+    public ShapeEvent(int xs, int ys, int xe, int ye, Color c, int t, ShapeType st, String eType) { //Legacy constructor
         xStart = xs;
         yStart = ys;
-        if (st == ShapeType.OVAL) {
-            xBottomRight = xe;
-            yBottomRight = ye;
-        } else {
-            xEnd = xe;
-            yEnd = ye;
-        }
+        xEnd = xe;
+        yEnd = ye;
         colour = c;
         thickness = t;
         shapeType = st;
@@ -49,10 +44,8 @@ public class ShapeEvent {
         yEnd = v.get(1).y;
         xextra = v.get(2).x;
         yextra = v.get(2).y;
-        if (st == ShapeType.QUADRILATERAL) {
-            xxextra = v.get(3).x;
-            yyextra = v.get(3).y;
-        }
+        xxextra = v.get(3).x;
+        yyextra = v.get(3).y;
         colour = c;
         thickness = t;
         shapeType = st;

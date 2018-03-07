@@ -74,11 +74,17 @@ public class ShapeReader {
     public void storeShape(ShapeEvent se) {
         switch (se.getShapeType()) {
             case LINE: // store the line
-                SimpleLine sl = new SimpleLine(se.getXStart(), se.getYStart(), se.getXEnd(), se.getYEnd(), se.getColour(), se.getThickness(), ShapeType.LINE);
+                List<Point> LinePoints = new ArrayList<>();
+                LinePoints.add(new Point(se.getXStart(), se.getYStart()));
+                LinePoints.add(new Point(se.getXEnd(), se.getYEnd()));
+                SimpleLine sl = new SimpleLine(LinePoints, se.getColour(), se.getThickness(), ShapeType.LINE);
                 slList.add(sl);
                 break;
             case OVAL: // store the oval
-                SimpleOval ol = new SimpleOval(se.getXStart(), se.getYStart(), se.getXEnd(), se.getYEnd(), se.getColour(), se.getThickness(), ShapeType.OVAL);
+                List<Point> OvalPoints = new ArrayList<>();
+                OvalPoints.add(new Point(se.getXStart(), se.getYStart()));
+                OvalPoints.add(new Point(se.getXEnd(), se.getYEnd()));
+                SimpleOval ol = new SimpleOval(OvalPoints, se.getColour(), se.getThickness(), ShapeType.OVAL);
                 olList.add(ol);
                 break;
             case TRIANGLE:
@@ -93,7 +99,7 @@ public class ShapeReader {
                 List<Point> QuadrilateralPoints = new ArrayList<>();
                 QuadrilateralPoints.add(new Point(se.getXStart(), se.getYStart()));
                 QuadrilateralPoints.add(new Point(se.getXextra(), se.getYextra()));
-                QuadrilateralPoints.add(new Point(se.getXXextra(), se.getYYextra())); 
+                QuadrilateralPoints.add(new Point(se.getXXextra(), se.getYYextra()));
                 QuadrilateralPoints.add(new Point(se.getXEnd(), se.getYEnd()));
                 SimpleQuadrilateral ss = new SimpleQuadrilateral(QuadrilateralPoints, se.getColour(), se.getThickness(), ShapeType.QUADRILATERAL);
                 qlList.add(ss);

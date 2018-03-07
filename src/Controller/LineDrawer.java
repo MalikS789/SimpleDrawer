@@ -14,7 +14,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-public class LineDrawer extends Drawer{
+public class LineDrawer extends Drawer {
 
     private SimpleLine line; // the line to be drawn
 
@@ -28,7 +28,6 @@ public class LineDrawer extends Drawer{
      * @param g2d Graphics2D object used for drawing
      * @param currentBrightness the current brightness being used to draw
      */
-    
     @Override
     public void drawShape(Graphics2D g2d, float currentBrightness) {
         // scale the brightness of the colour
@@ -37,13 +36,13 @@ public class LineDrawer extends Drawer{
         // set the thickness of the line
         g2d.setStroke(new BasicStroke(line.getThickness()));
         // get start point
-        int xs = line.getXStart();
-        int ys = line.getYStart();
+        int xs = line.getVertices().get(0).x;
+        int ys = line.getVertices().get(0).y;
+        int xe = line.getVertices().get(1).x;
+        int ye = line.getVertices().get(1).y;
 
         // draw the line
-        g2d.drawLine(xs, ys, line.getXEnd(), line.getYEnd());
+        g2d.drawLine(xs, ys, xe, ye);
     }
 
-    
-    
 }

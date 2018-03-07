@@ -7,6 +7,8 @@ package Model.Interface;
 
 import Controller.ShapeType;
 import java.awt.Color;
+import java.awt.Point;
+import java.util.List;
 
 /**
  *
@@ -14,6 +16,10 @@ import java.awt.Color;
  */
 public interface Shape {
 
+    List<Point> getVertices();
+
+    void setVertices(List<Point> vertices);
+    
     Color getColour();
 
     void setColour(Color colour);

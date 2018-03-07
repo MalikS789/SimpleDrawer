@@ -13,7 +13,7 @@ import java.awt.Color;
 import java.awt.Point;
 import java.util.List;
 
-public class SimpleTriangle extends MultiPointShape {
+public class SimpleTriangle extends SimpleShape {
 
     public SimpleTriangle(List<Point> v, Color c, int t, ShapeType ss) {
         super(v, c, t, ss);

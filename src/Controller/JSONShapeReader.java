@@ -12,13 +12,9 @@ package Controller;
 
 import Controller.Event.ShapeEvent;
 import com.google.gson.Gson;
-import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class JSONShapeReader extends ShapeReader {
@@ -69,25 +65,25 @@ public class JSONShapeReader extends ShapeReader {
      *
      * @param file the file into which to write the JSON
      */
-    public static void generateTestJSON(String file) {
-        List<ShapeEvent> list = new ArrayList<>();
-        // load in some hard-coded shapes
-        list.add(new ShapeEvent(20, 40, 30, 90, Color.red, 5, ShapeType.LINE, "SHAPE"));
-        list.add(new ShapeEvent(20, 40, 70, 90, Color.blue, 5, ShapeType.OVAL, "SHAPE"));
-        ListOfShapeEvents los = new ListOfShapeEvents();
-        los.listOfShapeEvents = list;
-        Gson gson = new Gson();
-        String json = gson.toJson(los); // convert the object to a JSON string
-
-        try {
-            FileWriter writer = new FileWriter(file);
-            writer.write(json); // write the JSON string to file
-            writer.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void generateTestJSON(String file) {
+//        List<ShapeEvent> list = new ArrayList<>();
+//        // load in some hard-coded shapes
+//        list.add(new ShapeEvent(20, 40, 30, 90, Color.red, 5, ShapeType.LINE, "SHAPE"));
+//        list.add(new ShapeEvent(20, 40, 70, 90, Color.blue, 5, ShapeType.OVAL, "SHAPE"));
+//        ListOfShapeEvents los = new ListOfShapeEvents();
+//        los.listOfShapeEvents = list;
+//        Gson gson = new Gson();
+//        String json = gson.toJson(los); // convert the object to a JSON string
+//
+//        try {
+//            FileWriter writer = new FileWriter(file);
+//            writer.write(json); // write the JSON string to file
+//            writer.close();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     /**
      * Main method is just for testing in standalone mode

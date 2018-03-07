@@ -7,7 +7,6 @@
  */
 package Controller.Event;
 
-import Controller.Event.ShapeEvent;
 import Controller.ShapeType;
 import java.io.File;
 import java.io.IOException;

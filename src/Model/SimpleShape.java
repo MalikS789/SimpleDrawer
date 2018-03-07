@@ -8,23 +8,41 @@ package Model;
 import Model.Interface.Shape;
 import Controller.ShapeType;
 import java.awt.Color;
+import java.awt.Point;
+import java.util.List;
 
 /**
  *
  * @author Malik
  */
-public class SimpleShape implements Shape {
+public class SimpleShape implements Shape{
 
     // Shape characteristics
     protected Color colour;
     protected int thickness;
     // Type of shape e.g. line or oval or triangle
     protected ShapeType shapeType;
+    protected List<Point> vertices; // points that define the triangle
 
-    public SimpleShape(Color c, int t, ShapeType ss) {
+    public SimpleShape(List<Point> v, Color c, int t, ShapeType ss) {
         colour = c;
         thickness = t;
         shapeType = ss;
+        vertices = v;
+    }
+
+    @Override
+    public List<Point> getVertices() {
+        return vertices;
+    }
+
+    @Override
+    public void setVertices(List<Point> vertices) {
+        this.vertices = vertices;
+    }
+
+    public void setVertice(Point vertice, int index) {
+        vertices.set(index, vertice);
     }
 
     @Override

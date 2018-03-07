@@ -7,6 +7,9 @@ package Model;
 
 import Controller.ShapeType;
 import java.awt.Color;
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,7 +22,10 @@ public class SimpleOvalTest {
     SimpleOval ol;
 
     public SimpleOvalTest() {
-        ol = new SimpleOval(0, 0, 50, 50, Color.BLACK, 5, ShapeType.OVAL);
+        List<Point> OvalPoints = new ArrayList<>();
+        OvalPoints.add(new Point(0, 0));
+        OvalPoints.add(new Point(50, 50));
+        ol = new SimpleOval(OvalPoints, Color.BLACK, 5, ShapeType.OVAL);
     }
 
     /**
@@ -29,7 +35,7 @@ public class SimpleOvalTest {
     public void testGetxBottomRight() {
         System.out.println("getxBottomRight");
         int expResult = 50;
-        int result = ol.getxBottomRight();
+        int result = ol.getVertices().get(1).x;
         if (expResult != result) {
             fail("Unexpected result from method, Fail");
         }
@@ -42,7 +48,7 @@ public class SimpleOvalTest {
     public void testSetxBottomRight() {
         System.out.println("setxBottomRight");
         try {
-            ol.setxBottomRight(50);
+            ol.setVertice(new Point(0, 50), 1);
         } catch (Exception ex) {
             fail("can't set value for bottom x , FAIL");
         }
@@ -55,7 +61,7 @@ public class SimpleOvalTest {
     public void testGetyBottomRight() {
         System.out.println("getyBottomRight");
         int expResult = 50;
-        int result = ol.getyBottomRight();
+        int result = ol.getVertices().get(1).y;
         if (expResult != result) {
             fail("Unexpected result from method, Fail");
         }
@@ -68,7 +74,7 @@ public class SimpleOvalTest {
     public void testSetyBottomRight() {
         System.out.println("setyBottomRight");
         try {
-            ol.setyBottomRight(50);
+            ol.setVertice(new Point(0, 50), 1);
         } catch (Exception ex) {
             fail("can't set value for bottom y , FAIL");
         }

@@ -13,6 +13,7 @@ import Model.SimpleOval;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Point;
 
 public class OvalDrawer extends Drawer {
 
@@ -28,7 +29,6 @@ public class OvalDrawer extends Drawer {
      * @param g2d Graphics2D object used for drawing
      * @param currentBrightness the current brightness being used to draw
      */
-    
     @Override
     public void drawShape(Graphics2D g2d, float currentBrightness) {
         // scale the brightness of the colour
@@ -37,27 +37,26 @@ public class OvalDrawer extends Drawer {
         // set the thickness of the line
         g2d.setStroke(new BasicStroke(oval.getThickness()));
 
-        int xs = oval.getXStart();
-        int ys = oval.getYStart();
+        int xs = oval.getVertices().get(0).x;
+        int ys = oval.getVertices().get(0).y;
+        int xe = oval.getVertices().get(1).x;
+        int ye = oval.getVertices().get(1).y;
 
-        if (oval.getxBottomRight() - xs < 0) {
+        if (xe - xs < 0) {
             //Flip the x values
-            int temp = xs;
-            xs = oval.getxBottomRight();
-            oval.setxBottomRight(temp);
-            oval.setXStart(xs);
+            int xsoriginal = xs;
+            oval.setVertice(new Point(xe, ys), 0);
+            oval.setVertice(new Point(xsoriginal, ye), 1);
         }
 
-        if (oval.getyBottomRight() - ys < 0) {
+        if (ye - ys < 0) {
             //Flip the y values
-            int temp = ys;
-            ys = oval.getyBottomRight();
-            oval.setyBottomRight(temp);
-            oval.setYStart(ys);
+            int ysoriginal = ys;
+            oval.setVertice(new Point(xs, ye), 0);
+            oval.setVertice(new Point(xe, ysoriginal), 1);
         }
 
         // draw the oval       
-        //System.out.println("Shape being drawn = OVAL (" + xs + " , " + ys + " with a height of " + (oval.getxBottomRight()-xs) + "and a width of " + oval.getyBottomRight() + ")");
-        g2d.drawOval(xs, ys, oval.getxBottomRight() - xs, oval.getyBottomRight() - ys);
+        g2d.drawOval(xs, ys, xe - xs, ye - ys);
     }
 }

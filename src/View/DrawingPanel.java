@@ -41,6 +41,7 @@ public class DrawingPanel extends JPanel {
     private int currentRotation;
 
     private List<Point> currentPoints; // x and y points for shape being drawn
+    private List<Point> tmpPoints;
 
     // position of the latest click
     private int x, y;
@@ -147,6 +148,7 @@ public class DrawingPanel extends JPanel {
         return currentBrightness;
     }
 
+    
     /*
      * currentBrightness is passed in as a number in the range
      * 0 to 1.  In this class it needs to be in the range 0.75 to
@@ -169,10 +171,15 @@ public class DrawingPanel extends JPanel {
             // reset the rotation to 0 otherwise things get messy.
             currentRotation = 0;
 
-            System.out.println("You just clicked: " + e.getX() + " , " + e.getY());
+            //System.out.println("You just clicked: " + e.getX() + " , " + e.getY());
 
             if (currentShapeType != OVAL) {
-                SimpleOval tmp = new SimpleOval(e.getX() - 3, e.getY() - 3, e.getX() + 3, e.getY() + 3, currentColor, currentThickness, ShapeType.OVAL); //draw a dot everytime
+                tmpPoints = new ArrayList<>();
+                Point nextPointt = new Point(e.getX() - 3, e.getY() - 3);
+                tmpPoints.add(nextPointt);
+                nextPointt = new Point(e.getX() + 3, e.getY() + 3);
+                tmpPoints.add(nextPointt);
+                SimpleOval tmp = new SimpleOval(tmpPoints, currentColor, currentThickness, ShapeType.OVAL); //draw a dot everytime
                 shapes.add(tmp); //make sure it is drawn!
             }
 
@@ -184,24 +191,22 @@ public class DrawingPanel extends JPanel {
                 currentPoints.add(firstPoint);
             } else { // shape must have already been started
                 // decide what to do based on the current shape
+                Point nextPointt = new Point();
+                nextPointt.x = e.getX();
+                nextPointt.y = e.getY();
+                currentPoints.add(nextPointt);
                 switch (currentShapeType) {
                     case LINE: // Draw the line 
-                        SimpleLine sl = new SimpleLine(currentPoints.get(0).x, currentPoints.get(0).y, e.getX(), e.getY(),
-                                currentColor, currentThickness, ShapeType.LINE);
+                        SimpleLine sl = new SimpleLine(currentPoints, currentColor, currentThickness, ShapeType.LINE);
                         shapes.add(sl);
                         currentPoints = null;
                         break;
                     case OVAL: // Draw the oval
-                        SimpleOval so = new SimpleOval(currentPoints.get(0).x, currentPoints.get(0).y, e.getX() + 3, e.getY() + 3,
-                                currentColor, currentThickness, ShapeType.OVAL);
+                        SimpleOval so = new SimpleOval(currentPoints, currentColor, currentThickness, ShapeType.OVAL);
                         shapes.add(so);
                         currentPoints = null;
                         break;
                     case TRIANGLE: // May or may not have finished the triangle
-                        Point nextPoint = new Point();
-                        nextPoint.x = e.getX();
-                        nextPoint.y = e.getY();
-                        currentPoints.add(nextPoint);
                         if (currentPoints.size() == 3) { // 3 points so must be complete triangle
                             SimpleTriangle st = new SimpleTriangle(currentPoints, currentColor, currentThickness, ShapeType.TRIANGLE);
                             shapes.add(st);
@@ -209,10 +214,6 @@ public class DrawingPanel extends JPanel {
                             break;
                         }
                     case QUADRILATERAL: // Draw the quadrilateral
-                        Point nextPointt = new Point();
-                        nextPointt.x = e.getX();
-                        nextPointt.y = e.getY();
-                        currentPoints.add(nextPointt);
                         if (currentPoints.size() > 3) { // 4 points so must be complete quadrilateral
                             SimpleQuadrilateral ql = new SimpleQuadrilateral(currentPoints, currentColor, currentThickness, ShapeType.QUADRILATERAL);
                             shapes.add(ql);

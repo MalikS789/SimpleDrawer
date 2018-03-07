@@ -10,45 +10,14 @@ package Model;
 
 import Controller.ShapeType;
 import java.awt.Color;
+import java.awt.Point;
+import java.util.List;
 
 
-public class SimpleOval extends SinglePointShape{
+public class SimpleOval extends SimpleShape{
 
-    private int xBottomRight, yBottomRight;
-    
-
-    public SimpleOval(int xs, int ys, int xbr, int ybr, Color c, int t, ShapeType so) {
-        super(c,t,so,xs,ys);
-        xBottomRight = xbr;
-        yBottomRight = ybr;
-    }
-
-    /**
-     * @return the xBottomRight
-     */
-    public int getxBottomRight() {
-        return xBottomRight;
-    }
-
-    /**
-     * @param xBottomRight the xBottomRight to set
-     */
-    public void setxBottomRight(int xBottomRight) {
-        this.xBottomRight = xBottomRight;
-    }
-
-    /**
-     * @return the yBottomRight
-     */
-    public int getyBottomRight() {
-        return yBottomRight;
-    }
-
-    /**
-     * @param yBottomRight the yBottomRight to set
-     */
-    public void setyBottomRight(int yBottomRight) {
-        this.yBottomRight = yBottomRight;
+    public SimpleOval(List<Point> v, Color c, int t, ShapeType so) {
+        super(v,c,t,so);
     }
 
     /**
@@ -56,8 +25,8 @@ public class SimpleOval extends SinglePointShape{
      * @return the area in pixels of the ellipse. Does this always work?
      */
     public double getArea() {
-        int line1 = xBottomRight - xStart;
-        int line2 = yBottomRight - yStart;
+        int line1 = getVertices().get(1).x - getVertices().get(0).x;
+        int line2 = getVertices().get(1).y - getVertices().get(0).y;
         System.out.println(line1 + ", " + line2 + " " + Math.PI * line1 / 2 * line2 / 2);
         return Math.PI * line1 / 2 * line2 / 2;
     }
