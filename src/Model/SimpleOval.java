@@ -10,26 +10,15 @@ package Model;
 
 import Controller.ShapeType;
 import java.awt.Color;
-import Model.Interface.LineOval;
 
-public class SimpleOval implements LineOval{
 
-    //Shape start location
-    private int xStart, yStart;
-    // Location of the bottom right corner of the
-    // rectangle that contains the oval
+public class SimpleOval extends SinglePointShape{
+
     private int xBottomRight, yBottomRight;
-    private Color colour;
-    private int thickness;
-    // Type of shape e.g. line or oval
-    private ShapeType shapeType;
+    
 
     public SimpleOval(int xs, int ys, int xbr, int ybr, Color c, int t, ShapeType so) {
-        colour = c;
-        thickness = t;
-        shapeType = so;
-        xStart = xs;
-        yStart = ys;
+        super(c,t,so,xs,ys);
         xBottomRight = xbr;
         yBottomRight = ybr;
     }
@@ -60,46 +49,6 @@ public class SimpleOval implements LineOval{
      */
     public void setyBottomRight(int yBottomRight) {
         this.yBottomRight = yBottomRight;
-    }
-
-    public int getXStart() {
-        return xStart;
-    }
-
-    public void setXStart(int xStart) {
-        this.xStart = xStart;
-    }
-
-    public int getYStart() {
-        return yStart;
-    }
-
-    public void setYStart(int yStart) {
-        this.yStart = yStart;
-    }
-
-    public Color getColour() {
-        return colour;
-    }
-
-    public void setColour(Color colour) {
-        this.colour = colour;
-    }
-
-    public int getThickness() {
-        return thickness;
-    }
-
-    public void setThickness(int thickness) {
-        this.thickness = thickness;
-    }
-
-    public ShapeType getShapeType() {
-        return shapeType;
-    }
-
-    public void setShapeType(ShapeType shapeType) {
-        this.shapeType = shapeType;
     }
 
     /**
