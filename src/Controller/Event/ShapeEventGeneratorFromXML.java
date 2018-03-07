@@ -24,53 +24,53 @@ import org.xml.sax.helpers.DefaultHandler;
 public class ShapeEventGeneratorFromXML extends DefaultHandler {
 
     // constants used to control processing of the XML file
-    public final static String SHAPE_TAG = "shape";
+    private final static String SHAPE_TAG = "shape";
     /**
      * * XML tag used to indicate a shape
      */
-    public final static String TYPE_TAG = "type";
+    private final static String TYPE_TAG = "type";
     /**
      * * XML tag used to indicate the type of shape
      */
-    public final static String START_TAG = "start";
+    private final static String START_TAG = "start";
     /**
      * * XML tag used to indicate start position of shape
      */
-    public final static String END_TAG = "end";
+    private final static String END_TAG = "end";
     /**
      * * XML tag used to indicate end position of shape
      */
-    public final static String X_TAG = "x";
+    private final static String X_TAG = "x";
     /**
      * * XML tag used to indicate x coordinate
      */
-    public final static String Y_TAG = "y";
+    private final static String Y_TAG = "y";
     /**
      * * XML tag used to indicate y coordinate
      */
 
-    public final static String XX_TAG = "xx";
+    private final static String XX_TAG = "xx";
     /**
      * * XML tag used to indicate xx coordinate
      */
-    public final static String YY_TAG = "yy";
+    private final static String YY_TAG = "yy";
     /**
      * * XML tag used to indicate yy coordinate
      */
 
-    public final static String XXX_TAG = "xxx";
+    private final static String XXX_TAG = "xxx";
     /**
      * * XML tag used to indicate xxx coordinate
      */
-    public final static String YYY_TAG = "yyy";
+    private final static String YYY_TAG = "yyy";
     /**
      * * XML tag used to indicate yyy coordinate
      */
-    public final static String COLOUR_TAG = "colour";
+    private final static String COLOUR_TAG = "colour";
     /**
      * * XML tag used to indicate colour of shape
      */
-    public final static String THICK_TAG = "thickness";
+    private final static String THICK_TAG = "thickness";
     /**
      * * XML tag used to indicate thickness of line of a shape
      */

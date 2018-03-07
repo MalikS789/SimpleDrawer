@@ -98,9 +98,9 @@ public class JSONShapeReader extends ShapeReader {
         // of ovals read.
         JSONShapeReader me = new JSONShapeReader();
         me.getShapesFromFile("stored_shapes.json");
-        System.out.println("Lines loaded = " + me.slList.size());
-        System.out.println("Ovals loaded = " + me.olList.size());
-        System.out.println("Triangles loaded = " + me.stList.size());
-        System.out.println("Quadrilateral  loaded = " + me.qlList.size());
+        System.out.println("Lines loaded = " + getSlList().size());
+        System.out.println("Ovals loaded = " + getOlList().size());
+        System.out.println("Triangles loaded = " + getStList().size());
+        System.out.println("Quadrilateral  loaded = " + getQlList().size());
     }
 }

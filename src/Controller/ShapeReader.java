@@ -24,10 +24,10 @@ import static Controller.ShapeType.QUADRILATERAL;
  */
 public class ShapeReader {
 
-    public static List<SimpleLine> slList; // list of lines
-    public static List<SimpleOval> olList; // list of ovals
-    public static List<SimpleTriangle> stList; //list of triangles
-    public static List<SimpleQuadrilateral> qlList; //list of quadrilaterals
+    protected static List<SimpleLine> slList; // list of lines
+    protected static List<SimpleOval> olList; // list of ovals
+    protected static List<SimpleTriangle> stList; //list of triangles
+    protected static List<SimpleQuadrilateral> qlList; //list of quadrilaterals
 
     public ShapeReader() {
         slList = new ArrayList<>();

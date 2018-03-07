@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
-public class XMLShapeReader extends ShapeReader{
+public class XMLShapeReader extends ShapeReader {
 
     private ShapeEventGeneratorFromXML segfx; // used to read the data
 
@@ -82,10 +82,10 @@ public class XMLShapeReader extends ShapeReader{
             XMLShapeReader me = new XMLShapeReader();
 
             me.getShapesFromFile("stored_shapes.xml");
-            System.out.println("number of lines: " + me.slList.size());
-            System.out.println("number of ovals: " + me.olList.size());
-            System.out.println("number of triangles: " + me.stList.size());
-            System.out.println("number of quadrilateral: " + me.qlList.size());
+            System.out.println("Lines loaded = " + getSlList().size());
+            System.out.println("Ovals loaded = " + getOlList().size());
+            System.out.println("Triangles loaded = " + getStList().size());
+            System.out.println("Quadrilateral  loaded = " + getQlList().size());
 
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             Logger.getLogger(XMLShapeReader.class.getName()).log(Level.SEVERE, null, ex);
