@@ -13,7 +13,9 @@ import java.awt.Color;
 import java.awt.Point;
 import java.lang.reflect.Field;
 import java.util.List;
+import javax.ejb.Stateless;
 
+@Stateless
 public class ShapeEvent {
 
     private int xStart, yStart;// Shape start location

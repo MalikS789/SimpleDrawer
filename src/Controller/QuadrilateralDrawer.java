@@ -5,17 +5,22 @@
  */
 package Controller;
 
+import Model.SimpleQuadrilateral;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  *
  * @author Malik
  */
+@Stateless
 public class QuadrilateralDrawer extends Drawer{
 
-    private Model.SimpleQuadrilateral quadrilateral; // the quadrilateral to be drawn
+    @Inject
+    private SimpleQuadrilateral quadrilateral; // the quadrilateral to be drawn
 
     public QuadrilateralDrawer(Model.SimpleQuadrilateral quadrilateral) {
         this.quadrilateral = quadrilateral;

@@ -13,9 +13,13 @@ import Model.SimpleLine;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 
+@Stateless
 public class LineDrawer extends Drawer {
-
+    
+    @Inject
     private SimpleLine line; // the line to be drawn
 
     public LineDrawer(SimpleLine line) {

@@ -13,9 +13,13 @@ import Model.SimpleTriangle;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 
+@Stateless
 public class TriangleDrawer extends Drawer{
 
+    @Inject
     private SimpleTriangle triangle; // the triangle to be drawn
 
     public TriangleDrawer(SimpleTriangle triangle) {

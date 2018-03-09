@@ -14,9 +14,13 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 
+@Stateless
 public class OvalDrawer extends Drawer {
 
+    @Inject
     private SimpleOval oval; // the oval to be drawn
 
     public OvalDrawer(SimpleOval oval) {

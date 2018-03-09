@@ -9,11 +9,9 @@ import Controller.ShapeType;
 import java.awt.Color;
 import java.awt.Point;
 import java.util.List;
+import javax.ejb.Stateless;
 
-/**
- *
- * @author Malik
- */
+@Stateless
 public class SimpleQuadrilateral extends SimpleShape{
 
     public SimpleQuadrilateral(List<Point> v, Color c, int t, ShapeType ss) {

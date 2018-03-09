@@ -17,12 +17,18 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import static Controller.ShapeType.QUADRILATERAL;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  *
  * @author Malik
  */
+@Stateless
 public class ShapeReader {
+    
+    @Inject
+    ShapeEvent Event;
 
     protected static List<SimpleLine> slList; // list of lines
     protected static List<SimpleOval> olList; // list of ovals
@@ -71,37 +77,37 @@ public class ShapeReader {
      * @param se the ShapeEvent object containing details of the shape to be
      * stored.
      */
-    public void storeShape(ShapeEvent se) {
-        switch (se.getShapeType()) {
+    public void storeShape(ShapeEvent Event) {
+        switch (Event.getShapeType()) {
             case LINE: // store the line
                 List<Point> LinePoints = new ArrayList<>();
-                LinePoints.add(new Point(se.getXStart(), se.getYStart()));
-                LinePoints.add(new Point(se.getXEnd(), se.getYEnd()));
-                SimpleLine sl = new SimpleLine(LinePoints, se.getColour(), se.getThickness(), ShapeType.LINE);
+                LinePoints.add(new Point(Event.getXStart(), Event.getYStart()));
+                LinePoints.add(new Point(Event.getXEnd(), Event.getYEnd()));
+                SimpleLine sl = new SimpleLine(LinePoints, Event.getColour(), Event.getThickness(), ShapeType.LINE);
                 slList.add(sl);
                 break;
             case OVAL: // store the oval
                 List<Point> OvalPoints = new ArrayList<>();
-                OvalPoints.add(new Point(se.getXStart(), se.getYStart()));
-                OvalPoints.add(new Point(se.getXEnd(), se.getYEnd()));
-                SimpleOval ol = new SimpleOval(OvalPoints, se.getColour(), se.getThickness(), ShapeType.OVAL);
+                OvalPoints.add(new Point(Event.getXStart(), Event.getYStart()));
+                OvalPoints.add(new Point(Event.getXEnd(), Event.getYEnd()));
+                SimpleOval ol = new SimpleOval(OvalPoints, Event.getColour(), Event.getThickness(), ShapeType.OVAL);
                 olList.add(ol);
                 break;
             case TRIANGLE:
                 List<Point> TrianglePoints = new ArrayList<>();
-                TrianglePoints.add(new Point(se.getXStart(), se.getYStart()));
-                TrianglePoints.add(new Point(se.getXextra(), se.getYextra()));
-                TrianglePoints.add(new Point(se.getXEnd(), se.getYEnd()));
-                SimpleTriangle st = new SimpleTriangle(TrianglePoints, se.getColour(), se.getThickness(), ShapeType.TRIANGLE);
+                TrianglePoints.add(new Point(Event.getXStart(), Event.getYStart()));
+                TrianglePoints.add(new Point(Event.getXextra(), Event.getYextra()));
+                TrianglePoints.add(new Point(Event.getXEnd(), Event.getYEnd()));
+                SimpleTriangle st = new SimpleTriangle(TrianglePoints, Event.getColour(), Event.getThickness(), ShapeType.TRIANGLE);
                 stList.add(st);
                 break;
             case QUADRILATERAL: // store the quadrilateral
                 List<Point> QuadrilateralPoints = new ArrayList<>();
-                QuadrilateralPoints.add(new Point(se.getXStart(), se.getYStart()));
-                QuadrilateralPoints.add(new Point(se.getXextra(), se.getYextra()));
-                QuadrilateralPoints.add(new Point(se.getXXextra(), se.getYYextra()));
-                QuadrilateralPoints.add(new Point(se.getXEnd(), se.getYEnd()));
-                SimpleQuadrilateral ss = new SimpleQuadrilateral(QuadrilateralPoints, se.getColour(), se.getThickness(), ShapeType.QUADRILATERAL);
+                QuadrilateralPoints.add(new Point(Event.getXStart(), Event.getYStart()));
+                QuadrilateralPoints.add(new Point(Event.getXextra(), Event.getYextra()));
+                QuadrilateralPoints.add(new Point(Event.getXXextra(), Event.getYYextra()));
+                QuadrilateralPoints.add(new Point(Event.getXEnd(), Event.getYEnd()));
+                SimpleQuadrilateral ss = new SimpleQuadrilateral(QuadrilateralPoints, Event.getColour(), Event.getThickness(), ShapeType.QUADRILATERAL);
                 qlList.add(ss);
                 break;
         }
