@@ -15,10 +15,10 @@ import java.util.List;
 import javax.ejb.Stateless;
 
 @Stateless
-public class SimpleOval extends SimpleShape{
+public class SimpleOval extends SimpleShape {
 
     public SimpleOval(List<Point> v, Color c, int t, ShapeType so) {
-        super(v,c,t,so);
+        super(v, c, t, so);
     }
 
     /**
@@ -32,4 +32,19 @@ public class SimpleOval extends SimpleShape{
         return Math.PI * line1 / 2 * line2 / 2;
     }
 
+    public int getxBottomRight() {
+        return this.vertices.get(1).x;
+    }
+
+    public void setxBottomRight(int temp) {
+        this.vertices.get(1).x = temp;
+    }
+
+    public int getyBottomRight() {
+        return this.vertices.get(1).y;
+    }
+
+    public void setyBottomRight(int temp) {
+        this.vertices.get(1).y = temp;
+    }
 }

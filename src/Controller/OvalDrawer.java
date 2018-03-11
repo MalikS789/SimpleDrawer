@@ -35,32 +35,34 @@ public class OvalDrawer extends Drawer {
      */
     @Override
     public void drawShape(Graphics2D g2d, float currentBrightness) {
-        // scale the brightness of the colour
+// scale the brightness of the colour
         Color c = scaleColour(oval.getColour(), currentBrightness);
         g2d.setColor(c);
         // set the thickness of the line
         g2d.setStroke(new BasicStroke(oval.getThickness()));
 
-        int xs = oval.getVertices().get(0).x;
-        int ys = oval.getVertices().get(0).y;
-        int xe = oval.getVertices().get(1).x;
-        int ye = oval.getVertices().get(1).y;
+        int xs = oval.getXStart();
+        int ys = oval.getYStart();
 
-        if (xe - xs < 0) {
+        if (oval.getxBottomRight() - xs < 0) {
             //Flip the x values
-            int xsoriginal = xs;
-            oval.setVertice(new Point(xe, ys), 0);
-            oval.setVertice(new Point(xsoriginal, ye), 1);
+            int temp = xs;
+            xs = oval.getxBottomRight();
+            oval.setxBottomRight(temp);
+            oval.setXStart(xs);
         }
 
-        if (ye - ys < 0) {
+        if (oval.getyBottomRight() - ys < 0) {
             //Flip the y values
-            int ysoriginal = ys;
-            oval.setVertice(new Point(xs, ye), 0);
-            oval.setVertice(new Point(xe, ysoriginal), 1);
+            int temp = ys;
+            ys = oval.getyBottomRight();
+            oval.setyBottomRight(temp);
+            oval.setYStart(ys);
         }
 
         // draw the oval       
-        g2d.drawOval(xs, ys, xe - xs, ye - ys);
+        //System.out.println("Shape being drawn = OVAL (" + xs + " , " + ys + " with a height of " + (oval.getxBottomRight()-xs) + "and a width of " + oval.getyBottomRight() + ")");
+        g2d.drawOval(xs, ys, oval.getxBottomRight() - xs, oval.getyBottomRight() - ys);
+
     }
 }

@@ -30,7 +30,6 @@ import Model.SimpleOval;
 import Model.SimpleQuadrilateral;
 import Model.SimpleTriangle;
 import static Controller.ShapeType.OVAL;
-import javax.ejb.Stateless;
 
 public class DrawingPanel extends JPanel {
 

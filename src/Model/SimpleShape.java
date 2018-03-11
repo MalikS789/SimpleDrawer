@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @author Malik
  */
-public class SimpleShape implements Shape{
+public class SimpleShape implements Shape {
 
     // Shape characteristics
     protected Color colour;
@@ -43,6 +43,22 @@ public class SimpleShape implements Shape{
 
     public void setVertice(Point vertice, int index) {
         vertices.set(index, vertice);
+    }
+
+    public int getXStart() {
+        return this.vertices.get(0).x;
+    }
+
+    public int getYStart() {
+        return this.vertices.get(0).y;
+    }
+
+    public void setXStart(int xs) {
+        this.vertices.get(0).x = xs;
+    }
+
+    public void setYStart(int ys) {
+        this.vertices.get(0).y = ys;
     }
 
     @Override
