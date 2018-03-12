@@ -75,8 +75,8 @@ public class DrawerMain extends JFrame {
         panLoad = new javax.swing.JPanel();
         btnLoadXML = new javax.swing.JButton();
         btnLoadJSON = new javax.swing.JButton();
-        RGBscrollbar = new CreatingRGBscrollbar.RGBscrollbar();
         ColourPreview = new creatingRGBColourPreview.RGBColourPreview();
+        RGBscrollbar = new CreatingRGBscrollbar.RGBscrollbar();
         panDrawingArea = new DrawingPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -213,8 +213,8 @@ public class DrawerMain extends JFrame {
         panMoreControls.add(panLoad);
 
         panControls.add(panMoreControls, java.awt.BorderLayout.SOUTH);
-        panControls.add(RGBscrollbar, java.awt.BorderLayout.PAGE_START);
         panControls.add(ColourPreview, java.awt.BorderLayout.CENTER);
+        panControls.add(RGBscrollbar, java.awt.BorderLayout.PAGE_START);
 
         getContentPane().add(panControls, java.awt.BorderLayout.WEST);
 
