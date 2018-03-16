@@ -5,7 +5,7 @@
  * @author Gill Windall
  * @version 3.0
  */
-package Controller.Event;
+package Model.Event;
 
 import Controller.ShapeType;
 import java.io.File;

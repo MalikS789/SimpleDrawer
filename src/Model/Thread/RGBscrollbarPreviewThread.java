@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package Model.Thread;
 
 import CreatingRGBscrollbar.RGBscrollbar;
+import View.DrawerMain;
 
 /**
  *
  * @author Malik
  */
-public class MyThread1 extends Thread {
+public class RGBscrollbarPreviewThread extends Thread {
     
     @Override
     public void run() {

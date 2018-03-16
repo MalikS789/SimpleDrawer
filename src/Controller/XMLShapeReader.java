@@ -9,9 +9,9 @@
  */
 package Controller;
 
-import Controller.Event.ShapeEventListener;
-import Controller.Event.ShapeEventGeneratorFromXML;
-import Controller.Event.ShapeEvent;
+import Model.Event.ShapeEventListener;
+import Model.Event.ShapeEventGeneratorFromXML;
+import Model.Event.ShapeEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

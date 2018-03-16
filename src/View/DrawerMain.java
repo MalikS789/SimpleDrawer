@@ -17,6 +17,8 @@
  */
 package View;
 
+import Model.Thread.RGBscrollbarPreviewThread;
+import Model.Thread.AnimationThread;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -72,6 +74,7 @@ public class DrawerMain extends JFrame {
         panButtons = new javax.swing.JPanel();
         btnClear = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         panLoad = new javax.swing.JPanel();
         btnLoadXML = new javax.swing.JButton();
         btnLoadJSON = new javax.swing.JButton();
@@ -191,6 +194,14 @@ public class DrawerMain extends JFrame {
             }
         });
         panButtons.add(btnReset);
+
+        jButton1.setText("Gravity");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        panButtons.add(jButton1);
 
         panMoreControls.add(panButtons);
 
@@ -319,6 +330,11 @@ public class DrawerMain extends JFrame {
         txtThickness.setText("5");
     }//GEN-LAST:event_btnResetActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Thread tt = new AnimationThread(drawingPanel, 10);
+        tt.start();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /* action whatever change has been made to the line thickness */
     private void handleThickness() {
         try {
@@ -338,7 +354,7 @@ public class DrawerMain extends JFrame {
     public static void main(String args[]) {
         new DrawerMain().setVisible(true);
         running = true;
-        Thread t = new MyThread1();
+        Thread t = new RGBscrollbarPreviewThread();
         t.start();
     }
 
@@ -358,6 +374,7 @@ public class DrawerMain extends JFrame {
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnRight;
     private javax.swing.ButtonGroup grpShape;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel panButtons;

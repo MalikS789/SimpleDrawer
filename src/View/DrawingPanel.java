@@ -101,21 +101,15 @@ public class DrawingPanel extends JPanel {
             if (aShape instanceof SimpleLine) {
                 LineDrawer ld = new LineDrawer((SimpleLine) aShape);
                 ld.drawShape(g2d, currentBrightness);
-            } else {
-                if (aShape instanceof SimpleOval) {
-                    OvalDrawer od = new OvalDrawer((SimpleOval) aShape);
-                    od.drawShape(g2d, currentBrightness);
-                } else {
-                    if (aShape instanceof SimpleTriangle) {
-                        TriangleDrawer td = new TriangleDrawer((SimpleTriangle) aShape);
-                        td.drawShape(g2d, currentBrightness);
-                    } else {
-                        if (aShape instanceof SimpleQuadrilateral) {
-                            QuadrilateralDrawer sd = new QuadrilateralDrawer((SimpleQuadrilateral) aShape);
-                            sd.drawShape(g2d, currentBrightness);
-                        }
-                    }
-                }
+            } else if (aShape instanceof SimpleOval) {
+                OvalDrawer od = new OvalDrawer((SimpleOval) aShape);
+                od.drawShape(g2d, currentBrightness);
+            } else if (aShape instanceof SimpleTriangle) {
+                TriangleDrawer td = new TriangleDrawer((SimpleTriangle) aShape);
+                td.drawShape(g2d, currentBrightness);
+            } else if (aShape instanceof SimpleQuadrilateral) {
+                QuadrilateralDrawer sd = new QuadrilateralDrawer((SimpleQuadrilateral) aShape);
+                sd.drawShape(g2d, currentBrightness);
             }
         }
 
@@ -148,7 +142,6 @@ public class DrawingPanel extends JPanel {
         return currentBrightness;
     }
 
-    
     /*
      * currentBrightness is passed in as a number in the range
      * 0 to 1.  In this class it needs to be in the range 0.75 to
@@ -172,7 +165,6 @@ public class DrawingPanel extends JPanel {
             currentRotation = 0;
 
             //System.out.println("You just clicked: " + e.getX() + " , " + e.getY());
-
             if (currentShapeType != OVAL) {
                 tmpPoints = new ArrayList<>();
                 Point nextPointt = new Point(e.getX() - 3, e.getY() - 3);
@@ -250,7 +242,11 @@ public class DrawingPanel extends JPanel {
         repaint();
     }
 
-    public void setShapes(List shapes) {
-        this.shapes = shapes;
+    public void setShapes(List shape) {
+        this.shapes = shape;
+    }
+
+    public List getShapes() {
+        return this.shapes;
     }
 }
