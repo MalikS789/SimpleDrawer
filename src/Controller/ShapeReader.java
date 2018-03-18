@@ -9,6 +9,7 @@ import Model.Event.ShapeEvent;
 import static Controller.ShapeType.LINE;
 import static Controller.ShapeType.OVAL;
 import static Controller.ShapeType.TRIANGLE;
+import static Controller.ShapeType.QUADRILATERAL;
 import Model.SimpleLine;
 import Model.SimpleOval;
 import Model.SimpleQuadrilateral;
@@ -16,7 +17,6 @@ import Model.SimpleTriangle;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
-import static Controller.ShapeType.QUADRILATERAL;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 

@@ -10,6 +10,7 @@
 package Controller;
 
 import Model.SimpleTriangle;
+import Model.SimpleTriangle;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;

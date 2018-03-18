@@ -6,6 +6,7 @@
 package Controller;
 
 import Model.SimpleQuadrilateral;
+import Model.SimpleQuadrilateral;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -43,9 +44,9 @@ public class QuadrilateralDrawer extends Drawer{
 
         // draw the triangle
         g2d.drawLine(quadrilateral.getVertices().get(0).x, quadrilateral.getVertices().get(0).y, quadrilateral.getVertices().get(1).x, quadrilateral.getVertices().get(1).y);
-        g2d.drawLine(quadrilateral.getVertices().get(2).x, quadrilateral.getVertices().get(2).y, quadrilateral.getVertices().get(1).x, quadrilateral.getVertices().get(1).y);
+        g2d.drawLine(quadrilateral.getVertices().get(1).x, quadrilateral.getVertices().get(1).y, quadrilateral.getVertices().get(2).x, quadrilateral.getVertices().get(2).y);
         g2d.drawLine(quadrilateral.getVertices().get(2).x, quadrilateral.getVertices().get(2).y, quadrilateral.getVertices().get(3).x, quadrilateral.getVertices().get(3).y);
-        g2d.drawLine(quadrilateral.getVertices().get(0).x, quadrilateral.getVertices().get(0).y, quadrilateral.getVertices().get(3).x, quadrilateral.getVertices().get(3).y);
+        g2d.drawLine(quadrilateral.getVertices().get(3).x, quadrilateral.getVertices().get(3).y, quadrilateral.getVertices().get(0).x, quadrilateral.getVertices().get(0).y);
     }
 
 }

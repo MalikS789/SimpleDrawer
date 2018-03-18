@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package Model;
 
+import Controller.ShapeType;
 import Model.Event.ShapeEvent;
 import java.awt.Color;
 import java.awt.Point;

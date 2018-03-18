@@ -30,6 +30,7 @@ import org.xml.sax.SAXException;
 import Controller.JSONShapeReader;
 import Controller.ShapeType;
 import Controller.XMLShapeReader;
+import Model.Thread.GameThread;
 import java.awt.Color;
 import javax.swing.JFrame;
 
@@ -71,16 +72,18 @@ public class DrawerMain extends JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnLeft = new javax.swing.JButton();
         btnRight = new javax.swing.JButton();
+        RunGame = new javax.swing.JButton();
         panButtons = new javax.swing.JPanel();
         btnClear = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        GravityButton = new javax.swing.JButton();
         panLoad = new javax.swing.JPanel();
         btnLoadXML = new javax.swing.JButton();
         btnLoadJSON = new javax.swing.JButton();
         ColourPreview = new creatingRGBColourPreview.RGBColourPreview();
         RGBscrollbar = new CreatingRGBscrollbar.RGBscrollbar();
         panDrawingArea = new DrawingPanel();
+        GameModeLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Simple Draw");
@@ -177,6 +180,14 @@ public class DrawerMain extends JFrame {
         });
         panRotate.add(btnRight);
 
+        RunGame.setText("Play Game");
+        RunGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RunGameActionPerformed(evt);
+            }
+        });
+        panRotate.add(RunGame);
+
         panMoreControls.add(panRotate);
 
         btnClear.setText("Clear");
@@ -195,13 +206,13 @@ public class DrawerMain extends JFrame {
         });
         panButtons.add(btnReset);
 
-        jButton1.setText("Gravity");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        GravityButton.setText("Gravity");
+        GravityButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                GravityButtonActionPerformed(evt);
             }
         });
-        panButtons.add(jButton1);
+        panButtons.add(GravityButton);
 
         panMoreControls.add(panButtons);
 
@@ -233,6 +244,10 @@ public class DrawerMain extends JFrame {
         panDrawingArea.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         panDrawingArea.setFocusCycleRoot(true);
         panDrawingArea.setPreferredSize(new java.awt.Dimension(300, 300));
+
+        GameModeLabel.setText("Free Drawing Mode");
+        panDrawingArea.add(GameModeLabel);
+
         getContentPane().add(panDrawingArea, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -330,10 +345,17 @@ public class DrawerMain extends JFrame {
         txtThickness.setText("5");
     }//GEN-LAST:event_btnResetActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Thread tt = new AnimationThread(drawingPanel, 10);
-        tt.start();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void GravityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GravityButtonActionPerformed
+        Thread Gravity = new AnimationThread(drawingPanel, true);
+        Gravity.start();
+        GameModeLabel.setText("Gravity Animation Mode");
+    }//GEN-LAST:event_GravityButtonActionPerformed
+
+    private void RunGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunGameActionPerformed
+        Thread game = new GameThread(drawingPanel, true);
+        game.start();
+        GameModeLabel.setText("Falling Shape Game Mode");
+    }//GEN-LAST:event_RunGameActionPerformed
 
     /* action whatever change has been made to the line thickness */
     private void handleThickness() {
@@ -366,7 +388,10 @@ public class DrawerMain extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static creatingRGBColourPreview.RGBColourPreview ColourPreview;
+    public static javax.swing.JLabel GameModeLabel;
+    private javax.swing.JButton GravityButton;
     private static CreatingRGBscrollbar.RGBscrollbar RGBscrollbar;
+    private javax.swing.JButton RunGame;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnLeft;
     private javax.swing.JButton btnLoadJSON;
@@ -374,7 +399,6 @@ public class DrawerMain extends JFrame {
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnRight;
     private javax.swing.ButtonGroup grpShape;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel panButtons;

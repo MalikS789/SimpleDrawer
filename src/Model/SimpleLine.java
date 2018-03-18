@@ -8,11 +8,11 @@
  */
 package Model;
 
-import Controller.ShapeType;
 import java.awt.Color;
 import java.awt.Point;
 import java.util.List;
 import javax.ejb.Stateless;
+import Controller.ShapeType;
 
 @Stateless
 public class SimpleLine extends SimpleShape{

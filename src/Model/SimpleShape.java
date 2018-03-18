@@ -5,8 +5,8 @@
  */
 package Model;
 
-import Model.Interface.Shape;
 import Controller.ShapeType;
+import Model.Interface.Shape;
 import java.awt.Color;
 import java.awt.Point;
 import java.util.List;

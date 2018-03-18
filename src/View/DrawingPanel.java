@@ -74,6 +74,14 @@ public class DrawingPanel extends JPanel {
         shapes = new ArrayList<>();
     }
 
+    public int getMouseX() {
+        return x;
+    }
+
+    public int getMouseY() {
+        return y;
+    }
+
     /*
      * paint the drawing including all shapes drawn so far
      *
@@ -97,20 +105,24 @@ public class DrawingPanel extends JPanel {
 
         // Loop though the ArrayList drawing
         // all the shapes stored in it
-        for (Object aShape : shapes) {
-            if (aShape instanceof SimpleLine) {
-                LineDrawer ld = new LineDrawer((SimpleLine) aShape);
-                ld.drawShape(g2d, currentBrightness);
-            } else if (aShape instanceof SimpleOval) {
-                OvalDrawer od = new OvalDrawer((SimpleOval) aShape);
-                od.drawShape(g2d, currentBrightness);
-            } else if (aShape instanceof SimpleTriangle) {
-                TriangleDrawer td = new TriangleDrawer((SimpleTriangle) aShape);
-                td.drawShape(g2d, currentBrightness);
-            } else if (aShape instanceof SimpleQuadrilateral) {
-                QuadrilateralDrawer sd = new QuadrilateralDrawer((SimpleQuadrilateral) aShape);
-                sd.drawShape(g2d, currentBrightness);
+        try {
+            for (Object aShape : shapes) {
+                if (aShape instanceof SimpleLine) {
+                    LineDrawer ld = new LineDrawer((SimpleLine) aShape);
+                    ld.drawShape(g2d, currentBrightness);
+                } else if (aShape instanceof SimpleOval) {
+                    OvalDrawer od = new OvalDrawer((SimpleOval) aShape);
+                    od.drawShape(g2d, currentBrightness);
+                } else if (aShape instanceof SimpleTriangle) {
+                    TriangleDrawer td = new TriangleDrawer((SimpleTriangle) aShape);
+                    td.drawShape(g2d, currentBrightness);
+                } else if (aShape instanceof SimpleQuadrilateral) {
+                    QuadrilateralDrawer sd = new QuadrilateralDrawer((SimpleQuadrilateral) aShape);
+                    sd.drawShape(g2d, currentBrightness);
+                }
             }
+        } catch (Exception ex) {
+
         }
 
         g2d.setStroke(s);  // restore saved stroke
@@ -164,7 +176,10 @@ public class DrawingPanel extends JPanel {
             // reset the rotation to 0 otherwise things get messy.
             currentRotation = 0;
 
-            //System.out.println("You just clicked: " + e.getX() + " , " + e.getY());
+            x = e.getX();
+            y = e.getY();
+
+            System.out.println("You just clicked: " + e.getX() + " , " + e.getY());
             if (currentShapeType != OVAL) {
                 tmpPoints = new ArrayList<>();
                 Point nextPointt = new Point(e.getX() - 3, e.getY() - 3);
