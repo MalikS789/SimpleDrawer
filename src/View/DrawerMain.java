@@ -96,22 +96,38 @@ public class DrawerMain extends JFrame {
         grpShape.add(radLine);
         radLine.setSelected(true);
         radLine.setText("Line");
-        radLine.addActionListener(evt -> radShapeActionPerformed(evt));
+        radLine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radShapeActionPerformed(evt);
+            }
+        });
         panShape.add(radLine);
 
         grpShape.add(radOval);
         radOval.setText("Oval");
-        radOval.addActionListener(evt -> radShapeActionPerformed(evt));
+        radOval.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radShapeActionPerformed(evt);
+            }
+        });
         panShape.add(radOval);
 
         grpShape.add(radTriangle);
         radTriangle.setText("Triangle");
-        radTriangle.addActionListener(evt -> radShapeActionPerformed(evt));
+        radTriangle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radShapeActionPerformed(evt);
+            }
+        });
         panShape.add(radTriangle);
 
         grpShape.add(radQuadrilateral);
         radQuadrilateral.setText("4 sides");
-        radQuadrilateral.addActionListener(evt -> radShapeActionPerformed(evt));
+        radQuadrilateral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radShapeActionPerformed(evt);
+            }
+        });
         panShape.add(radQuadrilateral);
 
         panMoreControls.add(panShape);
@@ -124,12 +140,16 @@ public class DrawerMain extends JFrame {
         txtThickness.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtThickness.setText("5");
         txtThickness.setPreferredSize(new java.awt.Dimension(50, 20));
-                txtThickness.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtThickness.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtThicknessFocusLost(evt);
             }
         });
-        txtThickness.addActionListener(evt -> txtThicknessActionPerformed(evt));
+        txtThickness.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtThicknessActionPerformed(evt);
+            }
+        });
         txtThickness.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtThicknessKeyReleased(evt);
@@ -145,39 +165,71 @@ public class DrawerMain extends JFrame {
         panRotate.add(jLabel2);
 
         btnLeft.setText("Left");
-        btnLeft.addActionListener(evt -> btnLeftActionPerformed(evt));
+        btnLeft.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLeftActionPerformed(evt);
+            }
+        });
         panRotate.add(btnLeft);
 
         btnRight.setText("Right");
-        btnRight.addActionListener(evt -> btnRightActionPerformed(evt));
+        btnRight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRightActionPerformed(evt);
+            }
+        });
         panRotate.add(btnRight);
 
         RunGame.setText("Play Game");
-        RunGame.addActionListener(evt -> RunGameActionPerformed(evt));
+        RunGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RunGameActionPerformed(evt);
+            }
+        });
         panRotate.add(RunGame);
 
         panMoreControls.add(panRotate);
 
         btnClear.setText("Clear");
-        btnClear.addActionListener(evt -> btnClearActionPerformed(evt));
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
         panButtons.add(btnClear);
 
         btnReset.setText("Reset");
-        btnReset.addActionListener(evt -> btnResetActionPerformed(evt));
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
         panButtons.add(btnReset);
 
         GravityButton.setText("Gravity");
-        GravityButton.addActionListener(evt -> GravityButtonActionPerformed(evt));
+        GravityButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GravityButtonActionPerformed(evt);
+            }
+        });
         panButtons.add(GravityButton);
 
         panMoreControls.add(panButtons);
 
         btnLoadXML.setText("load XML");
-        btnLoadXML.addActionListener(evt -> btnLoadXMLActionPerformed(evt));
+        btnLoadXML.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoadXMLActionPerformed(evt);
+            }
+        });
         panLoad.add(btnLoadXML);
 
         btnLoadJSON.setText("load JSON");
-        btnLoadJSON.addActionListener(evt -> btnLoadJSONActionPerformed(evt));
+        btnLoadJSON.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoadJSONActionPerformed(evt);
+            }
+        });
         panLoad.add(btnLoadJSON);
 
         panMoreControls.add(panLoad);
@@ -287,10 +339,9 @@ public class DrawerMain extends JFrame {
     }//GEN-LAST:event_btnLoadJSONActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        drawingPanel.clearDisplay();
-        RGBscrollbar.setRGB(0, 0, 0);
-        RGBscrollbar.setBrightness(0);
-        txtThickness.setText("5");
+        dispose();
+        DrawerMain game = new DrawerMain();
+        game.setVisible(true);
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void GravityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GravityButtonActionPerformed
@@ -336,9 +387,9 @@ public class DrawerMain extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static creatingRGBColourPreview.RGBColourPreview ColourPreview;
-    private static CreatingRGBscrollbar.RGBscrollbar RGBscrollbar;
-	public  static javax.swing.JLabel GameModeLabel;
+    public static javax.swing.JLabel GameModeLabel;
     private javax.swing.JButton GravityButton;
+    private static CreatingRGBscrollbar.RGBscrollbar RGBscrollbar;
     private javax.swing.JButton RunGame;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnLeft;
