@@ -13,9 +13,10 @@ import java.awt.Point;
 import java.util.List;
 import javax.ejb.Stateless;
 import Controller.ShapeType;
+import Model.Interface.SimpleInterface;
 
 @Stateless
-public class SimpleOval extends SimpleShape {
+public class SimpleOval extends SimpleShape implements SimpleInterface {
 
     public SimpleOval(List<Point> v, Color c, int t, ShapeType so) {
         super(v, c, t, so);
