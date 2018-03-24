@@ -6,7 +6,6 @@
 package Model;
 
 import Controller.ShapeType;
-import Model.Interface.Shape;
 import java.awt.Color;
 import java.awt.Point;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.List;
  *
  * @author Malik
  */
-public class SimpleShape implements Shape {
+public class SimpleShape {
 
     // Shape characteristics
     protected Color colour;
@@ -31,12 +30,11 @@ public class SimpleShape implements Shape {
         vertices = v;
     }
 
-    @Override
+    
     public List<Point> getVertices() {
         return vertices;
     }
 
-    @Override
     public void setVertices(List<Point> vertices) {
         this.vertices = vertices;
     }
@@ -61,32 +59,27 @@ public class SimpleShape implements Shape {
         this.vertices.get(0).y = ys;
     }
 
-    @Override
+    
     public Color getColour() {
         return colour;
     }
 
-    @Override
     public void setColour(Color colour) {
         this.colour = colour;
     }
 
-    @Override
     public int getThickness() {
         return thickness;
     }
 
-    @Override
     public void setThickness(int thickness) {
         this.thickness = thickness;
     }
 
-    @Override
     public ShapeType getShapeType() {
         return shapeType;
     }
 
-    @Override
     public void setShapeType(ShapeType shapeType) {
         this.shapeType = shapeType;
     }

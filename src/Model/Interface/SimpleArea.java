@@ -9,7 +9,7 @@ package Model.Interface;
  *
  * @author Ankur Chaudhary
  */
-public interface SimpleInterface {
+public interface SimpleArea {
     
     public double getArea();
 }

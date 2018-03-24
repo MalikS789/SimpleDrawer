@@ -13,10 +13,10 @@ import java.awt.Color;
 import java.awt.Point;
 import java.util.List;
 import javax.ejb.Stateless;
-import Model.Interface.SimpleInterface;
+import Model.Interface.SimpleArea;
 
 @Stateless
-public class SimpleTriangle extends SimpleShape implements SimpleInterface {
+public class SimpleTriangle extends SimpleShape implements SimpleArea {
 
     public SimpleTriangle(List<Point> v, Color c, int t, ShapeType ss) {
         super(v, c, t, ss);
